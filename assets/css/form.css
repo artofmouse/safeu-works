@@ -1,0 +1,1865 @@
+@charset "utf-8";
+
+/* ===========================
+	입력
+=========================== */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="file"],
+input[type="password"] {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  color: #333;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+input[type="file"] {
+  line-height: 50px;
+}
+
+textarea {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 400px;
+  padding: 16px 20px;
+  color: #333;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: left;
+  line-height: 1.5;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: auto;
+  resize: none;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+select {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 0 50px 0 20px;
+  color: #333;
+  font-weight: 500;
+  text-align: left;
+  font-size: 18px;
+  line-height: 1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-image: url("https://ai.chunjae.co.kr/common/images/icon/icon-select-arrow.png");
+  background-position: right 19px center;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-size: 20px;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+/* hover */
+textarea:hover,
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="email"]:hover,
+input[type="tel"]:hover,
+input[type="url"]:hover,
+input[type="password"]:hover {
+  border-color: #a1a1aa;
+}
+
+/* focus */
+textarea:focus,
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus {
+  border-color: #3f3f46;
+}
+
+/*
+textarea:focus {border-color:#000; box-shadow:0px 0px 10px rgba(0,0,0,0.1); z-index:1;}
+select:focus {border-color:#000; box-shadow:0px 0px 10px rgba(0,0,0,0.1); z-index:1;}
+*/
+
+/* Readonly */
+input[type="text"]:read-only,
+input[type="number"]:read-only,
+input[type="email"]:read-only,
+input[type="tel"]:read-only,
+input[type="url"]:read-only,
+input[type="password"]:read-only,
+textarea:read-only {}
+
+/* Disabled */
+input[type="text"]:disabled,
+input[type="number"]:disabled,
+input[type="email"]:disabled,
+input[type="tel"]:disabled,
+input[type="url"]:disabled,
+input[type="password"]:disabled,
+select:disabled,
+textarea:disabled {
+  color: #d4d4d8 !important;
+  background-color: #f4f4f4 !important;
+  border-color: #f4f4f4 !important;
+  opacity: 1;
+}
+
+/* select:disabled {background-image:url('https://ai.chunjae.co.kr/common/images/icon/icon-select-arrow.png') !important;} */
+
+/* select:hover {border-color:#A1A1AA; background-image:url(https://ai.chunjae.co.kr/common/images/icon/icon-select-arrow-gray.png);}
+select:focus {border-color:#3F3F46; background-image:url(https://ai.chunjae.co.kr/common/images/icon/icon-select-arrow-black.png);} */
+
+select.simple {
+  width: auto;
+  height: 24px;
+  padding: 0 24px 0 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  border: none;
+  background-image: url(https://ai.chunjae.co.kr/common/images/icon/icon-select-arrow-black.png);
+  background-position: center right;
+  background-size: 16px auto;
+  background-color: transparent;
+}
+
+select.simple.white {
+  color: #fff;
+  background-image: url(https://ai.chunjae.co.kr/common/images/icon/icon-select-arrow-white.png);
+}
+
+select.small {
+  height: 40px;
+  padding: 0 50px 0 16px;
+  font-size: 14px;
+  width: 160px;
+}
+
+/* ===========================
+	선택
+=========================== */
+/* 체크박스 & 라디오박스 */
+.form-check-box {
+  position: relative;
+  display: inline-block;
+}
+
+.form-check-box input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.form-check-box .form-check-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0 8px;
+}
+
+.form-check-box .form-check-icon:before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+}
+
+.form-check-box .form-check-icon:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.form-check-box .form-check-icon:before {
+  flex: 0 0 auto;
+  z-index: 0;
+}
+
+.form-check-box .form-check-icon:after {
+  z-index: 1;
+}
+
+.form-check-box .form-check-icon>em {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* 체크박스형 */
+.form-check-box.check input:checked+.form-check-icon:before {
+  background: #6038ff;
+}
+
+.form-check-box.check input:checked+.form-check-icon:after {
+  opacity: 1;
+}
+
+.form-check-box.check input:disabled+.form-check-icon {
+  opacity: 0.5;
+}
+
+.form-check-box.check input:disabled.view+.form-check-icon {
+  opacity: 1;
+}
+
+.form-check-box.check .form-check-icon {
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.form-check-box.check .form-check-icon:before {
+  margin-top: 2px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.form-check-box.check .form-check-icon:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  background: url(https://ai.chunjae.co.kr/common/images/icon/icon-form-check.png) center center no-repeat;
+  background-size: 100% 100%;
+}
+
+.form-check-box.check .form-check-icon>em {
+  min-height: 28px;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #333;
+  font-weight: 400;
+}
+
+/* 라디오박스형 */
+.form-check-box.radio input:checked+.form-check-icon:before {
+  border-width: 6px;
+  border-color: #6038ff;
+}
+
+.form-check-box.radio input:checked+.form-check-icon:after {
+  opacity: 0;
+}
+
+.form-check-box.radio input:disabled+.form-check-icon {
+  opacity: 0.5;
+}
+
+.form-check-box.radio .form-check-icon {
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.form-check-box.radio .form-check-icon:before {
+  width: 24px;
+  height: 24px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.form-check-box.radio .form-check-icon:after {
+  top: 6px;
+  left: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #6038ff;
+  opacity: 0;
+}
+
+.form-check-box.radio .form-check-icon>em {
+  padding: 2px 0;
+  font-size: 20px;
+  line-height: 1;
+  color: #333;
+  font-weight: 400;
+}
+
+/* 버튼형 */
+.form-check-box.button input:checked+.form-check-icon {
+  background: #000;
+}
+
+.form-check-box.button input:checked+.form-check-icon>em {
+  color: #fff;
+}
+
+.form-check-box.button input:disabled+.form-check-icon {
+  opacity: 0.5;
+}
+
+.form-check-box.button .form-check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  min-width: 0;
+  min-height: 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+  background: #d8d8d8;
+}
+
+.form-check-box.button .form-check-icon>em {
+  display: block;
+  padding-left: 0;
+  font-size: 15px;
+  line-height: 1;
+  color: #111;
+  font-weight: 400;
+}
+
+.form-check-box.button .form-check-icon:before,
+.form-check-box.button .form-check-icon:after {
+  display: none;
+}
+
+.form-check-box.button.large .form-check-icon {
+  height: 70px;
+  padding: 0 40px;
+}
+
+.form-check-box.button.large .form-check-icon>em {
+  font-size: 18px;
+}
+
+.form-check-box.button.small .form-check-icon {
+  height: 30px;
+  padding: 0 10px;
+}
+
+.form-check-box.button.small .form-check-icon>em {
+  font-size: 12px;
+}
+
+/* 스위치형 */
+.form-switch-toggle {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+  box-sizing: border-box;
+}
+
+.form-switch-toggle input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 5;
+}
+
+.form-switch-toggle input[type="checkbox"]:checked+.bar {
+  background-color: #2f69fe;
+  border-color: #2f69fe;
+}
+
+.form-switch-toggle input[type="checkbox"]:checked+.bar .off {
+  opacity: 0;
+}
+
+.form-switch-toggle input[type="checkbox"]:checked+.bar .on {
+  opacity: 1;
+}
+
+.form-switch-toggle input[type="checkbox"]:disabled+.bar {
+  opacity: 0.5;
+}
+
+.form-switch-toggle .bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  background-color: #fff;
+  border: 1px solid #c9c9c9;
+  box-sizing: border-box;
+}
+
+.form-switch-toggle .bar .off {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+.form-switch-toggle .bar .off:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: #c9c9c9;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transform: translateY(-50%);
+}
+
+.form-switch-toggle .bar .on {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.form-switch-toggle .bar .on:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  box-sizing: border-box;
+  transform: translateY(-50%);
+}
+
+.form-switch-toggle.large {
+  width: 90px;
+  height: 50px;
+}
+
+.form-switch-toggle.large .off:after {
+  width: 46px;
+  height: 46px;
+}
+
+.form-switch-toggle.large .on:after {
+  width: 46px;
+  height: 46px;
+}
+
+.form-switch-toggle.small {
+  width: 30px;
+  height: 20px;
+}
+
+.form-switch-toggle.small .off:after {
+  width: 16px;
+  height: 16px;
+}
+
+.form-switch-toggle.small .on:after {
+  width: 16px;
+  height: 16px;
+}
+
+/* 그룹 */
+.form-check-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+}
+
+/* ===========================
+	그룹
+=========================== */
+/* 입력 기본 그룹  */
+.form-input-label {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.form-input-label .form-check-box.check .form-check-icon>em {
+  font-weight: 700;
+  color: #333;
+}
+
+.form-input-items {
+  display: flex;
+}
+
+.form-input-items>.item-header {
+  display: flex;
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+.form-input-items>.item-header .item-header-label {
+  flex: 1;
+  width: 100%;
+}
+
+.form-input-items>.item-header .item-header-ui {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  color: #666;
+}
+
+.form-input-items>.item-header .item-header-ui>.item-cell {}
+
+.form-input-items>.item-header .item-header-ui>.item-cell+.item-cell {
+  margin-left: 4px;
+}
+
+.form-input-items .item-cell .material-icons-blue {
+  display: inline-flex;
+  color: #0846e4;
+  line-height: 24px;
+}
+
+.form-input-items .item-cell .material-icons-blue .icon {
+  margin-right: 8px;
+}
+
+.form-input-items>.item-body {
+  flex: 1;
+  width: 100%;
+}
+
+.form-input-items .item-detail {
+  position: relative;
+  width: 100%;
+}
+
+.form-input-items .item-detail-info {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.form-input-items .item-detail-info .item-left {
+  margin-right: auto;
+}
+
+.form-input-items .item-detail-info .item-right {
+  margin-left: auto;
+}
+
+.form-input-items .item-input-info {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.form-input-items .item-input-info>div+div {
+  margin-top: 4px;
+}
+
+.form-input-items .item-input-info .font-color-util-error {
+  color: #d45058;
+}
+
+.form-input-items .item-input-valid {
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.item-input-valid .font-color-util-success {
+  color: var(--color-main-green);
+}
+
+.item-input-valid .font-color-util-error {
+  display: flex;
+  color: #d45058;
+}
+
+.item-input-valid .icon {
+  flex: 0 0 auto;
+  margin-right: 8px;
+}
+
+.font-color-util-needs {
+  color: #ff1f1f;
+}
+
+.form-input-items .input-value.input-lg>input {
+  height: 56px;
+}
+
+.form-input-items .input-value.input-short>input {
+  width: 448px;
+}
+
+/* 입력 기본 그룹 > 세로형 */
+.form-input-items.vertical {
+  flex-direction: column;
+}
+
+.form-input-items.vertical>.item-header+.item-body {
+  margin-top: 12px;
+}
+
+/* 입력 기본 그룹 > 가로형 */
+.form-input-items.horizontal {
+  flex-direction: row;
+}
+
+.form-input-items.horizontal>.item-header {
+  align-items: center;
+  width: 240px;
+  min-height: 50px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  align-self: flex-start;
+}
+
+.form-input-items.horizontal>.item-header.flex-start {
+  align-items: flex-start;
+  height: auto;
+}
+
+.form-input-items.horizontal>.item-body {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+}
+
+.grid-layout-cell .form-input-items.horizontal .flex-start,
+.grid-layout-cell .form-input-items.horizontal .flex-start+.item-body {
+  margin-top: 12px;
+}
+
+.grid-layout-cell:first-of-type .form-input-items.horizontal .flex-start,
+.grid-layout-cell:first-of-type .form-input-items.horizontal .flex-start+.item-body {
+  margin-top: 0;
+}
+
+/* 입력 기본 그룹 > 레이아웃 */
+.form-data-cell+.form-data-cell {
+  margin-top: 16px;
+}
+
+.form-data-cell+.form-data-cell.large {
+  margin-top: 40px;
+}
+
+.form-data-cell+.form-data-cell.small {
+  margin-top: 12px;
+}
+
+.basic-data-group.line .form-data-header {
+  margin: 0;
+  padding: 0 0 20px;
+  border-bottom: none;
+}
+
+/* 입력 영역 그룹 */
+.form-data-header {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.form-data-header .item-left {
+  margin-right: auto;
+}
+
+.form-data-header .item-right {
+  display: flex;
+  margin-left: auto;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.form-data-header.align-flex-end {
+  align-items: flex-end;
+}
+
+.form-data-footer {
+  margin-top: 40px;
+}
+
+.form-data-footer.footer-sm {
+  margin-top: 20px;
+}
+
+/* .form-data-footer .btn-page-wrap {margin-top:0;} */
+/* .form-data-footer .btn-basic {margin:0 5px;} */
+.form-data-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f1f1f;
+  line-height: 1.2;
+}
+
+.form-data-title+.form-data-info {
+  margin-top: 16px;
+}
+
+.form-data-info {
+  font-size: 15px;
+  color: #444;
+}
+
+/* 입력 영역 그룹 > 그리드 */
+.form-group .grid-layout-inner {
+  margin: -8px -40px;
+}
+
+.form-group .grid-layout-inner>.grid-layout-cell {
+  padding: 8px 40px;
+}
+
+.form-group+.btn-page-wrap {
+  margin-top: 100px;
+}
+
+/* 입력 영역 그룹 > 유효성 검사 */
+.form-vaildity.success,
+.form-input-items.success .form-vaildity {
+  border-color: var(--color-main-green) !important;
+}
+
+.form-vaildity.error,
+.form-input-items.error .form-vaildity {
+  border-color: var(--color-main-red) !important;
+}
+
+/* ===========================
+	컨텐츠
+=========================== */
+/* 공통 */
+.form-block-input {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+}
+
+.form-inline-group {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  align-items: center;
+}
+
+.form-inline-input {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  align-items: center;
+}
+
+.form-inline-input+.form-inline-input {
+  margin-left: 12px;
+}
+
+/* 입력 컨텐츠의 정보 문구 */
+.form-label {
+  font-size: 14px;
+  color: #666;
+  margin-left: 12px;
+}
+
+.form-limit-text {
+  position: relative;
+}
+
+.form-limit-text>input {
+  padding-right: 80px;
+}
+
+.form-text-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  height: 100%;
+  padding: 0 24px;
+  align-items: center;
+  color: #c9c9c9;
+  z-index: 15;
+  box-sizing: border-box;
+}
+
+.form-text-label>span {
+  display: inline-flex;
+}
+
+.form-limit-text>textarea {
+  padding-bottom: 32px;
+}
+
+.form-limit-text>textarea+.form-text-label {
+  top: auto;
+  bottom: 0;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.input-form-group .form-limit-text {
+  width: 100%;
+}
+
+.form-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: center;
+}
+
+/* 입력 컨텐츠의 구분자 */
+.form-cell-char {
+  font-size: 14px;
+  color: #666;
+  margin: 0 8px;
+}
+
+.form-cell-char:first-child {
+  margin-left: 0;
+}
+
+.form-cell-char:last-child {
+  margin-right: 0;
+}
+
+/* 그리드 입력 */
+.form-input-grid .grid-layout-inner {
+  margin: -8px -4px;
+}
+
+.form-input-grid .grid-layout-cell {
+  padding: 8px 4px;
+}
+
+/* 아이콘 라벨형 */
+.form-icon-input {
+  position: relative;
+}
+
+.form-icon-input .form-input {
+  padding-left: 58px;
+}
+
+.form-icon-input .form-input.fill+.form-label-icon .icons .off {
+  opacity: 0;
+}
+
+.form-icon-input .form-input.fill+.form-label-icon .icons .on {
+  opacity: 1;
+}
+
+.form-label-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+}
+
+.form-label-icon .icons {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-left: 16px;
+}
+
+.form-label-icon .icons .off {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  z-index: 0;
+}
+
+.form-label-icon .icons .on {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 1;
+}
+
+.icon-input {
+  position: relative;
+}
+
+.icon-input>input[type="text"] {
+  padding-right: 48px;
+}
+
+.icon-input .icon:last-child {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translate(0%, -50%);
+  z-index: 2;
+}
+
+/* 입력 + 라벨형 */
+.form-label-input {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.form-label-input>.input-value {
+  position: relative;
+  flex: 1;
+  width: 100%;
+}
+
+.input-value input[type="number"].text-align-right {
+  padding-right: 45px;
+}
+
+.form-label-input>.input-ui {
+  flex: 0 0 auto;
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.form-label-input>.input-ui>.form-label {
+  margin: 0;
+}
+
+.form-label-input>.input-ui:last-child {
+  margin: 0 0 0 12px;
+}
+
+.form-label-input>.input-ui:first-child {
+  margin: 0 12px 0 0;
+}
+
+.form-label-input.cover>.input-ui {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 0 20px;
+  z-index: 15;
+}
+
+/* 입력 + 버튼형 */
+.form-btns {
+  display: flex;
+  align-items: center;
+  gap: 0 4px;
+}
+
+.form-btns>.btn-ui {
+  height: 50px;
+  padding: 0 24px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.form-btns-input {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0 8px;
+}
+
+.form-btns-input>.input-value {
+  position: relative;
+  flex: 1;
+  width: 100%;
+}
+
+.form-btns-input>.input-value input {
+  padding-right: 54px;
+}
+
+.form-btns-input>.input-ui {
+  flex: 0 0 auto;
+}
+
+.form-btns-input>.input-ui>.btn-form-input {
+  margin: 0;
+}
+
+.form-btns-input.cover>.input-ui {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  height: 100%;
+  padding: 0 20px;
+  align-items: center;
+  z-index: 15;
+}
+
+.form-btns-input.cover>.input-ui button {
+  background-color: transparent;
+}
+
+.form-btns-input.cover>.input-ui button+button {
+  margin-left: 8px;
+}
+
+.form-btns-input.input-search input {
+  padding: 0 100px 0 24px;
+  border-color: #ededed;
+  background-color: #ededed;
+}
+
+.form-btns-input.input-search>.input-ui {
+  padding-right: 24px;
+  opacity: 60%;
+}
+
+.form-btns-input.input-search>.input-ui button {
+  cursor: default;
+}
+
+.form-btns-input.input-search>.input-ui.actived {
+  opacity: 1;
+}
+
+.form-btns-input.input-search>.input-ui.actived button {
+  cursor: pointer;
+}
+
+.btn-form-input {
+  min-width: 120px;
+}
+
+.form-btns-input .btn-visibility .icon-visibility-off-gray {
+  display: block;
+}
+
+.form-btns-input .btn-visibility .icon-visibility-gray {
+  display: none;
+}
+
+.form-btns-input.pw-visible .btn-visibility .icon-visibility-off-gray {
+  display: none;
+}
+
+.form-btns-input.pw-visible .btn-visibility .icon-visibility-gray {
+  display: block;
+}
+
+.search-form-wrap .input-value>input {
+  padding: 0 24px;
+}
+
+/* 입력 + 체크박스 및 폼 */
+.input-form-group.flex {
+  align-items: center;
+}
+
+.input-form-group.flex label {
+  flex: 0 0 auto;
+  margin-left: 8px;
+}
+
+/* 우편번호 입력 */
+.form-address-cell+.form-address-cell {
+  margin-top: 16px;
+}
+
+/* 이메일 입력 */
+.form-email-input {
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+}
+
+.form-email-text {
+  flex: 1;
+}
+
+.form-email-select {
+  flex: 1;
+}
+
+.form-email-input .form-cell-char {
+  margin: 0;
+}
+
+/* 휴대폰 번호 입력 */
+.form-phone-cell {
+  flex: 1;
+}
+
+.form-phone-group {
+  display: flex;
+  align-items: center;
+}
+
+.form-phone-group+.form-phone-group {
+  margin-top: 16px;
+}
+
+.form-phone-input .btn-form-input {
+  margin-left: 8px;
+}
+
+.form-timer-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  height: 100%;
+  padding: 0 20px;
+  align-items: center;
+  color: #666;
+  z-index: 15;
+  box-sizing: border-box;
+}
+
+.form-confirm-number {
+  position: relative;
+}
+
+.form-confirm-number>input {
+  padding-right: 80px;
+}
+
+/* 파일 업로드 */
+.form-file-input {
+  position: relative;
+  display: flex;
+}
+
+.form-file-input input[type="file"]::file-selector-button {
+  display: none;
+}
+
+.form-file-input input.write-file {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 14;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.form-file-input input.read-file {
+  flex: 1;
+  width: 100%;
+  cursor: default;
+}
+
+.form-file-input .btn-form-input {
+  flex: 0 0 auto;
+  margin-left: 12px;
+}
+
+.form-file-input .btn-form-input {
+  width: auto;
+}
+
+.form-file-input .btn-file-del {
+  background-color: transparent;
+  z-index: 16;
+  display: none;
+}
+
+.form-file-input .btn-file-del.actived {
+  display: block;
+}
+
+.form-file-input .btn-basic {
+  flex: 0 0 auto;
+  margin-left: 8px;
+  height: 50px;
+  width: 114px;
+  padding: 0 20px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.form-file-preview {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.form-file-preview .cell {}
+
+.form-file-preview .preview-items {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* 파일 첨부 > 그룹형 */
+.btn-form-file-ui {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  width: 50px;
+  height: 50px;
+  background: #fafafa;
+  border: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+.btn-form-file-ui+.btn-form-file-ui {
+  margin-left: -1px;
+}
+
+.btn-form-file-ui>span {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.btn-form-file-ui.add>span:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  transform: translate(-50%, -50%);
+}
+
+.btn-form-file-ui.add>span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 2px;
+  height: 100%;
+  background: #000;
+  transform: translate(-50%, -50%);
+}
+
+.btn-form-file-ui.remove>span:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  transform: translate(-50%, -50%);
+}
+
+.form-file-cell+.form-file-cell {
+  margin-top: 12px;
+}
+
+.form-file-items {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.form-file-items .form-file-input {
+  flex: 1;
+}
+
+.form-file-items .form-file-ui {
+  flex: 0 0 auto;
+  margin-left: 20px;
+}
+
+.form-file-ui {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* 데이트 피커 */
+.form-date-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-date-input>input {
+  padding: 0 20px 0 52px;
+}
+
+.form-date-input>input:read-only {
+  background-color: #fff;
+  color: #1f1f1f;
+  border-color: #ddd;
+}
+
+.form-date-input>img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin: 11px 0 0 20px;
+  cursor: pointer;
+}
+
+.form-date-input>.input {
+  position: relative;
+  width: 100%;
+}
+
+.form-date-input>input.v-datepicker {
+  background: url(https://ai.chunjae.co.kr/common/images/icon/icon-datepicker-ui-thumb.png) right 13px top 13px no-repeat;
+  background-size: 24px auto;
+}
+
+.form-date-cell.form-date-sm {
+  flex: 0 0 auto;
+  width: 194px;
+}
+
+/* 데이트 피커 그룹*/
+.form-date-group {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.form-date-cell {
+  flex: 1;
+}
+
+.form-date-group .btn-form-input {
+  margin-left: 12px;
+}
+
+.form-agree-check {
+  display: flex;
+  gap: 0 12px;
+  align-items: center;
+}
+
+.form-agree-check .btn-agree-nav {
+  font-size: 18px;
+  font-weight: 400;
+  color: #6038ff;
+  text-decoration: underline;
+}
+
+/* 달력 */
+.calendar-inner {
+  position: relative;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+}
+
+.calendar-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.calendar-header .btn-calendar-header-ui {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  background: none;
+}
+
+.calendar-header .btn-calendar-header-ui.prev {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 100%;
+}
+
+.calendar-header .btn-calendar-header-ui.prev:before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  font-size: 0;
+  background: url(https://ai.chunjae.co.kr/common/images/icon/icon-datepicker-ui-prev.png) center center no-repeat;
+  background-size: 24px auto;
+}
+
+.calendar-header .btn-calendar-header-ui.next {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+}
+
+.calendar-header .btn-calendar-header-ui.next:before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  font-size: 0;
+  background: url(https://ai.chunjae.co.kr/common/images/icon/icon-datepicker-ui-next.png) center center no-repeat;
+  background-size: 24px auto;
+}
+
+.calendar-header .calendar-title {
+  display: inline-flex;
+  font-size: 18px;
+  color: #111;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.calendar-header .calendar-title>.month {
+  margin-left: 4px;
+}
+
+.calendar-body {
+  padding: 10px;
+}
+
+.calendar-day-subject .calendar-day-row .calendar-day-col {
+  height: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #111;
+  line-height: 1;
+}
+
+.calendar-day-row {
+  display: flex;
+}
+
+.calendar-day-col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-day-grid .calendar-day-col {
+  height: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #111;
+  line-height: 1;
+}
+
+.calendar-day-grid .calendar-day-unit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.calendar-day-grid .calendar-day-col:first-child,
+.calendar-day-subject .calendar-day-col:first-child {
+  color: red;
+}
+
+.calendar-day-grid .calendar-day-col:last-child,
+.calendar-day-subject .calendar-day-col:last-child {
+  color: blue;
+}
+
+.calendar-day-grid .calendar-day-col.today .calendar-day-unit {
+  background: var(--color-primary-yellow);
+  color: #fff;
+}
+
+.calendar-day-grid .calendar-day-col.selected .calendar-day-unit {
+  background: var(--color-primary-blue);
+  color: #fff;
+  font-weight: 700;
+}
+
+.calendar-day-grid .calendar-day-col.prev,
+.calendar-day-grid .calendar-day-col.next {
+  opacity: 0.3;
+}
+
+.calendar-day-grid .calendar-day-col.disabled {
+  opacity: 0.1;
+}
+
+/* 검색입력
+.single-search-group {background:#fff;}
+.single-search-items {display:flex; width:100%; height:56px; padding:0 40px; box-sizing:border-box;}
+.single-search-items .btn-single-search-prev {display:inline-flex; align-items:center; justify-content:center; width:48px; height:51px;}
+.single-search-items .btn-single-search-send {display:inline-flex; align-items:center; justify-content:center; width:48px; height:51px;}
+.single-search-items .single-search-send,
+.single-search-items .single-search-del {display:none;}
+.single-search-items .single-search-send.actived,
+.single-search-items .single-search-del.actived {display:block;}
+.single-search-items .single-search-input {width:100%;}
+.single-search-items .single-search-input input {border:none; padding:0; font-size:15px; border-radius:0;}
+.single-search-items .single-search-input input:focus {border:none;}
+*/
+
+/* 검색입력 */
+.search-form-wrap .form-btns-input {
+  display: inline-flex;
+  width: auto;
+}
+
+.search-form-wrap .input-value>input {
+  width: 448px;
+}
+
+/* 달력 > 제이쿼리 > 입력박스형(기본) */
+.ui-widget {
+  font-family: "Pretendard", sans-serif;
+}
+
+/*
+.ui-datepicker {position:relative; min-width:264px; padding:70px 20px 20px; margin:0; text-align:center; background:#fff;border:1px solid #C9C9C9; border-radius:12px; box-shadow:0px 8px 8px 0 rgba(0, 0, 0, 0.05); box-sizing:border-box; z-index:100 !important;}
+.ui-datepicker .ui-datepicker-header {position:absolute; top:0; left:0; display:flex; width:100%; height:56px; margin:0; padding:0 74px; border:none; border-bottom:1px solid #d8d8d8; background:none;  box-sizing:border-box;  border-radius:0;}
+.ui-datepicker .ui-datepicker-title {display:flex; align-items:center; justify-content:center; width:100%; margin:0; font-size:15px; color:#333; font-weight:500; line-height:1.5;}
+.ui-datepicker .ui-datepicker-title .ui-datepicker-year,
+.ui-datepicker .ui-datepicker-title .ui-datepicker-month {display:inline-flex;}
+.ui-datepicker .ui-datepicker-title select.ui-datepicker-year {width:auto; height:auto; padding:0 24px 0 0; margin:0; border:none; background-position:right center;}
+.ui-datepicker .ui-widget-header .ui-icon {background:none;font-size:0}
+.ui-datepicker .ui-datepicker-prev {position:absolute; top:0; left:0; width:74px; height:100%; display:flex; align-items:center; justify-content:center; background:none; outline:none; border:none;}
+.ui-datepicker .ui-datepicker-prev > .ui-icon {position:relative; top:auto; left:auto; right:auto; bottom:auto; display:block; margin:0; width:24px; height:24px; font-size:0; background:url(https://ai.chunjae.co.kr/common/images/icon/icon-datepicker-ui-prev.png) center center no-repeat; background-size:24px auto;}
+.ui-datepicker .ui-datepicker-next {position:absolute; top:0; right:0; width:74px; height:100%; display:flex; align-items:center; justify-content:center; background:none; outline:none; border:none;}
+.ui-datepicker .ui-datepicker-next > .ui-icon {position:relative; top:auto; left:auto; right:auto; bottom:auto; display:block; margin:0; width:24px; height:24px; font-size:0; background:url(https://ai.chunjae.co.kr/common/images/icon/icon-datepicker-ui-next.png) center center no-repeat; background-size:24px auto;}
+.ui-datepicker table.ui-datepicker-calendar {margin:0; font-size:0; table-layout:fixed;}
+.ui-datepicker table.ui-datepicker-calendar > thead + tbody {margin-top:8px;}
+.ui-datepicker table.ui-datepicker-calendar > thead > tr > th {padding:4px; height:24px; font-size:13px; font-weight:500; color:#333; line-height:1; vertical-align:middle;}
+.ui-datepicker table.ui-datepicker-calendar > tbody > tr > td {padding:4px; height:24px; font-size:13px; font-weight:500; color:#000; line-height:1; vertical-align:middle;}
+.ui-datepicker .ui-state-disabled .ui-state-default {color:#A5A5A5; opacity:1;}
+.ui-datepicker .ui-state-default{display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; padding:0 !important; margin:auto; font-size:13px; color:#000; text-align:center !important; line-height:1; border-radius:50%; border:none !important; background:#fff !important;}
+.ui-datepicker table.ui-datepicker-calendar > tbody > tr:nth-of-type(1) > td > .ui-state-default {margin-top:8px;}
+.ui-datepicker .ui-datepicker-current-day .ui-state-default{background:#1252F7 !important; color:#fff !important; font-weight:500 !important;}
+.ui-datepicker .ui-datepicker-today .ui-state-default{background:#EEF3FF !important; color:#000000 !important; font-weight:500 !important;}
+*/
+
+/* 달력 > 제이쿼리 > 인라인형 */
+.ui-datepicker.ui-datepicker-inline {
+  width: 100%;
+  box-shadow: none;
+}
+
+/* focus */
+
+/* dropzone */
+.dropzone-file-area .dropzone {
+  position: relative;
+  min-height: 0;
+  border: none;
+  padding: 0;
+  border: 1px dashed #c9c9c9;
+  border-radius: 12px;
+}
+
+.dropzone-file-area .dropzone.dz-max-files-reached {
+  background: #fafafa;
+}
+
+.dropzone-file-area .dropzone.dz-max-files-reached .dz-full-message {
+  display: flex;
+}
+
+.dropzone-file-area .dropzone.dz-max-files-reached .dz-message {
+  display: none;
+}
+
+.dropzone-file-area .dropzone .dz-message {
+  margin: 0;
+}
+
+.dropzone-file-area .dropzone .dz-full-message {
+  display: none;
+  width: 100%;
+  height: 88px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+  min-height: 140px;
+  border: 1px dashed #d8d8d8;
+  color: #999;
+}
+
+.dropzone-file-area .dropzone .dz-message .dz-button {
+  display: inline-flex;
+  width: 100%;
+  height: 110px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #666;
+  background: url(https://ai.chunjae.co.kr/common/images/icon/icon-add-circle-outline-gray.png) no-repeat left 35% center;
+  background-size: 24px;
+}
+
+.dropzone-file-area .dropzone.dropzone-small .dz-message .dz-button {
+  height: 54px;
+}
+
+.dropzone-file-info {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.dropzone-file-preview {}
+
+.dropzone-file-row {
+  margin-top: 8px;
+}
+
+.dropzone-file-row+.dropzone-file-row {
+  margin-top: 4px;
+}
+
+.dropzone-file-items {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  font-size: 15px;
+  line-height: 1.2;
+  color: #666;
+}
+
+.dropzone-file-items:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: url(https://ai.chunjae.co.kr/common/images/icon/icon-attach-file-gray.png) no-repeat left center;
+  background-size: 16px;
+}
+
+.dropzone-file-items .item-thumb {}
+
+.dropzone-file-items .item-info {
+  display: inline-flex;
+  align-items: center;
+}
+
+.dropzone-file-items .item-info .item-size {
+  margin-left: 8px;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  color: #6993ff;
+}
+
+.dropzone-file-items .item-info strong {
+  font-weight: 500;
+}
+
+.dropzone-file-items .item-info .item-download {
+  padding-left: 8px;
+  color: #6993ff;
+}
+
+.dropzone-file-items .item-ui {
+  flex: 0 0 auto;
+  margin-left: 8px;
+}
+
+.dropzone-file-items .btn-file-remove {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+.dropzone-file-items+.dropzone-input-items {
+  margin-top: 4px;
+}
+
+.table-horizontal .dropzone-file-items {
+  color: #4d4d4d;
+}
+
+.table-horizontal .dropzone-file-items .item-download {
+  color: #4d4d4d;
+}
+
+/* 제이쿼리 타임피커 */
+.j-timepicker {
+  background: url(/https://ai.chunjae.co.kr/common/images/icon/icon-input-time.png) no-repeat center right;
+  background-size: 50px auto;
+}
+
+.ui-menu .ui-menu-item {
+  z-index: 20;
+  background-color: #fff;
+}
+
+.form-action-cell+.form-action-cell {
+  margin-top: 16px;
+}
+
+@media screen and (max-width: 768px) {
+
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="month"],
+  input[type="time"],
+  input[type="week"],
+  input[type="file"],
+  input[type="password"] {
+    height: 44px;
+    padding: 0 20px;
+    font-size: 16px;
+  }
+
+  textarea {
+    height: 200px;
+    padding: 16px 20px;
+    font-size: 16px;
+  }
+
+  select {
+    height: 44px;
+    padding: 0 50px 0 20px;
+    font-size: 16px;
+  }
+
+  .form-group+.btn-page-wrap {
+    margin-top: 50px;
+  }
+
+  .form-data-header {
+    margin-bottom: 60px;
+  }
+
+  .form-data-header .item-right {
+    font-size: 14px;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .form-data-cell+.form-data-cell {
+    margin-top: 28px;
+  }
+
+  .form-input-label {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .form-input-items.horizontal {
+    display: block;
+  }
+
+  .form-input-items.horizontal>.item-header {
+    width: 100%;
+    min-height: 0px;
+    padding-right: 0px;
+  }
+
+  .form-input-items.horizontal>.item-body {
+    display: block;
+    min-height: 0;
+    margin-top: 12px;
+  }
+
+  .form-btns>.btn-ui {
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .form-check-box.radio .form-check-icon>em {
+    font-size: 16px;
+    padding: 4px 0;
+  }
+
+  .form-check-box.check .form-check-icon>em {
+    font-size: 16px;
+  }
+
+  .form-agree-check .btn-agree-nav {
+    font-size: 16px;
+  }
+
+  .form-btns {
+    display: block;
+  }
+
+  .form-btns>.btn-ui {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .form-file-input .btn-basic {
+    height: 44px;
+  }
+}
