@@ -18,7 +18,6 @@
   <link rel="icon" href="assets/images/common/favicon.png">
   <link rel="stylesheet" href="assets/css/style.css" media="all">
   <script src="assets/js/jquery.js"></script>
-  <script src="assets/js/swiper.min.js"></script>
   <script src="assets/js/imagesloaded.pkgd.min.js"></script>
   <script src="assets/js/smooth-scrollbar.js"></script>
   <script src="assets/js/overscroll.js"></script>
@@ -39,12 +38,13 @@
             <div class="gnb-wrap">
               <ul class="gnb-list">
                 <li class="gnb-list-cell">
-                  <a href="#" class="btn-gnb-nav"><span class="txt">홍길동 (UPLEAT)</span></a>
-                  <a href="#" class="btn-gnb-nav"><span class="txt">SAFE U WORKS</span></a>
+                  <button type="button">SAFE U WORKS</button>
                 </li>
-                <li class="gnb-list-cell">
-                  <button type="button">내 정보</button>
-                  <button type="button">로그아웃</button>
+                <li class="gnb-list-cell user">
+                  <a href=""><span>홍길동</span></a>
+                </li>
+                <li class="gnb-list-cell language">
+                  <a href=""><span>KOR</span></a>
                 </li>
               </ul>
             </div>
@@ -56,28 +56,39 @@
     <!-- dBody -->
     <section id="dBody">
       <div id="mainScroller" class="main-wrap">
-        <!-- main-headline -->
+        <!-- section1 -->
         <div class="main-group main-headline">
           <div class="main-sticky">
             <div class="main-sticky-inner">
               <div class="headline-1">
                 <div class="txt-group">
                   <div class="headline-logo"></div>
-                  <div class="text">“진짜"AI가 꼼꼼히 챙겨주는</div>
-                  <div class="text">스마트 안전관리 솔루션</div>
+                  <div class="text">“진짜"AI가<br class="mo_ln" /> 꼼꼼히 챙겨주는<br />
+                    스마트 안전관리 솔루션
+                  </div>
+                  <div class="btn-area">
+                    <button type="button">서비스 문의</button>
+                    <button type="button">로그인</button>
+                  </div>
                 </div>
+
               </div>
-              <div class="bg"></div>
+              <!-- <div class="bg"></div> -->
+              <div class="bg">
+                <div class="video-wrap"><video src="https://ai.chunjae.co.kr/common/images/video/main-ai-video.mp4"
+                    muted playsinline id="mainHEADLINEVideo"></video></div>
+              </div>
               <div class="scroller"></div>
             </div>
           </div>
         </div>
-        <!-- //main-headline -->
-        <!-- main-technology -->
+        <!-- //section1 -->
+        <!-- section2 -->
         <div class="main-group main-technology">
           <div class="main-sticky">
             <div class="main-sticky-inner">
               <div class="data">
+                <h2>서비스 소개</h2>
                 <h3 class="title">
                   <span class="sentence sentence-1"><span class="char-words">일일 위험성 평가 문서작성에서 현장 점검까지,</span></span>
                   <span class="sentence sentence-2"><span class="char-words">스마트한 AI 안전 관리 업무 플랫폼이에요.</span></span>
@@ -88,13 +99,14 @@
             </div>
           </div>
         </div>
-        <!-- //main-technology -->
-        <!-- main-ai -->
+        <!-- //section2 -->
+        <!-- section3 -->
         <div class="main-group main-ai">
           <div class="main-sticky">
             <div class="main-sticky-inner">
               <div class="data">
                 <div class="data-inner">
+                  <h2>SAFE U WORKS · 모바일</h2>
                   <h3 class="title">
                     <span class="sentence">
                       <span class="word"><em>카톡보다 쉬운</em> 현장 사진 관리</span>
@@ -299,144 +311,172 @@
                   </div>
                 </div>
               </div>
-              <div class="background-video">
+              <div class="bg"></div>
+              <!-- <div class="background-video">
                 <div class="video-wrap"><video src="https://ai.chunjae.co.kr/common/images/video/main-ai-video.mp4"
-                    muted playsinline id="mainAIVideo"></video></div>
+                    muted playsinline id="mainAIVideo"></video></div> -->
+            </div>
+          </div>
+        </div>
+        <!-- //section3 -->
+
+        <!-- section4 -->
+        <div class="main-group main-price">
+          <div class="main-sticky">
+            <div class="main-sticky-inner">
+              <div class="data">
+                <h2>요금</h2>
+                <h3 class="title effect-data">부담없는 금액으로<br />
+                  <em>안전하고 스마트</em>하게.
+                </h3>
+                <div class="desc effect-data">작성된 문서와 이미지는 2년간 무료 보관이 가능해요.</div>
+                <div class="gray-box">
+                  <div class="gray-box-inner">
+                    <div class="inner-top">
+                      <ul>
+                        <li>
+                          <dl>
+                            <dt><label for="stageNum">현장 수</label></dt>
+                            <dd data-affix="개"><input type="text" title="현장 수" id="stageNum" /></dd>
+                          </dl>
+                        </li>
+                        <li>
+                          <dl>
+                            <dt><label for="personNum">인원 수</label></dt>
+                            <dd data-affix="명"><input type="text" title="인원 수" id="personNum" /></dd>
+                          </dl>
+                        </li>
+                        <li>
+                          <dl>
+                            <dt><label for="storage">저장공간</label></dt>
+                            <dd data-affix="GB"><input type="text" title="저장공간" id="storage" /></dd>
+                          </dl>
+                        </li>
+                        <li>
+                          <button type="button">월 구독료 확인하기</button>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="inner-bottom">
+                      예상 월 구독료는
+                      <em>100,000원</em>
+                      입니다.
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <!-- //main-ai -->
+        <!-- //section4 -->
 
-        <!-- main-ai-coswear -->
-        <div class="main-group main-ai-coswear">
-          <div class="data-inner">
-            <h3 class="title effect-data">부담없는 금액으로<br />
-              <em>안전하고 스마트</em>하게.
-            </h3>
-            <div class="desc effect-data">작성된 문서와 이미지는 2년간 무료 보관이 가능해요.</div>
-            <div class="gray-box">
-              <div class="gray-box-inner">
-                <div class="inner-top">
-                  <ul>
-                    <li>
-                      <dl>
-                        <dt><label for="stageNum">현장 수</label></dt>
-                        <dd><input type="text" title="현장 수" id="stageNum" /></dd>
-                      </dl>
-                    </li>
-                    <li>
-                      <dl>
-                        <dt><label for="personNum">인원 수</label></dt>
-                        <dd><input type="text" title="인원 수" id="personNum" /></dd>
-                      </dl>
-                    </li>
-                    <li>
-                      <dl>
-                        <dt><label for="storage">저장공간</label></dt>
-                        <dd><input type="text" title="저장공간" id="storage" /></dd>
-                      </dl>
-                    </li>
-                    <li>
-                      <button type="button">월 구독료 확인하기</button>
-                    </li>
-                  </ul>
-                </div>
-                <div class="inner-bottom">
-                  예상 월 구독료는
-                  <em>100,000원</em>
-                  입니다.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- //main-ai-coswear -->
-
-        <!-- main-patent -->
+        <!-- section5 -->
         <div class="main-group main-patent">
           <div class="main-sticky">
             <div class="main-sticky-inner">
               <div class="data">
                 <div class="data-inner">
-                  <div class="cate">CHUNJAE AI PATENT</div>
+                  <h2>보도자료</h2>
                   <div class="list">
-                    <div class="list-inner">
-                      <div class="list-cell">
-                        <div class="list-items">
-                          <div class="item-number">01</div>
-                          <h4 class="item-title">학습 <em>컨텐츠 추천</em> <br class="none">시스템</h4>
-                          <div class="item-desc">특허등록번호 제10-2510994호</div>
-                        </div>
-                      </div>
-                      <div class="list-cell">
-                        <div class="list-items">
-                          <div class="item-number">02</div>
-                          <h4 class="item-title">학습 <em>컨텐츠 추천</em> <br class="none">방법 및 이를 기록한 <br class="none">기록매체
-                          </h4>
-                          <div class="item-desc">특허등록번호 제 10-2510995호</div>
-                        </div>
-                      </div>
-                      <div class="list-cell">
-                        <div class="list-items">
-                          <div class="item-number">03</div>
-                          <h4 class="item-title">사용자에게 다양하고 <br class="none">유용한 컨텐츠를 코칭 <br class="none">하는
-                            <em>인공지능</em> 스마트 <br class="none">코칭 시스템 및 방법
-                          </h4>
-                          <div class="item-desc">특허등록번호 제10-2463077호</div>
-                        </div>
-                      </div>
-                      <div class="list-cell">
-                        <div class="list-items">
-                          <div class="item-number">04</div>
-                          <h4 class="item-title"><em>컨텐츠 구조</em> <br class="none">이용 학습 시스템</h4>
-                          <div class="item-desc">특허등록번호 제10-2498540호</div>
-                        </div>
-                      </div>
-                      <div class="list-cell">
-                        <div class="list-items">
-                          <div class="item-number">05</div>
-                          <h4 class="item-title"><em>학습 챗봇</em>을 활용한 <br class="none">학습 유도 시스템</h4>
-                          <div class="item-desc">특허등록번호 제10-2449349호</div>
-                        </div>
-                      </div>
-                      <div class="list-cell">
-                        <div class="list-items">
-                          <div class="item-number">06</div>
-                          <h4 class="item-title"><em>학습 챗봇</em>을 활용한 학습 유도 방법 및 이를 기록한 기록매체</h4>
-                          <div class="item-desc">특허등록번호 제10-2498544호</div>
-                        </div>
-                      </div>
-                      <div class="list-cell">
-                        <div class="list-items">
-                          <div class="item-number">07</div>
-                          <h4 class="item-title">학습 유도용 <br class="none"><em>챗봇</em> 시스템</h4>
-                          <div class="item-desc">특허등록번호 제10-2510998호</div>
-                        </div>
-                      </div>
-                      <div class="list-cell">
-                        <div class="list-items">
-                          <div class="item-number">08</div>
-                          <h4 class="item-title"><em>손가락</em>을 이용한 <br class="none">학습 시스템</h4>
-                          <div class="item-desc">특허등록번호 제10-2455247호</div>
-                        </div>
-                      </div>
-                    </div>
+                    <ul class="list-inner">
+                      <li class="list-cell">
+                        <dl>
+                          <dt><img src="assets/images/section5_img1.png" /></dt>
+                          <dd>
+                            <p>보도자료 MBC</p>
+                            <div>사물인터넷 기술로 산업 재해 예방</div>
+                          </dd>
+                        </dl>
+                      </li>
+                      <li class="list-cell">
+                        <dl>
+                          <dt><img src="assets/images/section5_img2.png" /></dt>
+                          <dd>
+                            <p>보도자료 MBC</p>
+                            <div>사물인터넷 기술로 산업 재해 예방</div>
+                          </dd>
+                        </dl>
+                      </li>
+                      <li class="list-cell">
+                        <dl>
+                          <dt><img src="assets/images/section5_img3.png" /></dt>
+                          <dd>
+                            <p>보도자료 MBC</p>
+                            <div>사물인터넷 기술로 산업 재해 예방</div>
+                          </dd>
+                        </dl>
+                      </li>
+                      <li class="list-cell">
+                        <dl>
+                          <dt><img src="assets/images/section5_img1.png" /></dt>
+                          <dd>
+                            <p>보도자료 MBC</p>
+                            <div>사물인터넷 기술로 산업 재해 예방</div>
+                          </dd>
+                        </dl>
+                      </li>
+                      <li class="list-cell">
+                        <dl>
+                          <dt><img src="assets/images/section5_img2.png" /></dt>
+                          <dd>
+                            <p>보도자료 MBC</p>
+                            <div>사물인터넷 기술로 산업 재해 예방</div>
+                          </dd>
+                        </dl>
+                      </li>
+                      <li class="list-cell">
+                        <dl>
+                          <dt><img src="assets/images/section5_img3.png" /></dt>
+                          <dd>
+                            <p>보도자료 MBC</p>
+                            <div>사물인터넷 기술로 산업 재해 예방</div>
+                          </dd>
+                        </dl>
+                      </li>
+                      <li class="list-cell">
+                        <dl>
+                          <dt><img src="assets/images/section5_img1.png" /></dt>
+                          <dd>
+                            <p>보도자료 MBC</p>
+                            <div>사물인터넷 기술로 산업 재해 예방</div>
+                          </dd>
+                        </dl>
+                      </li>
+                      <li class="list-cell">
+                        <dl>
+                          <dt><img src="assets/images/section5_img2.png" /></dt>
+                          <dd>
+                            <p>보도자료 MBC</p>
+                            <div>사물인터넷 기술로 산업 재해 예방</div>
+                          </dd>
+                        </dl>
+                      </li>
+                      <li class="list-cell">
+                        <dl>
+                          <dt><img src="assets/images/section5_img3.png" /></dt>
+                          <dd>
+                            <p>보도자료 MBC</p>
+                            <div>사물인터넷 기술로 산업 재해 예방</div>
+                          </dd>
+                        </dl>
+                      </li>
+                    </ul>
                   </div>
-                  <div class="btns">
-                    <div class="btn-ui"><button type="button" class="btn-main-nav btn-patent-more">AI 특허 더보기</button>
-                    </div>
+                </div>
+                <div class="btns">
+                  <div class="btn-ui"><button type="button" class="btn-main-nav btn-patent-more">AI 특허 더보기</button>
                   </div>
                 </div>
               </div>
-              <div class="background-video">
+            </div>
+            <!-- <div class="background-video">
                 <div class="video-wrap"><video src="https://ai.chunjae.co.kr/common/images/video/main-ai-video.mp4"
                     muted playsinline id="mainAIVideo"></video></div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
-        <!-- //main-patent -->
+        <!-- //section5 -->
       </div>
     </section>
     <!-- //dBody -->

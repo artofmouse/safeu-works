@@ -1,34 +1,6 @@
 window.requestAnimFrame = (function (callback) { return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) { window.setTimeout(callback, 1000 / 60); }; })();
 window.cancelAnimFrame = (function () { return window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || window.oCancelAnimationFrame || function (id) { window.clearTimeout(id); }; })();
 
-
-var include = {
-
-  headerContainer: null,
-  footerContainer: null,
-
-  init: function () {
-    this.headerContainer = document.getElementById('dHead');
-    this.footerContainer = document.getElementById('dFoot');
-
-
-    //if(this.headerContainer && this.headerContainer.children.length == 0) this.header();
-    //if(this.footerContainer && this.footerContainer.children.length == 0) this.footer();
-  },
-
-  header: function () {
-    var _html = '';
-    _html += '<div class="header-outer"><div class="header-inner"><h1 class="logo"><a href="../page/index.html">泥쒖옱 AI</a></h1> <nav id="gnb"><div class="gnb-wrap"><ul class="gnb-list"><!-- gnb-list-cell �대옒�ㅼ뿉 actived�대옒�� 異붽��� �쒖꽦�� --><!--<li class="gnb-list-cell"><a href="#" class="btn-gnb-nav"><span class="txt">AIDT</span></a><div class="snb-wrap"><div class="snb-list-inner"><ul class="snb-list"><li class="snb-list-cell"><a href="../page/aidt-overview.html" class="btn-snb-nav">AIDT��?</a></li><li class="snb-list-cell"><a href="../page/aidt-company.html" class="btn-snb-nav">泥쒖옱AIDT �뚭컻</a></li><li class="snb-list-cell"><a href="../page/aidt-contents.html" class="btn-snb-nav">肄섑뀗痢� 援ъ꽦</a></li></ul></div></div></li>--><!--<li class="gnb-list-cell"><a href="#" class="btn-gnb-nav"><span class="txt">AIDT �쒖슜踰�</span></a><div class="snb-wrap"><div class="snb-list-inner"><ul class="snb-list"><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�쇰컲 �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">嫄곌씀濡� �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�꾨줈�앺듃 �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">李쎌쓽 �쒕룞</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�됯� �쒖슜</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�⑥썝 �꾩꽦</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">媛쒕퀎 �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�곸뼱 �곗뒿 吏���</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�섑븰 怨듯븰 �꾧뎄 �쒖슜</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�뺣낫 而댄벂�� �쒖슜</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�쇰컲 諛⑷낵�� �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">諛⑷낵�� 蹂댁땐 �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">諛⑷낵�� �ы솕 �숈뒿</a></li></ul></div></div></li>--><li class="gnb-list-cell"><a href="../page/ai-coswear.html" class="btn-gnb-nav"><span class="txt">AI 肄붿뒪�⑥뼱</span></a><div class="snb-wrap"><div class="snb-list-inner"><ul class="snb-list"><li class="snb-list-cell"><a href="../page/ai-coswear.html" class="btn-snb-nav disabled">�섏뾽以�鍮�</a></li><li class="snb-list-cell"><a href="../page/ai-coswear.html" class="btn-snb-nav disabled">留먰븯湲�/�곌린 �섏뾽</a></li><li class="snb-list-cell"><a href="../page/ai-coswear.html" class="btn-snb-nav disabled">�섑븰 �섏뾽</a></li><li class="snb-list-cell"><a href="../page/ai-coswear.html" class="btn-snb-nav disabled">肄붾뵫 �섏뾽</a></li><li class="snb-list-cell"><a href="../page/ai-coswear.html" class="btn-snb-nav disabled">�섏뾽 寃곌낵</a></li></ul></div></div></li><li class="gnb-list-cell"><a href="#" class="btn-gnb-nav"><span class="loop-word"><span class="loop-word-text">泥쒖옱 AI</span><span class="loop-word-frame"><span>泥쒖옱 AI</span><span>泥쒖옱 AI</span></span></span></a><div class="snb-wrap"><div class="snb-list-inner"><ul class="snb-list"><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�멸났吏���(AI)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">鍮낅뜲�댄꽣/ML</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�λ윭��(DL)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">AI 留욎땄�숈뒿</a></li><li class="snb-list-cell"><a href="../page/chunjae-ai-kt.html" class="btn-snb-nav">吏��앹텛��(KT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�ъ링吏��앹텛��(DKT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">異붿쿇�뚭퀬由ъ쬁(FM)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�ъ링異붿쿇(DeepFM)</a></li><li class="snb-list-cell"><a href="../page/chunjae-ai-irt.html" class="btn-snb-nav">臾명빆諛섏쓳�대줎(IRT)</a></li><li class="snb-list-cell"><a href="../page/chunjae-ai-cat.html" class="btn-snb-nav">留욎땄臾명빆 異붿쿇(CAT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�뚯꽦�몄떇(STT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�뚯꽦�됯�</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�먭��� �몄떇(CNN)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">臾몄옄�몄떇(OCR)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�덈㈃�몄떇(FRT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">泥쒖옱GPT(LLM湲곕컲)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�좎궗�꾧린諛� 梨쀫큸</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�좎궗臾명빆 寃���</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�뺤옣�꾩떎(XR)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�쇱꽌</a></li></ul></div></div></li><li class="gnb-list-cell"><a href="#" class="btn-gnb-nav"><span class="txt">AI 泥댄뿕</span></a><div class="snb-wrap"><div class="snb-list-inner"><ul class="snb-list"><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">吏��앹텛��(KT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�ъ링吏��앹텛��(DKT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">異붿쿇�뚭퀬由ъ쬁(FM)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�ъ링異붿쿇(DeepFM)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">臾명빆諛섏쓳�대줎(IRT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">留욎땄臾명빆 異붿쿇(CAT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�뚯꽦�몄떇(STT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�먭��� �몄떇(CNN)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">臾몄옄�몄떇(OCR)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�뚯꽦�됯�</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">泥쒖옱GPT(LLM湲곕컲)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�좎궗�꾧린諛� 梨쀫큸</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�좎궗臾명빆 寃���</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�뺤옣�꾩떎(XR)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�덈㈃�몄떇(FRT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�쇱꽌</a></li></ul></div></div></li><li class="gnb-list-cell"><a href="#" class="btn-gnb-nav"><span class="txt">AI �뱁뿀</span></a><div class="snb-wrap"><div class="snb-list-inner"><ul class="snb-list"><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�멸났吏��μ뒪留덊듃肄붿묶</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">肄섑뀗痢� 援ъ“ �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�숈뒿肄섑뀗痢� 異붿쿇諛⑸쾿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�숈뒿肄섑뀗痢� 異붿쿇�쒖뒪��</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�먭��� �좎븘�숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�먭��� �좎븘�숈뒿�쒖뒪��</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">梨쀫큸�쒖슜 �숈뒿�좊룄</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">梨쀫큸 �숈뒿�좊룄 �쒖뒪��</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�숈뒿�좊룄�� 梨쀫큸</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�먭��쎌씠�� �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�먭��쎌씠�� �숈뒿�쒖뒪��</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�쒓뎅��/臾명솕 �ㅻ쭏�� 寃���</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">利앷컯/蹂듯빀�꾩떎 �뺣낫寃���</a></li></ul></div></div></li><!--<li class="gnb-list-cell"><a href="#" class="btn-gnb-nav"><span class="txt">湲곗닠 釉붾줈洹�</span></a><div class="snb-wrap"><div class="snb-list-inner"><ul class="snb-list"><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">鍮낅뜲�댄꽣/ML</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">AI 留욎땄�숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">吏��앹텛��(KT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�ъ링吏��앹텛��(DKT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">異붿쿇�뚭퀬由ъ쬁(FM)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�ъ링異붿쿇(DeepFM)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">臾명빆諛섏쓳�대줎(IRT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">留욎땄臾명빆 異붿쿇(CAT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�뚯꽦�몄떇(STT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�뚯꽦�됯��먭��� �몄떇(CNN)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">臾몄옄�몄떇(OCR)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�덈㈃�몄떇(FRT)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">泥쒖옱GPT(LLM湲곕컲)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�좎궗�꾧린諛� 梨쀫큸</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�좎궗臾명빆 寃���</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�뺤옣�꾩떎(XR)</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�쇱꽌</a></li></ul></div></div></li>--><li class="gnb-list-cell"><a href="#" class="btn-gnb-nav"><span class="txt">ABOUT US</span></a><div class="snb-wrap"><div class="snb-list-inner"><ul class="snb-list"><li class="snb-list-cell"><a href="https://www.chunjae.co.kr/" target="_blank" class="btn-snb-nav">泥쒖옱援먯쑁 <em class="icon icon-link"></em></a></li><li class="snb-list-cell"><a href="https://www.chunjaetext.co.kr/" target="_blank" class="btn-snb-nav">泥쒖옱援먭낵�� <em class="icon icon-link"></em></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">怨듭� &amp; 湲곗궗</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�대찓�� 臾몄쓽</a></li></ul></div></div></li></ul></div></nav><div id="allMenu" class="all-menu-wrap"><div class="all-menu-scroller"><div class="all-menu-inner"><ul class="all-menu-list"><!--<li class="all-menu-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-all-menu-nav">AIDT</a><div class="snb-wrap"><ul class="snb-list"><li class="snb-list-cell"><a href="../page/aidt-overview.html" class="btn-snb-nav">泥쒖옱 AIDT</a></li><li class="snb-list-cell"><a href="../page/aidt-company.html" class="btn-snb-nav">泥쒖옱AIDT �뚭컻</a></li><li class="snb-list-cell"><a href="../page/aidt-contents.html" class="btn-snb-nav">肄섑뀗痢� 援ъ꽦</a></li></ul></div></li>--><!--<li class="all-menu-list-cell"><a href="#" class="btn-all-menu-nav">AIDT �쒖슜踰�</a><div class="snb-wrap"><ul class="snb-list"><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�쇰컲 �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">嫄곌씀濡� �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�꾨줈�앺듃 �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">李쎌쓽 �쒕룞</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�됯� �쒖슜</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�⑥썝 �꾩꽦</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">媛쒕퀎 �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�곸뼱 �곗뒿 吏���</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�섑븰 怨듯븰 �꾧뎄 �쒖슜</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�뺣낫 而댄벂�� �쒖슜</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">�쇰컲 諛⑷낵�� �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">諛⑷낵�� 蹂댁땐 �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav disabled">諛⑷낵�� �ы솕 �숈뒿</a></li></ul></div></li>--><li class="all-menu-list-cell"><a href="../page/ai-coswear.html" class="btn-all-menu-nav">AI 肄붿뒪�⑥뼱</a><div class="snb-wrap"><ul class="snb-list"><li class="snb-list-cell"><a href="../page/ai-coswear.html" class="btn-snb-nav disabled">�섏뾽以�鍮�</a></li><li class="snb-list-cell"><a href="../page/ai-coswear.html" class="btn-snb-nav disabled">留먰븯湲�/�곌린 �섏뾽</a></li><li class="snb-list-cell"><a href="../page/ai-coswear.html" class="btn-snb-nav disabled">�섑븰 �섏뾽</a></li><li class="snb-list-cell"><a href="../page/ai-coswear.html" class="btn-snb-nav disabled">肄붾뵫 �섏뾽</a></li><li class="snb-list-cell"><a href="../page/ai-coswear.html" class="btn-snb-nav disabled">�섏뾽 寃곌낵</a></li></ul></div></li><li class="all-menu-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-all-menu-nav">泥쒖옱 AI</a><div class="snb-wrap"><ul class="snb-list"><li class="snb-list-cell actived"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�멸났吏���<span>(AI)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">鍮낅뜲�댄꽣/ML</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�λ윭��<span>(DL)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">AI 留욎땄�숈뒿</a></li><li class="snb-list-cell"><a href="../page/chunjae-ai-kt.html" class="btn-snb-nav point">吏��앹텛��<span>(KT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�ъ링吏��앹텛��<span>(DKT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">異붿쿇�뚭퀬由ъ쬁<span>(FM)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�ъ링異붿쿇<span>(DeepFM)</span></a></li><li class="snb-list-cell"><a href="../page/chunjae-ai-irt.html" class="btn-snb-nav point">臾명빆諛섏쓳�대줎<span>(IRT)</span></a></li><li class="snb-list-cell"><a href="../page/chunjae-ai-cat.html" class="btn-snb-nav point">留욎땄臾명빆 異붿쿇<span>(CAT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�뚯꽦�몄떇<span>(STT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�뚯꽦�됯�</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�먭��� �몄떇<span>(CNN)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">臾몄옄�몄떇<span>(OCR)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�덈㈃�몄떇<span>(FRT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">泥쒖옱GPT<span>(LLM湲곕컲)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�좎궗�꾧린諛� 梨쀫큸</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�좎궗臾명빆 寃���</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�뺤옣�꾩떎<span>(XR)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�쇱꽌</a></li></ul></div></li><li class="all-menu-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-all-menu-nav">AI 泥댄뿕</a><div class="snb-wrap"><ul class="snb-list"><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">吏��앹텛��<span>(KT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�ъ링吏��앹텛��<span>(DKT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">異붿쿇�뚭퀬由ъ쬁<span>(FM)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�ъ링異붿쿇<span>(DeepFM)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">臾명빆諛섏쓳�대줎<span>(IRT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">留욎땄臾명빆 異붿쿇<span>(CAT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�뚯꽦�몄떇<span>(STT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�먭��� �몄떇<span>(CNN)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">臾몄옄�몄떇<span>(OCR)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�뚯꽦�됯�</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">泥쒖옱GPT<span>(LLM湲곕컲)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�좎궗�꾧린諛� 梨쀫큸</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�좎궗臾명빆 寃���</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�뺤옣�꾩떎<span>(XR)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�덈㈃�몄떇<span>(FRT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�쇱꽌</a></li></ul></div></li><li class="all-menu-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-all-menu-nav">AI �뱁뿀</a><div class="snb-wrap"><ul class="snb-list"><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�멸났吏��μ뒪留덊듃肄붿묶</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">肄섑뀗痢� 援ъ“ �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�숈뒿肄섑뀗痢� 異붿쿇諛⑸쾿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�숈뒿肄섑뀗痢� 異붿쿇�쒖뒪��</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�먭��� �좎븘�숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�먭��� �좎븘�숈뒿�쒖뒪��</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">梨쀫큸�쒖슜 �숈뒿�좊룄</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">梨쀫큸 �숈뒿�좊룄 �쒖뒪��</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�숈뒿�좊룄�� 梨쀫큸</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�먭��쎌씠�� �숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�먭��쎌씠�� �숈뒿�쒖뒪��</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�쒓뎅��/臾명솕 �ㅻ쭏�� 寃���</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">利앷컯/蹂듯빀�꾩떎 �뺣낫寃���</a></li></ul></div></li><!--<li class="all-menu-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-all-menu-nav">湲곗닠 釉붾줈洹�</a><div class="snb-wrap"><ul class="snb-list"><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">鍮낅뜲�댄꽣/ML</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">AI 留욎땄�숈뒿</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">吏��앹텛��<span>(KT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�ъ링吏��앹텛��<span>(DKT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">異붿쿇�뚭퀬由ъ쬁<span>(FM)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�ъ링異붿쿇<span>(DeepFM)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">臾명빆諛섏쓳�대줎<span>(IRT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">留욎땄臾명빆 異붿쿇<span>(CAT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�뚯꽦�몄떇<span>(STT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�뚯꽦�됯��먭��� �몄떇<span>(CNN)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">臾몄옄�몄떇<span>(OCR)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�덈㈃�몄떇<span>(FRT)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">泥쒖옱GPT<span>(LLM湲곕컲)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�좎궗�꾧린諛� 梨쀫큸</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�좎궗臾명빆 寃���</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�뺤옣�꾩떎<span>(XR)</span></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�쇱꽌</a></li></ul></div></li>--><li class="all-menu-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-all-menu-nav">ABOUT US</a><div class="snb-wrap"><ul class="snb-list"><li class="snb-list-cell"><a href="https://www.chunjae.co.kr/" target="_blank" class="btn-snb-nav">泥쒖옱援먯쑁 <em class="icon icon-link"></em></a></li><li class="snb-list-cell"><a href="https://www.chunjaetext.co.kr/" target="_blank" class="btn-snb-nav">泥쒖옱援먭낵�� <em class="icon icon-link"></em></a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">怨듭� &amp; 湲곗궗</a></li><li class="snb-list-cell"><a href="javascript:alert(&quot;以�鍮꾩쨷�낅땲��.&quot);" class="btn-snb-nav">�대찓�� 臾몄쓽</a></li></ul></div></li></ul></div></div><div id="allMenuCube" class="all-menu-cube"></div></div><button type="button" class="btn-all-menu-toogle-nav"><span></span><span></span><span></span><span></span></button></div></div>';
-    this.headerContainer.innerHTML = _html;
-  },
-
-  footer: function () {
-    var _html = '';
-    _html += '<div id="page-ui"><div class="page-ui-item"><button type="button" class="btn-page-top">�곷떒 �대룞</button></div>		</div>        <div class="footer-wrap">			<div class="footer-outer">				<div class="footer-inner">					<div class="footer-company-list">						<div class="footer-company-cell">							<div class="footer-company-items">								<h3 class="item-logo">																	<picture>										<source srcset="../common/images/common/footer-logo-1-m.png" width="125" media="(max-width: 1024px)">										<img src="../common/images/common/footer-logo-1.png" alt="泥쒖옱援먯쑁"/>									</picture>									</h3>								<div class="item-info">									<div class="item-txt"><em>����</em><p>媛뺥씗泥�</p></div>									<div class="item-txt"><em>二쇱냼</em><p>�쒖슱�� 湲덉쿇援� 媛��곕줈 9湲� 54</p></div>									<div class="item-txt"><em>�ъ뾽�먮벑濡앸쾲��</em><p>119-81-19350</p></div>									<div class="item-txt"><em>遺�媛��듭떊�ъ뾽�좉퀬踰덊샇</em><p>016712</p></div>									</div>							</div>						</div>						<div class="footer-company-cell">							<div class="footer-company-items">								<h3 class="item-logo">																	<picture>										<source srcset="../common/images/common/footer-logo-2-m.png" width="104" media="(max-width: 1024px)">										<img src="../common/images/common/footer-logo-2.png" alt="泥쒖옱援먭낵��"/>									</picture>									</h3>								<div class="item-info">									<div class="item-txt"><em>����</em><p>諛뺤젙怨�, �꾪삎吏�</p></div>									<div class="item-txt"><em>二쇱냼</em><p>�쒖슱�� 湲덉쿇援� 媛��곕뵒吏���1濡� 16, 2011��</p></div>									<div class="item-txt"><em>�ъ뾽�먮벑濡앸쾲��</em><p>119-81-70643</p></div>									</div>							</div>						</div>						<div class="footer-family">							<button type="button" class="btn-footer-family-label">FAMILY SITE</button>							<div class="footer-family-list">								<div class="footer-family-list-scroller">									<ul>										<li><a href="https://www.chunjaetext.co.kr/" target="_blank">泥쒖옱援먭낵��</a></li>										<li><a href="https://www.chunjae.co.kr/" target="_blank">泥쒖옱援먯쑁</a></li>										<li><a href="https://book.chunjae.co.kr/" target="_blank">泥쒖옱援먯쑁 援먯옱</a></li>										<li><a href="https://mall.chunjae.co.kr/" target="_blank">泥쒖옱援먯쑁 �쇳븨紐�</a></li>										<li><a href="https://i.milkt.co.kr/Main/frm_Main.aspx" target="_blank">諛��촖�꾩씠</a></li>										<li><a href="https://www.milkt.co.kr/Main/Main_new" target="_blank">諛��촖珥덈벑</a></li>										<li><a href="https://mid.milkt.co.kr/Main/frm_Main.aspx" target="_blank">諛��촖以묓븰</a></li>										<li><a href="https://high.milkt.co.kr/Main/frm_Main.aspx" target="_blank">諛��촖怨좊벑</a></li>										<li><a href="https://ele.tsherpa.co.kr/" target="_blank">�곗���</a></li>										<li><a href="https://mall.tsherpa.co.kr/" target="_blank">�곗��� �쇳븨紐�</a></li>										<li><a href="https://edutech.chunjae.co.kr/" target="_blank">�먮��뚰겕</a></li>										<li><a href="https://little.chunjae.co.kr/" target="_blank">由ы�泥쒖옱</a></li>										<li><a href="https://hme.chunjae.co.kr/hme/main.asp" target="_blank">HME</a></li>										<li><a href="https://www.edumon.co.kr/intro/index.asp" target="_blank">�먮�紐�</a></li>										<li><a href="https://www.smarthb-math.co.kr/" target="_blank">�ㅻ쭏�명빐踰뺤닔��</a></li>										<li><a href="https://www.smarthb-eng.co.kr/" target="_blank">�ㅻ쭏�명빐踰뺤쁺��</a></li>										<li><a href="https://www.hb-spclass.co.kr/" target="_blank">���뚯슦�깆깮援먯떎</a></li>										<li><a href="https://www.hb-baccal.co.kr/" target="_blank">�대쾿�낆꽌�쇱닠</a></li>										<li><a href="http://www.hbchinese.co.kr/main/default.aspx" target="_blank">�대쾿以묎뎅��</a></li>										<li><a href="https://www.hb-math.co.kr/" target="_blank">�대쾿�섑븰援먯떎</a></li>										<li><a href="https://www.drmath.co.kr/" target="_blank">�ν꽣留ㅼ벐</a></li>										<li><a href="https://www.pageshop.co.kr/#" target="_blank">PAGE SHOP</a></li>										<li><a href="https://www.genimarket.co.kr/member/login.php" target="_blank">吏��덈쭏耳�</a></li>										<li><a href="https://e-test.chunjae.co.kr/" target="_blank">�⑤씪�� �깆랬�� �됯�</a></li>										<li><a href="http://www.prinpia.co.kr/main/main.php" target="_blank">�꾨┛�쇱븘</a></li>									</ul>								</div>							</div>						</div>					</div>					<div class="footer-sns">						<ul>							<li><a href="https://www.facebook.com/milkt" target="_blank" class="btn-footer-sns facebook">�섏씠�ㅻ턿 諛붾줈媛�湲�</a></li>							<li><a href="https://www.instagram.com/milkt_official/" target="_blank" class="btn-footer-sns instargram">�몄뒪��洹몃옩 諛붾줈媛�湲�</a></li>							<li><a href="https://www.youtube.com/@chunjaeworld" target="_blank" class="btn-footer-sns youtube">�좏뒠釉� 諛붾줈媛�湲�</a></li>							<li><a href="https://blog.naver.com/chunjaetext" target="_blank" class="btn-footer-sns blog">�ㅼ씠踰� 釉붾줈洹� 諛붾줈媛�湲�</a></li>							<li><a href="https://cafe.naver.com/tunemom" target="_blank" class="btn-footer-sns cafe">�ㅼ씠踰� 移댄럹 諛붾줈媛�湲�</a></li>						</ul>					</div>					<div class="footer-copy">COPYRIGHT 2024. CHUNJAE CO.,LTD. ALL RIGHTS RESERVED.</div>					<button type="button" class="btn-footer-email" onclick="front.pop.open(&quot;emailRefusalPop&quot; , this);">�대찓�� 臾대떒 �섏쭛 嫄곕�</button>				</div>			</div>		</div>		<!-- �대찓�� 臾대떒 �섏쭛 嫄곕� �앹뾽 -->		<div id="emailRefusalPop" class="layer-pop-wrap contents-pop">			<div class="layer-pop-parent">				<div class="layer-pop-children">					<div class="pop-data">						<div class="pop-view-wrap small">							<div class="pop-view-header">								<h3 class="pop-view-title">�대찓�� 臾대떒 �섏쭛 嫄곕�</h3>							</div>							<div class="pop-view-body">								<div class="pop-view-detail">蹂� �ъ씠�몄뿉 寃뚯떆�� �대찓�� 二쇱냼媛� �꾩옄�고렪 �섏쭛 �꾨줈洹몃옩�대굹 洹� 諛뽰쓽 湲곗닠�� �μ튂瑜� �댁슜�섏뿬 臾대떒�쇰줈 �섏쭛�섎뒗 寃껋쓣 嫄곕��섎ŉ, �대� �꾨컲 �� �뺣낫�듭떊留앸쾿�� �섑빐 �뺤궗 泥섎쾶�⑥쓣 �좊뀗�섏뿬 二쇱떆湲� 諛붾엻�덈떎.</div>							</div>							<div class="pop-view-footer">								<div class="pop-view-ui">									<button type="button" class="btn-basic btn-black" onclick="front.pop.close(this);">�リ린</button>								</div>							</div>						</div>					</div>				</div>			</div>		</div>		<!-- //�대찓�� 臾대떒 �섏쭛 嫄곕� �앹뾽 -->';
-    this.footerContainer.innerHTML = _html;
-  }
-};
-
 var front = {
 
   stage: { width: 0, height: 0, top: 0, ptop: 0, page: '' },
@@ -585,10 +557,9 @@ var main = {
       this.container.append($('#dFoot'));
       $('.footer-family-list-scroller').find('> ul').wrap('<div class="view"></div>');
     };
-
-    if ($('.main-ai').length > 0) {
-      this.videos.ai = new video({
-        el: $('.main-ai').find('.video-wrap'),
+    if ($('.main-headline').length > 0) {
+      this.videos.headline = new video({
+        el: $('.main-headline').find('.video-wrap'),
         loop: true,
         autoPlay: false,
         resize: false,
@@ -612,67 +583,6 @@ var main = {
           //console.log(this);
         }
       });
-    };
-
-    if ($('.main-process').length > 0) {
-      this.videos.process = new video({
-        el: $('.main-process').find('.video-wrap'),
-        loop: true,
-        autoPlay: false,
-        resize: false,
-        onPlay: function () {
-          //console.log('intro video play');
-        },
-        onPause: function () {
-          //console.log('intro video pause');
-        },
-        onEnd: function () {
-          //console.log('intro video end');
-        },
-        onError: function () {
-          //console.log('intro video error');
-        },
-        onInit: function () {
-          //console.log('intro video init');						
-        },
-        onLoadedData: function () {
-          //console.log('intro video onLoadedData');
-          //console.log(this);
-        }
-      });
-    };
-
-    if ($('.main-patent').length > 0) {
-      this.videos.patent = new video({
-        el: $('.main-patent').find('.video-wrap'),
-        loop: true,
-        autoPlay: false,
-        resize: false,
-        onPlay: function () {
-          //console.log('intro video play');
-        },
-        onPause: function () {
-          //console.log('intro video pause');
-        },
-        onEnd: function () {
-          //console.log('intro video end');
-        },
-        onError: function () {
-          //console.log('intro video error');
-        },
-        onInit: function () {
-          //console.log('intro video init');						
-        },
-        onLoadedData: function () {
-          //console.log('intro video onLoadedData');
-          //console.log(this);
-        }
-      });
-      mainPatent.init();
-    };
-
-    if ($('.main-product').length > 0) {
-      mainProduct.init();
     };
 
     if ($('.main-technology').length > 0) {
@@ -698,18 +608,7 @@ var main = {
       });
     };
 
-    if ($('.main-experience').length > 0) mainExperience.init();
-    if ($('.main-ai-coswear').length > 0) mainAiCoswear.init();
-    if ($('.main-model').length > 0) mainModel.init();
-
-
-    if ($('.main-headline').length > 0) {
-      cube.init();
-    };
-
-    if ($('.main-overview').length > 0) {
-      cube.init();
-    };
+    if ($('.main-price').length > 0) mainPrice.init();
 
     $('#wrap').imagesLoaded({ background: true }).always(function () {
       _this.container.addClass('show');
@@ -764,7 +663,7 @@ var main = {
     var $elementHeadline = ($('.main-headline').length > 0) ? $('.main-headline') : null;
     var $elementTechnology = ($('.main-technology').length > 0) ? $('.main-technology') : null;
     var $elementAI = ($('.main-ai').length > 0) ? $('.main-ai') : null;
-    var $elementAiCoswear = ($('.main-ai-coswear').length > 0) ? $('.main-ai-coswear') : null;
+    var $elementPrice = ($('.main-price').length > 0) ? $('.main-price') : null;
     var $elementPatent = ($('.main-patent').length > 0) ? $('.main-patent') : null;
 
 
@@ -828,7 +727,6 @@ var main = {
           };
           */
 
-          //�섏씠吏� �섎떒 怨좎젙 踰꾪듉 �대깽��
           if (_this.pageUI) {
             if (scrollTop >= 100) {
               if (!_this.pageUIStatus) {
@@ -864,10 +762,10 @@ var main = {
 
       };
       /* ====================================================
-            ======================================================
-            // headline
-            ====================================================
-            ====================================================*/
+      ======================================================
+      // headline
+      ====================================================
+      ====================================================*/
       if ($elementHeadline) {
         this.scene.headlineSticky = new ScrollMagic.Scene({
           triggerElement: $elementHeadline[0],
@@ -921,8 +819,6 @@ var main = {
           if (event.state == 'BEFORE') $elementHeadline.find('.footnote-desc').removeClass('actived');
         });
 
-
-
         this.scene.headlineVideo = new ScrollMagic.Scene({
           triggerElement: $elementHeadline[0],
           triggerHook: 0
@@ -933,10 +829,10 @@ var main = {
         this.scene.headlineVideo.offset(0);
         this.scene.headlineVideo.duration($elementHeadline.height() - stageH);
         this.scene.headlineVideo.on('enter', function () {
-          cube.play();
+          _this.videos.headline.play();
         });
         this.scene.headlineVideo.on('leave', function () {
-          cube.pause();
+          _this.videos.headline.stop();
         });
 
         this.scene.headlineHeader1 = new ScrollMagic.Scene({
@@ -997,6 +893,12 @@ var main = {
 
         this.scene.technologySticky.offset(0);
         this.scene.technologySticky.duration($elementTechnology.height() - stageH);
+        this.scene.technologySticky.on('enter', function () {
+          $elementTechnology.find('h2').addClass('actived');
+        });
+        this.scene.technologySticky.on('leave', function () {
+          $elementTechnology.find('h2').removeClass('actived');
+        });
 
         this.tweener.technologyTweener1 = gsap.timeline({});
         var i = 0;
@@ -1113,21 +1015,21 @@ var main = {
         this.scene.aiSticky.offset(0);
         this.scene.aiSticky.duration($elementAI.height() - stageH);
 
-        this.scene.aiVideo = new ScrollMagic.Scene({
-          triggerElement: $elementAI[0],
-          triggerHook: 1
-        })
-          //.addIndicators({name: "aiVideo"})
-          .addTo(this.controller.pc);
+        // this.scene.aiVideo = new ScrollMagic.Scene({
+        //   triggerElement: $elementAI[0],
+        //   triggerHook: 1
+        // })
+        //   //.addIndicators({name: "aiVideo"})
+        //   .addTo(this.controller.pc);
 
-        this.scene.aiVideo.offset(0);
-        this.scene.aiVideo.duration($elementAI.height() + stageH);
-        this.scene.aiVideo.on('enter', function () {
-          _this.videos.ai.play();
-        });
-        this.scene.aiVideo.on('leave', function () {
-          _this.videos.ai.stop();
-        });
+        // this.scene.aiVideo.offset(0);
+        // this.scene.aiVideo.duration($elementAI.height() + stageH);
+        // this.scene.aiVideo.on('enter', function () {
+        //   _this.videos.ai.play();
+        // });
+        // this.scene.aiVideo.on('leave', function () {
+        //   _this.videos.ai.stop();
+        // });
 
         this.scene.aiScene0 = new ScrollMagic.Scene({
           triggerElement: $elementAI[0],
@@ -1138,9 +1040,11 @@ var main = {
 
         this.scene.aiScene0.on('enter', function () {
           $elementAI.find('.title').addClass('actived');
+          $elementAI.find('h2').addClass('actived');
         });
         this.scene.aiScene0.on('leave', function () {
           $elementAI.find('.title').removeClass('actived');
+          $elementAI.find('h2').removeClass('actived');
         });
 
 
@@ -1240,31 +1144,67 @@ var main = {
       // ai coswear
       ====================================================
       ====================================================*/
-      if ($elementAiCoswear) {
-        this.scene.aiCoswearheader = new ScrollMagic.Scene({
-          triggerElement: $elementAiCoswear[0],
+      if ($elementPrice) {
+        this.scene.priceSticky = new ScrollMagic.Scene({
+          triggerElement: $elementPrice[0],
           triggerHook: 0
         })
-          //.addIndicators({name: "aiCoswearScroll"})
+          //.addIndicators({name: "aiSticky"})
+          .setPin($elementPrice.find('.main-sticky')[0])
           .addTo(this.controller.pc);
 
-        this.scene.aiCoswearheader.offset(0);
-        this.scene.aiCoswearheader.duration($elementAiCoswear.innerHeight());
-        this.scene.aiCoswearheader.on('enter', function () {
+        this.scene.priceSticky.offset(0);
+        this.scene.priceSticky.duration($elementPrice.height() - stageH);
+        this.scene.priceSticky.on('enter', function () {
+          $('#dHead').removeClass('white');
+          $elementPrice.find('h2').addClass('actived');
+        });
+        this.scene.priceSticky.on('leave', function () {
+          $elementPrice.find('h2').removeClass('actived');
+        });
+
+        this.tweener.priceTweener1 = gsap.timeline({});
+        this.tweener.priceTweener1.fromTo($elementPrice.find('.inner-bottom em'), { alpha: '0' }, { alpha: '1', ease: Linear.easeNone }, 0);
+        this.tweener.priceTweener1.fromTo($elementPrice.find('.inner-bottom em'), { y: '200px' }, { y: '0', ease: Linear.easeNone }, 0);
+        this.scene.priceScene1 = new ScrollMagic.Scene({
+          triggerElement: $elementPrice[0],
+          triggerHook: 1
+        })
+          //.addIndicators({name: "headlineScene 1"})
+          .addTo(this.controller.pc);
+
+        this.scene.priceScene1.offset(stageH * 1);
+        this.scene.priceScene1.duration(stageH * 1);
+        this.scene.priceScene1.setTween(this.tweener.priceTweener1);
+
+
+
+
+        this.scene.priceHeader = new ScrollMagic.Scene({
+          triggerElement: $elementPrice[0],
+          triggerHook: 0
+        })
+          //.addIndicators({name: "$elementPrice"})
+          .addTo(this.controller.pc);
+
+        this.scene.priceHeader.offset(stageH * 1);
+        this.scene.priceHeader.duration(stageH * 2.5);
+        this.scene.priceHeader.on('enter', function () {
           $('#dHead').removeClass('white');
         });
 
-        this.scene.aiCoswearScroll = new ScrollMagic.Scene({
-          triggerElement: $elementAiCoswear[0],
+
+        this.scene.priceTop = new ScrollMagic.Scene({
+          triggerElement: $elementPrice[0],
           triggerHook: 1
         })
-          //.addIndicators({name: "aiCoswearScroll"})
+          //.addIndicators({name: "priceTop"})
           .addTo(this.controller.pc);
 
-        this.scene.aiCoswearScroll.offset(0);
-        this.scene.aiCoswearScroll.duration(stageH * 2.0);
-        this.scene.aiCoswearScroll.on('enter', function () {
-          $('#page-ui').removeClass('white');
+        this.scene.priceTop.offset(stageH * 1);
+        this.scene.priceTop.duration(stageH * 2.5);
+        this.scene.priceTop.on('enter', function () {
+          $('#page-ui').remove('white');
         });
       };
       /* ====================================================
@@ -1291,21 +1231,11 @@ var main = {
 
         this.scene.patentSticky.offset(0);
         this.scene.patentSticky.duration($elementPatent.height() - stageH);
-
-        this.scene.patentVideo = new ScrollMagic.Scene({
-          triggerElement: $elementPatent[0],
-          triggerHook: 1
-        })
-          //.addIndicators({name: "processVideo"})
-          .addTo(this.controller.pc);
-
-        this.scene.patentVideo.offset(0);
-        this.scene.patentVideo.duration($elementPatent.height() + stageH);
-        this.scene.patentVideo.on('enter', function () {
-          _this.videos.patent.play();
+        this.scene.patentSticky.on('enter', function () {
+          $elementPatent.find('h2').addClass('actived');
         });
-        this.scene.patentVideo.on('leave', function () {
-          _this.videos.patent.stop();
+        this.scene.patentSticky.on('leave', function () {
+          $elementPatent.find('h2').removeClass('actived');
         });
 
         this.tweener.patentTweener1 = gsap.timeline({});
@@ -1322,8 +1252,16 @@ var main = {
         this.scene.patentScene1.duration(stageH * 0.2);
         this.scene.patentScene1.setTween(this.tweener.patentTweener1);
 
+        this.scene.patentScene1.on('enter', function () {
+          $elementPatent.find('h2').addClass('actived');
+          $('#dHead').removeClass('white');
+        });
+        this.scene.aiScene0.on('leave', function () {
+          $elementPatent.find('h2').removeClass('actived');
+        });
+
         this.tweener.patentTweener3 = gsap.timeline({});
-        this.tweener.patentTweener3.fromTo($elementPatent.find('.list-inner'), { x: '90vw' }, { x: $elementPatent.find('.list').width() - $elementPatent.find('.list-inner').width(), ease: Linear.easeNone }, 0);
+        this.tweener.patentTweener3.fromTo($elementPatent.find('.list-inner'), { x: '0' }, { x: $elementPatent.find('.list').width() - $elementPatent.find('.list-inner').width(), ease: Linear.easeNone }, 0);
 
         this.scene.patentScene3 = new ScrollMagic.Scene({
           triggerElement: $elementPatent[0],
@@ -1333,8 +1271,11 @@ var main = {
           .addTo(this.controller.pc);
 
         this.scene.patentScene3.offset(stageH * 0.5);
-        this.scene.patentScene3.duration(stageH * 5);
+        this.scene.patentScene3.duration(stageH);
         this.scene.patentScene3.setTween(this.tweener.patentTweener3);
+        this.scene.patentScene3.on('enter', function () {
+          $('#dHead').removeClass('white');
+        });
 
         $elementPatent.find('.list-inner .list-cell').each(function () {
           var $element = $(this);
@@ -1556,21 +1497,21 @@ var main = {
             _this.scene.aiScene0.setTween(_this.tweener['aiTweener' + $(this).index()]);
           });
 
-          this.scene.aiVideo = new ScrollMagic.Scene({
-            triggerElement: $elementAI[0],
-            triggerHook: 1
-          })
-            //.addIndicators({name: "aiVideo"})
-            .addTo(this.controller.mobile);
+          // this.scene.aiVideo = new ScrollMagic.Scene({
+          //   triggerElement: $elementAI[0],
+          //   triggerHook: 1
+          // })
+          //   //.addIndicators({name: "aiVideo"})
+          //   .addTo(this.controller.mobile);
 
-          this.scene.aiVideo.offset(0);
-          this.scene.aiVideo.duration($elementAI.height() + stageH);
-          this.scene.aiVideo.on('enter', function () {
-            _this.videos.ai.play();
-          });
-          this.scene.aiVideo.on('leave', function () {
-            _this.videos.ai.stop();
-          });
+          // this.scene.aiVideo.offset(0);
+          // this.scene.aiVideo.duration($elementAI.height() + stageH);
+          // this.scene.aiVideo.on('enter', function () {
+          //   _this.videos.ai.play();
+          // });
+          // this.scene.aiVideo.on('leave', function () {
+          //   _this.videos.ai.stop();
+          // });
 
           this.scene.aiHeader = new ScrollMagic.Scene({
             triggerElement: $elementAI[0],
@@ -1802,18 +1743,18 @@ var main = {
         // ai coswear
         ====================================================
         ====================================================*/
-        if ($elementAiCoswear) {
+        if ($elementPrice) {
 
-          this.scene.aiCoswearScroll = new ScrollMagic.Scene({
-            triggerElement: $elementAiCoswear[0],
+          this.scene.priceScroll = new ScrollMagic.Scene({
+            triggerElement: $elementPrice[0],
             triggerHook: 1
           })
-            //.addIndicators({name: "aiCoswearScroll"})
+            //.addIndicators({name: "priceScroll"})
             .addTo(this.controller.mobile);
 
-          this.scene.aiCoswearScroll.offset(0);
-          this.scene.aiCoswearScroll.duration($elementAiCoswear.innerHeight());
-          this.scene.aiCoswearScroll.on('enter', function () {
+          this.scene.priceScroll.offset(0);
+          this.scene.priceScroll.duration($elementPrice.innerHeight());
+          this.scene.priceScroll.on('enter', function () {
             $('#page-ui').removeClass('white');
           });
         };
@@ -2099,362 +2040,6 @@ var $DOM = {
   }
 };
 
-var cube = {
-
-  sequence: null,
-  sequenceContainer: null,
-
-  init: function () {
-
-    this.sequenceContainer = ($('#mainHeadlineSequence').length > 0) ? $('#mainHeadlineSequence') : null;
-
-    if (this.sequenceContainer) {
-      this.sequence = new sequenceView({
-        el: this.sequenceContainer[0],
-        fps: 60,
-        index: 0,
-        imageUrl: this.sequenceContainer[0].getAttribute('data-url'),
-        imageName: this.sequenceContainer[0].getAttribute('data-name'),
-        imageType: this.sequenceContainer[0].getAttribute('data-type'),
-        imageTotal: this.sequenceContainer[0].getAttribute('data-total'),
-        onPlay: function (obj) {
-          //console.log('sequence play');
-        },
-        onPause: function (obj) {
-          //console.log('sequence pause');
-        },
-        onLoadStart: function (obj) {
-          //console.log('sequence load start');
-        },
-        onLoadEnd: function (obj) {
-          //console.log('sequence load end');
-          //console.log('cate ::' + _this.idx + '   index :: ' + cur);
-          if ($('.main-headline').hasClass('actived')) this.play();
-        }
-      });
-      this.sequence.load();
-    };
-  },
-
-  item: function (_options) {
-
-    function item(_options) {
-
-      var _this = this;
-      var $element = _options.element;
-      var $index = _options.index;
-      var $posX, $posY, $speed, $timer;
-
-      this.random = function () {
-        var $w = $(window).width();
-        var $h = $(window).height();
-        //$posX = Math.random() * ( ( $w * 0.5 * -1 ) - ( $w * 0.25 * -1 )) + ( $w * 0.25 * -1  );
-        //$posY = Math.random() * ( ( $h * 0.5 * -1 ) - ( $h * 0.5 )) + ( $h * 0.5 );
-        $posX = $w * 0.8;
-        $posY = $h * 0.7;
-        $speed = 20;
-
-        $element.css({ 'transform': 'translate(' + $posX + 'px , ' + $posY + 'px)', 'transition': 'none' });
-
-      };
-
-      this.start = function () {
-        //this.random();
-        //$posX = $posX * -1;
-        //$posY = $posY * -1;
-        var $w = $(window).width();
-        var $h = $(window).height();
-        //$posX = Math.random() * ( ( $w * 0.25 ) - ( $w * 0.5 )) + ( $w * 0.5 );
-        //$posY = Math.random() * ( ( $h * 0.5 * -1 ) - ( $h * 0.5 )) + ( $h * 0.5 );
-        $posX = 0;
-        $posY = $h * 0.7;
-
-        //console.log('-- start --');	
-        //console.log('x : ' + $posX + '  y : ' + $posY + '  speed : ' + $speed);	
-        $element.css({ 'transform': 'translate(' + $posX + 'px , ' + $posY + 'px)', 'transition': 'transform ' + $speed + 's 0s cubic-bezier(0.455, 0.030, 0.515, 0.955)' });
-
-        $timer = setTimeout(function () {
-          _this.end();
-        }, $speed * 1000);
-      };
-
-      this.end = function () {
-        //this.random();
-        var $w = $(window).width();
-        var $h = $(window).height();
-        //$posX = Math.random() * ( ( $w * 0.5 * -1 ) - ( $w * 0.25 * -1 )) + ( $w * 0.25 * -1  );
-        //$posY = Math.random() * ( ( $h * 0.5 * -1 ) - ( $h * 0.5 )) + ( $h * 0.5 );
-        $posX = $w * 0.8;
-        $posY = $h * 0.7;
-        //console.log('-- end --');
-        //console.log('x : ' + $posX + '  y : ' + $posY + '  speed : ' + $speed);
-        //console.log('-- end --');				
-        $element.css({ 'transform': 'translate(' + $posX + 'px , ' + $posY + 'px)', 'transition': 'transform ' + $speed + 's 0s cubic-bezier(0.455, 0.030, 0.515, 0.955)' });
-        $timer = setTimeout(function () {
-          _this.start();
-        }, $speed * 1000);
-      };
-
-      this.autoLoop = function () {
-        //console.log('auto loop');
-        this.random();
-        this.start();
-      };
-
-      this.autoPlay = function () {
-        //console.log('auto play');
-        if ($timer) clearTimeout($timer);
-        this.autoLoop();
-      };
-
-      this.autoStop = function () {
-        //console.log('auto stop');			
-        if ($timer) clearTimeout($timer);
-      };
-
-      this.random();
-
-      //this.reset();
-    }
-
-    return new item(_options);
-
-  },
-
-  play: function () {
-    if (this.sequence) {
-      if (this.sequence.animationStats == 'stop') this.sequence.play();
-    }
-  },
-
-  pause: function () {
-    if (this.sequence) this.sequence.stop();
-
-  }
-};
-
-var mainProduct = {
-
-  cur: -1,
-  container: null,
-  objArr: [],
-  sequenceArr: [],
-
-  init: function () {
-    var _this = this;
-    this.container = $('.main-product');
-    this.txtAlign();
-
-    this.container.find('.obj-group .obj').each(function () {
-      var _effect = _this.obj({ element: $(this), index: $(this).index() })
-      _this.objArr.push(_effect);
-    });
-
-    this.container.find('.sequence-wrap').each(function () {
-      var _sequence = new sequenceView({
-        el: $(this)[0],
-        fps: 30,
-        index: 0,
-        imageUrl: $(this)[0].getAttribute('data-url'),
-        imageName: $(this)[0].getAttribute('data-name'),
-        imageType: $(this)[0].getAttribute('data-type'),
-        imageTotal: $(this)[0].getAttribute('data-total'),
-        onPlay: function (obj) {
-          //console.log('sequence play');
-        },
-        onPause: function (obj) {
-          //console.log('sequence pause');
-        },
-        onLoadStart: function (obj) {
-          //console.log('sequence load start');
-        },
-        onLoadEnd: function (obj) {
-          //console.log('sequence load end');
-          //console.log(this);
-          //console.log('cate ::' + _this.idx + '   index :: ' + cur);
-        }
-      });
-      _sequence.load();
-      _this.sequenceArr.push(_sequence);
-    });
-
-
-
-  },
-
-  sort: function (_value) {
-    this.cur = _value;
-    this.txtAlign();
-    this.objAlign();
-  },
-
-  txtAlign: function () {
-    var _this = this;
-    var _cur = this.cur;
-    this.container.find('.txt-group-cell').each(function () {
-      gsap.killTweensOf($(this));
-      if (_cur == $(this).index()) {
-        $(this).addClass('actived');
-        //gsap.set($(this), { alpha : 0 });
-        gsap.to($(this), { duration: 0.4, alpha: 1, delay: 0.2, ease: Power2.easeOut });
-      } else {
-        $(this).removeClass('actived');
-        gsap.to($(this), { duration: 0.4, alpha: 0, y: 0, ease: Power2.easeOut });
-      };
-    });
-  },
-
-  obj: function (_options) {
-
-    function obj(_options) {
-
-      var _this = this;
-      var $element = _options.element.find('.value');
-      var $elementParent = _options.element;
-      var $index = _options.index;
-      var $posX, $posY, $speed, $timer;
-
-      this.random = function () {
-        var $w = ($elementParent.hasClass('actived')) ? 100 : 40;
-        var $h = ($elementParent.hasClass('actived')) ? 100 : 40;
-
-        //$posX = this.getRandomMinMax( $w * -1 , $w * 1 );
-        //$posY = this.getRandomMinMax( $h * -1 , $h * 1 );
-        //$posX = this.getRandomMinMax( 20 , 100 );
-        //$posX = 0;
-        $posX = this.getRandomMinMax(20, 100);
-        $posY = this.getRandomMinMax(20, 100);
-        $posX = (Math.round(Math.random()) == 1) ? $posX * -1 : $posX * 1;
-        $posY = (Math.round(Math.random()) == 1) ? $posY * -1 : $posY * 1;
-        //$speed = parseFloat(Math.random() * ( 3 - 5 ) + 5).toFixed(2);
-        $speed = 5;
-        //$speed = ($elementParent.hasClass('actived')) ? parseFloat(Math.random() * ( 4 - 6 ) + 6).toFixed(2) : parseFloat(Math.random() * ( 2 - 4 ) + 4).toFixed(2);
-        //console.log('x : ' + $posX + '  y : ' + $posY + '  speed : ' + $speed);
-
-      };
-
-      this.start = function () {
-        //this.random();
-        //$posX = $posX * -1;
-        //$posY = $posY * -1;		
-        //console.log('-- start --');
-        //console.log('x : ' + $posX + '  y : ' + $posY + '  speed : ' + $speed);
-
-        $speed = 5;
-        /*
-        if($index == 0 ){
-          $posX = this.getRandomMinMax( 20 , 50 );
-          $posY = this.getRandomMinMax( 20 , 50 );	
-        }else if($index == 1){
-          $posX = this.getRandomMinMax( -20 , -50 );
-          $posY = this.getRandomMinMax( 20 , 50 );					
-        }else if($index == 2){
-          $posX = this.getRandomMinMax( -20 , -50 );
-          $posY = this.getRandomMinMax( -20 , -50 );						
-        };
-        */
-
-        $posX = 0;
-        $posY = -30;
-        //console.log('-- start --');
-        //console.log('x : ' + $posX + '  y : ' + $posY + '  speed : ' + $speed);
-
-
-
-        $element.css({ 'transform': 'translate(' + $posX + 'px , ' + $posY + 'px)', 'transition': 'transform ' + $speed + 's 0s cubic-bezier(0.550, 0.085, 0.680, 0.530)' });
-
-        $timer = setTimeout(function () {
-          _this.end();
-        }, $speed * 1000);
-      };
-
-      this.end = function () {
-        //this.random();
-        //$posX = $posX * -1;
-        //$posY = $posY * -1;				
-        //console.log('-- end --');
-        //console.log('x : ' + $posX + '  y : ' + $posY + '  speed : ' + $speed);
-        //console.log('-- end --');	
-
-        $posX = 0;
-        $posY = 30;
-        $element.css({ 'transform': 'translate(' + $posX + 'px , ' + $posY + 'px)', 'transition': 'transform ' + $speed + 's 0s cubic-bezier(0.250, 0.460, 0.450, 0.940)' });
-        $timer = setTimeout(function () {
-          _this.start();
-        }, $speed * 1000);
-      };
-
-      this.autoLoop = function () {
-        //console.log('auto loop');
-        //this.random();
-        this.start();
-      };
-
-      this.autoPlay = function () {
-        //console.log('auto play');
-        if ($timer) clearTimeout($timer);
-        this.autoLoop();
-      };
-
-      this.autoStop = function () {
-        //console.log('auto stop');			
-        if ($timer) clearTimeout($timer);
-
-        $element.css({ 'transform': 'translate(' + getTranslateValues($element[0]).x + 'px , ' + getTranslateValues($element[0]).y + 'px)', 'transition': 'none' });
-      };
-
-      this.getRandomMinMax = function (min, max) {
-        return (Math.random() * (max - min)) + min;
-      };
-
-      //this.reset();
-    }
-
-    return new obj(_options);
-
-  },
-
-  objAlign: function () {
-    var _this = this;
-    var _cur = this.cur;
-    //console.log('obj align cur :: ' + _cur);
-    this.container.find('.obj-group .obj').each(function () {
-      if (_cur == $(this).index()) {
-        $(this).addClass('actived');
-        if (_this.sequenceArr[$(this).index()]) {
-          if (_this.sequenceArr[$(this).index()].animationStats == 'stop') _this.sequenceArr[$(this).index()].play();
-
-        };
-        //_this.objArr[$(this).index()].autoPlay();
-      } else {
-        $(this).removeClass('actived');
-        if (_this.sequenceArr[$(this).index()]) _this.sequenceArr[$(this).index()].stop();
-        //_this.objArr[$(this).index()].autoStop();				
-      };
-    });
-  },
-
-  objPlay: function (_value) {
-    for (var i = 0; i < this.objArr.length; i++) {
-      //this.objArr[i].autoPlay();
-    };
-  },
-
-  objPause: function () {
-    for (var i = 0; i < this.objArr.length; i++) {
-      //	this.objArr[i].autoStop();			
-    };
-  },
-
-  objAllPause: function () {
-    //console.log('obj all pause');
-    for (var i = 0; i < this.objArr.length; i++) {
-      this.objArr[i].autoStop();
-    };
-  }
-
-};
-
 var mainPatent = {
 
   container: null,
@@ -2503,7 +2088,7 @@ var mainPatent = {
   }
 };
 
-var mainExperience = {
+var mainPrice = {
 
   container: null,
   swiperArr: [],
@@ -2511,65 +2096,9 @@ var mainExperience = {
 
   init: function () {
     var _this = this;
-    this.container = $('.main-experience');
+    this.container = $('.main-price');
 
-    $(document).on('click', '.main-experience .btn-tab-nav', function () {
-      _this.cur = $(this).index();
-      _this.sort();
-    });
-
-    this.container.find('.list-view .list-swiper').each(function () {
-      var swiper;
-      var $element = $(this);
-      if ($(this).find('.swiper-slide').length > 1) {
-        swiper = new Swiper($element.find('.swiper')[0], {
-          loop: false,
-          simulateTouch: true,
-          observeParents: true,
-          observeSlideChildren: true,
-          speed: 400,
-          navigation: {
-            nextEl: $element.find('.btn-swiper-slider-next')[0],
-            prevEl: $element.find('.btn-swiper-slider-prev')[0]
-          },
-          breakpoints: {
-            320: {
-              spaceBetween: 18
-            },
-            769: {
-              spaceBetween: 0
-            }
-          }
-        });
-      } else {
-        swiper = null;
-        $(this).addClass('none');
-      };
-
-      _this.swiperArr.push(swiper);
-    });
-
-
-    this.sort();
-  },
-  sort: function () {
-    if (this.swiperArr[this.cur]) this.swiperArr[this.cur].update();
-    this.container.find('.list-tab .btn-tab-nav').eq(this.cur).addClass('actived').siblings().removeClass('actived');
-    this.container.find('.list-view .list-cell').eq(this.cur).addClass('actived').siblings().removeClass('actived');
-  }
-};
-
-var mainAiCoswear = {
-
-  container: null,
-  swiperArr: [],
-  cur: 0,
-
-  init: function () {
-    var _this = this;
-    this.container = $('.main-ai-coswear');
-
-    $(document).on('click', '.main-ai-coswear .btn-tab-nav', function () {
+    $(document).on('click', '.main-price .btn-tab-nav', function () {
       _this.cur = $(this).index();
       _this.sort();
     });
@@ -2608,84 +2137,6 @@ var mainAiCoswear = {
   }
 };
 
-
-
-var mainModel = {
-
-  container: null,
-  swiperArr: [],
-  cur: 0,
-
-  init: function () {
-    var _this = this;
-    this.container = $('.main-model');
-
-    $(document).on('click', '.main-model .btn-tab-nav', function () {
-      _this.cur = $(this).index();
-      _this.sort();
-    });
-
-
-    this.resize();
-    this.sort();
-    window.addEventListener('resize', this.resize.bind(this));
-  },
-  sort: function () {
-    if (this.swiperArr[this.cur]) this.swiperArr[this.cur].update();
-    this.container.find('.list-tab .btn-tab-nav').eq(this.cur).addClass('actived').siblings().removeClass('actived');
-    this.container.find('.list-view .list-cell').eq(this.cur).addClass('actived').siblings().removeClass('actived');
-  },
-
-  resize: function () {
-    var _this = this;
-    var $slidesPerView = 3;
-
-    for (var i = 0; i < this.swiperArr.length; i++) {
-      if (this.swiperArr[i] != null) this.swiperArr[i].destroy(true, true), this.swiperArr[i] = null;
-    };
-    this.swiperArr.length = 0;
-
-
-    this.container.find('.list-view .list-swiper').each(function () {
-      var swiper;
-      var $element = $(this);
-      if ($(window).width() > 1024) {
-        $element.removeClass('actived');
-        if ($(this).find('.swiper-slide').length > $slidesPerView) {
-          swiper = new Swiper($element.find('.swiper')[0], {
-            loop: false,
-            simulateTouch: true,
-            observeParents: true,
-            observeSlideChildren: true,
-            slidesPerView: 'auto',
-            speed: 400,
-            navigation: {
-              nextEl: $element.find('.btn-swiper-slider-next')[0],
-              prevEl: $element.find('.btn-swiper-slider-prev')[0]
-            }
-          });
-          $(this).removeClass('none');
-        } else {
-          swiper = null;
-          $(this).addClass('none');
-        };
-
-        _this.swiperArr.push(swiper);
-      } else {
-        if ($(this).find('.swiper-slide').length > $slidesPerView) {
-          $(this).removeClass('none');
-        } else {
-          $(this).addClass('none');
-        };
-      };
-    });
-
-
-  },
-  listMore: function (obj) {
-    $(obj).parents('.list-cell').find('.list-swiper').addClass('actived');
-  }
-};
 
 function sequenceView(options) {
   var _this = this;
@@ -2906,7 +2357,6 @@ function video(options) {
   this.first = false;
   this.idx = options.idx;
 
-
   $video.onplay = function () {
     //console.log('intro video play');
     //console.log( _this.idx + ' video play');
@@ -3050,31 +2500,6 @@ function getTranslateValues(element) {
       z: 0
     }
   }
-
-  // Can either be 2d or 3d transform
-  const matrixType = matrix.includes('3d') ? '3d' : '2d'
-  const matrixValues = matrix.match(/matrix.*\((.+)\)/)[1].split(', ')
-
-  // 2d matrices have 6 values
-  // Last 2 values are X and Y.
-  // 2d matrices does not have Z value.
-  if (matrixType === '2d') {
-    return {
-      x: matrixValues[4],
-      y: matrixValues[5],
-      z: 0
-    }
-  }
-
-  // 3d matrices have 16 values
-  // The 13th, 14th, and 15th values are X, Y, and Z
-  if (matrixType === '3d') {
-    return {
-      x: matrixValues[12],
-      y: matrixValues[13],
-      z: matrixValues[14]
-    }
-  }
 };
 
 window.addEventListener('DOMContentLoaded', front.ready);
@@ -3083,7 +2508,6 @@ window.addEventListener('resize', front.resize);
 window.addEventListener('scroll', front.scroll);
 
 (function () {
-  include.init();
   front.init();
 })();
 
