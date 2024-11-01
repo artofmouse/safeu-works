@@ -1012,24 +1012,7 @@ var main = {
           .setPin($elementAI.find('.main-sticky')[0])
           .addTo(this.controller.pc);
 
-        this.scene.aiSticky.offset(0);
-        this.scene.aiSticky.duration($elementAI.height() - stageH);
 
-        // this.scene.aiVideo = new ScrollMagic.Scene({
-        //   triggerElement: $elementAI[0],
-        //   triggerHook: 1
-        // })
-        //   //.addIndicators({name: "aiVideo"})
-        //   .addTo(this.controller.pc);
-
-        // this.scene.aiVideo.offset(0);
-        // this.scene.aiVideo.duration($elementAI.height() + stageH);
-        // this.scene.aiVideo.on('enter', function () {
-        //   _this.videos.ai.play();
-        // });
-        // this.scene.aiVideo.on('leave', function () {
-        //   _this.videos.ai.stop();
-        // });
 
         this.scene.aiScene0 = new ScrollMagic.Scene({
           triggerElement: $elementAI[0],
@@ -1037,7 +1020,6 @@ var main = {
         })
           //.addIndicators({name: "aiVideo"})
           .addTo(this.controller.pc);
-
         this.scene.aiScene0.on('enter', function () {
           $elementAI.find('.title').addClass('actived');
           $elementAI.find('h2').addClass('actived');
@@ -1048,10 +1030,11 @@ var main = {
         });
 
 
+        //ai1 #################################################################################
+
         this.tweener.aiTweener1 = gsap.timeline({});
         this.tweener.aiTweener1.fromTo($elementAI.find('.title'), { alpha: 0 }, { alpha: 1, ease: Linear.easeNone }, 0);
         this.tweener.aiTweener1.fromTo($elementAI.find('.list-inner'), { x: '100vw' }, { x: '0vw', ease: Linear.easeNone }, 0);
-        //this.tweener.aiTweener1.fromTo($elementAI.find('.main-sticky-inner') , { y : '25vh' } , { y : '0vh' , ease:Linear.easeNone} , 0);
         this.scene.aiScene1 = new ScrollMagic.Scene({
           triggerElement: $elementAI[0],
           triggerHook: 1
@@ -1113,6 +1096,57 @@ var main = {
           if (event.state == 'AFTER') $elementAI.find('.list-item').eq(1).addClass('actived');
         });
 
+
+
+
+        //middle #################################################################################
+
+        console.log('elementAI');
+        this.scene.aiSticky.offset(0);
+        this.scene.aiSticky.duration($elementAI.height() - stageH);
+
+        this.tweener.ai2Tweener1 = gsap.timeline({});
+        this.tweener.ai2Tweener1.fromTo($elementAI.find('.data'), { y: '0vh' }, { y: '-100vh', ease: Linear.easeNone }, 0);
+        this.tweener.ai2Tweener1.fromTo($elementAI.find('.data2'), { y: '100vh' }, { y: '0vh', ease: Linear.easeNone }, 0);
+        this.scene.ai2Scene1 = new ScrollMagic.Scene({
+          triggerElement: $elementAI[0],
+          triggerHook: 0
+        })
+          //.addIndicators({name: "ai2Scene1 1"})
+          .addTo(this.controller.pc);
+
+        this.scene.ai2Scene1.offset(stageH * 2);
+        this.scene.ai2Scene1.duration(stageH * 1);
+        this.scene.ai2Scene1.setTween(this.tweener.ai2Tweener1);
+
+
+        //ai2 #################################################################################
+
+        this.tweener.aiTweener1_2 = gsap.timeline({});
+        this.tweener.aiTweener1_2.fromTo($elementAI.find('.title'), { alpha: 0 }, { alpha: 1, ease: Linear.easeNone }, 0);
+        this.tweener.aiTweener1_2.fromTo($elementAI.find('.list-inner2'), { x: '100vw' }, { x: '0vw', ease: Linear.easeNone }, 0);
+        this.scene.aiScene1_2 = new ScrollMagic.Scene({
+          triggerElement: $elementAI[0],
+          triggerHook: 1
+        })
+          //.addIndicators({name: "headlineScene 1"})
+          .addTo(this.controller.pc);
+
+        this.scene.aiScene1_2.offset(stageH * 0);
+        this.scene.aiScene1_2.duration(stageH * 1);
+        this.scene.aiScene1_2.setTween(this.tweener.aiTweener1_2);
+
+        var aiCardWidth2 = 0;
+        if (stageW > 1440) {
+          aiCardWidth2 = 80;
+        } else {
+          aiCardWidth2 = 60;
+        };
+
+
+
+
+
         this.scene.aiHeader = new ScrollMagic.Scene({
           triggerElement: $elementAI[0],
           triggerHook: 0
@@ -1141,7 +1175,7 @@ var main = {
       };
       /* ====================================================
       ======================================================
-      // ai coswear
+      // Price
       ====================================================
       ====================================================*/
       if ($elementPrice) {
@@ -1165,7 +1199,7 @@ var main = {
 
         this.tweener.priceTweener1 = gsap.timeline({});
         this.tweener.priceTweener1.fromTo($elementPrice.find('.inner-bottom em'), { alpha: '0' }, { alpha: '1', ease: Linear.easeNone }, 0);
-        this.tweener.priceTweener1.fromTo($elementPrice.find('.inner-bottom em'), { y: '200px' }, { y: '0', ease: Linear.easeNone }, 0);
+        this.tweener.priceTweener1.fromTo($elementPrice.find('.inner-bottom em'), { y: '30px' }, { y: '0', ease: Linear.easeNone }, 0);
         this.scene.priceScene1 = new ScrollMagic.Scene({
           triggerElement: $elementPrice[0],
           triggerHook: 1
