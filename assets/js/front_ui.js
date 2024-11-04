@@ -28,7 +28,7 @@ var front = {
     front.stage.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     front.stage.top = window.scrollTop || document.documentElement.scrollTop || document.body.scrollTop;
     front.common.resize();
-    // console.log('resize');
+    console.log('resize');
   },
   scroll: function () {
     front.stage.top = window.scrollTop || document.documentElement.scrollTop || document.body.scrollTop;
@@ -168,9 +168,6 @@ var front = {
     scroll: function () {
       var _this = this;
 
-
-
-      //�ㅻ뜑 �곸뿭 �ㅽ겕濡� 媛먯� �대깽��
       if (_this.header) {
         var _posY = 1;
 
@@ -211,7 +208,6 @@ var front = {
         };
       };
 
-      //�섏씠吏� �섎떒 怨좎젙 踰꾪듉 �대깽��
       if ($('#page-ui').length > 0) {
         if (front.stage.top >= 100) {
           if (!front.btnTopFlag) {
@@ -340,7 +336,6 @@ var front = {
   },
 
   pop: {
-
     toastPopElement: null,
     toastPopActive: false,
     toastPopTimer: null,
@@ -491,7 +486,6 @@ var front = {
   }
 };
 
-// �щ씪�대뱶�� �댄럺��
 var effectData = {
 
   controller: null,
@@ -521,9 +515,7 @@ var effectData = {
   }
 };
 
-// 硫붿씤
 var main = {
-
   stage: { width: 0, height: 0 },
   controller: { pc: null, mobile: null },
   container: null,
@@ -549,9 +541,6 @@ var main = {
 
     this.pageScrollerStatus = ($(window).width() > 1024) ? true : false;
     this.deviceStatus = ($(window).width() > 1024) ? 'pc' : 'mobile';
-
-
-    //$('html ,body').css({ 'width' : '100%' , 'height' : ' 100%' , 'overflow' : 'hidden' });		
 
     if ($('#dFoot').length > 0) {
       this.container.append($('#dFoot'));
@@ -625,8 +614,6 @@ var main = {
   },
   introStart: function () {
     var _this = this;
-
-
     _this.resize();
     _this.container.addClass('actived');
   },
@@ -645,29 +632,24 @@ var main = {
 
   resize: function () {
     var _this = this;
-
-    //this.pageScroller.destroy();
-    //console.log(this.pageScroller)
     var pW = this.stage.width;
     var pH = this.stage.height;
     var stageW = $(window).outerWidth();
     var stageH = $(window).outerHeight();
     this.stage.width = $(window).outerWidth();
     this.stage.height = $(window).outerHeight();
-    //var stageW = this.container.height();
-    //var stageH = this.container.height();		
     document.documentElement.style.setProperty("--vh", (stageH + 'px'));
-    //console.log('stage Width :: ' + stageW + '   stage Height :: ' + stageH);
-    //$('#trace').append('<div>' + stageH + '</div>').height($(window).outerHeight());
-
     var $elementHeadline = ($('.main-headline').length > 0) ? $('.main-headline') : null;
     var $elementTechnology = ($('.main-technology').length > 0) ? $('.main-technology') : null;
     var $elementAI = ($('.main-ai').length > 0) ? $('.main-ai') : null;
     var $elementPrice = ($('.main-price').length > 0) ? $('.main-price') : null;
     var $elementPatent = ($('.main-patent').length > 0) ? $('.main-patent') : null;
+    var $elementIndicator = ($('.indicator').length > 0) ? $('.indicator') : null;
 
 
     gsap.config({ force3D: false })
+
+
 
     if (stageW > 1024) {
       this.sceneReset();
@@ -685,11 +667,10 @@ var main = {
           _this.pageScroller.contentEl.setAttribute('style', 'transform:none;left:0;top:' + status.offset.y * -1 + 'px;');
           for (var scene in _this.scene) {
             if (_this.scene[scene]) {
-              //console.log(scene , _this.scene[scene]);	
+              // console.log(scene, _this.scene[scene]);
               _this.scene[scene].refresh();
             };
           };
-
           if (front.common.header) {
             var _posY = 1;
 
@@ -761,6 +742,7 @@ var main = {
         });
 
       };
+
       /* ====================================================
       ======================================================
       // headline
@@ -779,9 +761,11 @@ var main = {
         this.scene.headlineSticky.duration($elementHeadline.height());
         this.scene.headlineSticky.on('enter', function () {
           $elementHeadline.addClass('actived');
+          $elementHeadline.find('.bg').addClass('actived');
         });
         this.scene.headlineSticky.on('leave', function () {
           $elementHeadline.removeClass('actived');
+          $elementHeadline.find('.bg').removeClass('actived');
         });
 
         console.log('headline');
@@ -828,12 +812,6 @@ var main = {
 
         this.scene.headlineVideo.offset(0);
         this.scene.headlineVideo.duration($elementHeadline.height() - stageH);
-        this.scene.headlineVideo.on('enter', function () {
-          _this.videos.headline.play();
-        });
-        this.scene.headlineVideo.on('leave', function () {
-          _this.videos.headline.stop();
-        });
 
         this.scene.headlineHeader1 = new ScrollMagic.Scene({
           triggerElement: $elementHeadline[0],
@@ -1023,10 +1001,12 @@ var main = {
         this.scene.aiScene0.on('enter', function () {
           $elementAI.find('.title').addClass('actived');
           $elementAI.find('h2').addClass('actived');
+          $('.bottom-floating').addClass('actived');
         });
         this.scene.aiScene0.on('leave', function () {
           $elementAI.find('.title').removeClass('actived');
           $elementAI.find('h2').removeClass('actived');
+          $('.bottom-floating').removeClass('actived');
         });
 
 
@@ -1097,7 +1077,28 @@ var main = {
         });
 
 
+        //ai2 #################################################################################
 
+        this.tweener.aiTweener1_2 = gsap.timeline({});
+        this.tweener.aiTweener1_2.fromTo($elementAI.find('.title.data2-tl'), { alpha: 0 }, { alpha: 1, ease: Linear.easeNone }, 0);
+        this.tweener.aiTweener1_2.fromTo($elementAI.find('.list-inner2'), { x: '100vw' }, { x: '0vw', ease: Linear.easeNone }, 0);
+        this.scene.aiScene1_2 = new ScrollMagic.Scene({
+          triggerElement: $elementAI[0],
+          triggerHook: 1
+        })
+          //.addIndicators({name: "headlineScene 1"})
+          .addTo(this.controller.pc);
+
+        this.scene.aiScene1_2.offset(stageH * 0);
+        this.scene.aiScene1_2.duration(stageH * 1);
+        this.scene.aiScene1_2.setTween(this.tweener.aiTweener1_2);
+
+        var aiCardWidth_2 = 0;
+        if (stageW > 1440) {
+          aiCardWidth_2 = 80;
+        } else {
+          aiCardWidth_2 = 60;
+        };
 
         //middle #################################################################################
 
@@ -1120,28 +1121,36 @@ var main = {
         this.scene.ai2Scene1.setTween(this.tweener.ai2Tweener1);
 
 
-        //ai2 #################################################################################
 
-        this.tweener.aiTweener1_2 = gsap.timeline({});
-        this.tweener.aiTweener1_2.fromTo($elementAI.find('.title'), { alpha: 0 }, { alpha: 1, ease: Linear.easeNone }, 0);
-        this.tweener.aiTweener1_2.fromTo($elementAI.find('.list-inner2'), { x: '100vw' }, { x: '0vw', ease: Linear.easeNone }, 0);
-        this.scene.aiScene1_2 = new ScrollMagic.Scene({
-          triggerElement: $elementAI[0],
-          triggerHook: 1
-        })
-          //.addIndicators({name: "headlineScene 1"})
-          .addTo(this.controller.pc);
+        // this.tweener.aiTweener2_2 = gsap.timeline({});
+        // this.tweener.aiTweener2_2.fromTo($elementAI.find('.data2 > .list-item').eq(1), { width: $elementAI.find('.data2 > .list-item:eq(1) .item-inner').innerWidth() }, { width: aiCardWidth_2, ease: Linear.easeNone }, 0);
+        // this.scene.aiScene2_2 = new ScrollMagic.Scene({
+        //   triggerElement: $elementAI[0],
+        //   triggerHook: 0
+        // })
+        //   //.addIndicators({name: "headlineScene 1"})
+        //   .addTo(this.controller.pc);
 
-        this.scene.aiScene1_2.offset(stageH * 0);
-        this.scene.aiScene1_2.duration(stageH * 1);
-        this.scene.aiScene1_2.setTween(this.tweener.aiTweener1_2);
+        // this.scene.aiScene2_2.on('enter', function () {
+        //   $elementAI.find('.data2 >.list-item').eq(0).removeClass('actived');
+        // });
+        // this.scene.aiScene2_2.on('leave', function (event) {
+        //   //console.log(event.state);
+        //   if (event.state == 'AFTER') $elementAI.find('.data2 >.list-item').eq(0).addClass('actived');
+        // });
 
-        var aiCardWidth2 = 0;
-        if (stageW > 1440) {
-          aiCardWidth2 = 80;
-        } else {
-          aiCardWidth2 = 60;
-        };
+
+        // this.scene.aiScene2_2.offset(stageH * 0.25);
+        // this.scene.aiScene2_2.duration(stageH * 0.7);
+        // this.scene.aiScene2_2.setTween(this.tweener.aiTweener2_2);
+
+        // this.scene.aiScene2_2.on('enter', function () {
+        //   $elementAI.find('.data2 >.list-item').eq(1).removeClass('actived');
+        // });
+        // this.scene.aiScene2_2.on('leave', function (event) {
+        //   //console.log(event.state);
+        //   if (event.state == 'AFTER') $elementAI.find('.data2 > .list-item').eq(1).addClass('actived');
+        // });
 
 
 
@@ -1192,6 +1201,7 @@ var main = {
         this.scene.priceSticky.on('enter', function () {
           $('#dHead').removeClass('white');
           $elementPrice.find('h2').addClass('actived');
+          $('.bottom-floating').addClass('actived');
         });
         this.scene.priceSticky.on('leave', function () {
           $elementPrice.find('h2').removeClass('actived');
@@ -1267,9 +1277,11 @@ var main = {
         this.scene.patentSticky.duration($elementPatent.height() - stageH);
         this.scene.patentSticky.on('enter', function () {
           $elementPatent.find('h2').addClass('actived');
+          $('.bottom-floating').addClass('actived');
         });
         this.scene.patentSticky.on('leave', function () {
           $elementPatent.find('h2').removeClass('actived');
+          $('.bottom-floating').removeClass('actived');
         });
 
         this.tweener.patentTweener1 = gsap.timeline({});
@@ -1387,9 +1399,12 @@ var main = {
           this.scene.headlineSticky.duration($elementHeadline.height());
           this.scene.headlineSticky.on('enter', function () {
             $elementHeadline.addClass('actived');
+            $elementHeadline.find('.bg').addClass('actived');
           });
+
           this.scene.headlineSticky.on('leave', function () {
             $elementHeadline.removeClass('actived');
+            $elementHeadline.find('.bg').removeClass('actived');
           });
 
           this.tweener.headlineTweener1 = gsap.timeline({});
@@ -1440,23 +1455,6 @@ var main = {
             if (event.state == 'BEFORE') $elementHeadline.find('.footnote-desc').removeClass('actived');
           });
 
-
-          this.scene.headlineVideo = new ScrollMagic.Scene({
-            triggerElement: $elementHeadline[0],
-            triggerHook: 0
-          })
-            //.addIndicators({name: "headlineVideo"})
-            .addTo(this.controller.mobile);
-
-          this.scene.headlineVideo.offset(0);
-          this.scene.headlineVideo.duration($elementHeadline.height() - stageH);
-          this.scene.headlineVideo.on('enter', function () {
-            cube.play();
-          });
-          this.scene.headlineVideo.on('leave', function () {
-            cube.pause();
-          });
-
           this.scene.headlineHeader = new ScrollMagic.Scene({
             triggerElement: $elementHeadline[0],
             triggerHook: 0
@@ -1487,6 +1485,187 @@ var main = {
           });
           this.scene.headlineTop.on('leave', function (event) {
             if (event.state == 'BEFORE') $('#page-ui').removeClass('white');
+          });
+        };
+        /* ====================================================
+        ======================================================
+        // Technology
+        ====================================================
+        ====================================================*/
+        if ($elementTechnology) {
+
+          // 1번라인
+          this.tweener.technologyTweener1 = gsap.timeline({});
+          var i = 0;
+          _this.tweener.technologyTweener1.fromTo($elementTechnology.find('.sentence-1 .char-line'), { display: 'none' }, { display: 'block' }, i);
+          $elementTechnology.find('.sentence-1 .char-words > .char-parent').each(function () {
+            var $element = $(this);
+            var $word = $(this).find('.char-child');
+            _this.tweener.technologyTweener1.fromTo($element, { display: 'none' }, { display: 'block' }, i);
+            _this.tweener.technologyTweener1.fromTo($word, { alpha: 0 }, { alpha: 1, ease: Linear.easeNone }, i);
+            i++;
+          });
+          _this.tweener.technologyTweener1.fromTo($elementTechnology.find('.sentence-1 .char-line'), { display: 'block' }, { display: 'none' }, i);
+
+          this.scene.technologyScene1 = new ScrollMagic.Scene({
+            triggerElement: $elementTechnology[0],
+            triggerHook: 0.5
+          })
+            //.addIndicators({name: "headlineScene 1"})
+            .addTo(this.controller.mobile);
+
+          this.scene.technologyScene1.offset(stageH * 0);
+          this.scene.technologyScene1.duration(stageH * 1);
+          this.scene.technologyScene1.setTween(this.tweener.technologyTweener1);
+
+
+          // 2번라인
+          this.tweener.technologyTweener2 = gsap.timeline({});
+          var i = 0;
+          _this.tweener.technologyTweener2.fromTo($elementTechnology.find('.sentence-2 .char-line'), { display: 'none' }, { display: 'block' }, i);
+          $elementTechnology.find('.sentence-2 .char-words > .char-parent').each(function () {
+            var $element = $(this);
+            var $word = $(this).find('.char-child');
+            _this.tweener.technologyTweener2.fromTo($element, { display: 'none' }, { display: 'block', ease: Linear.easeNone }, i);
+            _this.tweener.technologyTweener2.fromTo($word, { alpha: 0 }, { alpha: 1 }, i);
+            i++;
+          });
+          _this.tweener.technologyTweener2.fromTo($elementTechnology.find('.sentence-2 .char-line'), { display: 'block' }, { display: 'none' }, i);
+
+          this.scene.technologyScene2 = new ScrollMagic.Scene({
+            triggerElement: $elementTechnology[0],
+            triggerHook: 0.5
+          })
+            //.addIndicators({name: "headlineScene 1"})
+            .addTo(this.controller.mobile);
+
+          this.scene.technologyScene2.offset(stageH * 0.5);
+          this.scene.technologyScene2.duration(stageH * 1);
+          this.scene.technologyScene2.setTween(this.tweener.technologyTweener2);
+
+
+
+          // 3번라인
+          this.tweener.technologyTweener1_2 = gsap.timeline({});
+          var i = 0;
+          _this.tweener.technologyTweener1_2.fromTo($elementTechnology.find('.sentence-3 .char-line'), { display: 'none' }, { display: 'block' }, i);
+          $elementTechnology.find('.sentence-3 .char-words > .char-parent').each(function () {
+            var $element = $(this);
+            var $word = $(this).find('.char-child');
+            _this.tweener.technologyTweener1_2.fromTo($element, { display: 'none' }, { display: 'block' }, i);
+            _this.tweener.technologyTweener1_2.fromTo($word, { alpha: 0 }, { alpha: 1, ease: Linear.easeNone }, i);
+            i++;
+          });
+          _this.tweener.technologyTweener1_2.fromTo($elementTechnology.find('.sentence-3 .char-line'), { display: 'block' }, { display: 'none' }, i);
+
+          this.scene.technologyScene1_2 = new ScrollMagic.Scene({
+            triggerElement: $elementTechnology[0],
+            triggerHook: 0.5
+          })
+            //.addIndicators({name: "headlineScene 1"})
+            .addTo(this.controller.mobile);
+
+          this.scene.technologyScene1_2.offset(stageH * 1.2);
+          this.scene.technologyScene1_2.duration(stageH * 1);
+          this.scene.technologyScene1_2.setTween(this.tweener.technologyTweener1_2);
+
+
+
+          // 4번라인
+          this.tweener.technologyTweener2_2 = gsap.timeline({});
+          var i = 0;
+          _this.tweener.technologyTweener2_2.fromTo($elementTechnology.find('.sentence-4 .char-line'), { display: 'none' }, { display: 'block' }, i);
+          $elementTechnology.find('.sentence-4 .char-words > .char-parent').each(function () {
+            var $element = $(this);
+            var $word = $(this).find('.char-child');
+            _this.tweener.technologyTweener2_2.fromTo($element, { display: 'none' }, { display: 'block', ease: Linear.easeNone }, i);
+            _this.tweener.technologyTweener2_2.fromTo($word, { alpha: 0 }, { alpha: 1 }, i);
+            i++;
+          });
+          _this.tweener.technologyTweener2_2.fromTo($elementTechnology.find('.sentence-4 .char-line'), { display: 'block' }, { display: 'none' }, i);
+
+          this.scene.technologyScene2_2 = new ScrollMagic.Scene({
+            triggerElement: $elementTechnology[0],
+            triggerHook: 0.5
+          })
+            //.addIndicators({name: "headlineScene 1"})
+            .addTo(this.controller.mobile);
+
+          this.scene.technologyScene2_2.offset(stageH * 1.8);
+          this.scene.technologyScene2_2.duration(stageH * 1);
+          this.scene.technologyScene2_2.setTween(this.tweener.technologyTweener2_2);
+
+          // 5번라인
+          this.tweener.technologyTweener2_3 = gsap.timeline({});
+          var i = 0;
+          _this.tweener.technologyTweener2_3.fromTo($elementTechnology.find('.sentence-5 .char-line'), { display: 'none' }, { display: 'block' }, i);
+          $elementTechnology.find('.sentence-5 .char-words > .char-parent').each(function () {
+            var $element = $(this);
+            var $word = $(this).find('.char-child');
+            _this.tweener.technologyTweener2_3.fromTo($element, { display: 'none' }, { display: 'block', ease: Linear.easeNone }, i);
+            _this.tweener.technologyTweener2_3.fromTo($word, { alpha: 0 }, { alpha: 1 }, i);
+            i++;
+          });
+          _this.tweener.technologyTweener2_3.fromTo($elementTechnology.find('.sentence-5 .char-line'), { display: 'block' }, { display: 'none' }, i);
+
+          this.scene.technologyScene2_3 = new ScrollMagic.Scene({
+            triggerElement: $elementTechnology[0],
+            triggerHook: 0.5
+          })
+            //.addIndicators({name: "headlineScene 1"})
+            .addTo(this.controller.mobile);
+
+          this.scene.technologyScene2_3.offset(stageH * 3);
+          this.scene.technologyScene2_3.duration(stageH * 1);
+          this.scene.technologyScene2_3.setTween(this.tweener.technologyTweener2_3);
+
+
+
+          this.scene.technologyScene3 = new ScrollMagic.Scene({
+            triggerElement: $elementTechnology[0],
+            triggerHook: 1
+          })
+            //.addIndicators({name: "headlineScene 1"})
+            .addTo(this.controller.mobile);
+
+          gsap.set($elementTechnology.find('.desc'), { y: 40, alpha: 0 });
+          gsap.set($elementTechnology.find('.btns'), { y: 40, alpha: 0 });
+
+          this.scene.technologyScene3.offset(stageH * 3);
+          this.scene.technologyScene3.on('enter', function () {
+            gsap.to($elementTechnology.find('.desc'), { delay: 0, duration: 0.7, y: 0, alpha: 1, ease: Back.easeOut });
+            gsap.to($elementTechnology.find('.btns'), { delay: 0.1, duration: 0.7, y: 0, alpha: 1, ease: Back.easeOut });
+          });
+
+          this.scene.technologyScene3.on('leave', function () {
+            gsap.to($elementTechnology.find('.desc'), { delay: 0, duration: 0.7, y: 40, alpha: 0, ease: Back.easeOut });
+            gsap.to($elementTechnology.find('.btns'), { delay: 0, duration: 0.7, y: 40, alpha: 0, ease: Back.easeOut });
+          });
+
+          this.scene.technologyHeader = new ScrollMagic.Scene({
+            triggerElement: $elementTechnology[0],
+            triggerHook: 0
+          })
+            //.addIndicators({name: "technologyHeader"})
+            .addTo(this.controller.mobile);
+
+          this.scene.technologyHeader.offset(stageH * 0);
+          this.scene.technologyHeader.duration($elementTechnology.height());
+          this.scene.technologyHeader.on('enter', function () {
+            $('#dHead').removeClass('white');
+          });
+
+          this.scene.technologyTop = new ScrollMagic.Scene({
+            triggerElement: $elementTechnology[0],
+            triggerHook: 1
+          })
+            //.addIndicators({name: "technologyTop"})
+            .addTo(this.controller.mobile);
+
+          this.scene.technologyTop.offset(stageH * 0);
+          this.scene.technologyTop.duration($elementTechnology.height());
+          this.scene.technologyTop.on('enter', function () {
+            $('#page-ui').removeClass('white');
           });
         };
         /* ====================================================
@@ -1571,105 +1750,6 @@ var main = {
           this.scene.aiTop.duration($elementAI.height());
           this.scene.aiTop.on('enter', function () {
             $('#page-ui').addClass('white');
-          });
-        };
-        /* ====================================================
-        ======================================================
-        // Technology
-        ====================================================
-        ====================================================*/
-        if ($elementTechnology) {
-          this.tweener.technologyTweener1 = gsap.timeline({});
-          var i = 0;
-          _this.tweener.technologyTweener1.fromTo($elementTechnology.find('.sentence-1 .char-line'), { display: 'none' }, { display: 'block' }, i);
-          $elementTechnology.find('.sentence-1 .char-words > .char-parent').each(function () {
-            var $element = $(this);
-            var $word = $(this).find('.char-child');
-            _this.tweener.technologyTweener1.fromTo($element, { display: 'none' }, { display: 'block' }, i);
-            _this.tweener.technologyTweener1.fromTo($word, { alpha: 0 }, { alpha: 1, ease: Linear.easeNone }, i);
-            i++;
-          });
-          _this.tweener.technologyTweener1.fromTo($elementTechnology.find('.sentence-1 .char-line'), { display: 'block' }, { display: 'none' }, i);
-
-          this.scene.technologyScene1 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
-            //.addIndicators({name: "headlineScene 1"})
-            .addTo(this.controller.mobile);
-
-          this.scene.technologyScene1.offset(stageH * 0);
-          this.scene.technologyScene1.duration(stageH * 1);
-          this.scene.technologyScene1.setTween(this.tweener.technologyTweener1);
-
-          this.tweener.technologyTweener2 = gsap.timeline({});
-          var i = 0;
-          _this.tweener.technologyTweener2.fromTo($elementTechnology.find('.sentence-2 .char-line'), { display: 'none' }, { display: 'block' }, i);
-          $elementTechnology.find('.sentence-2 .char-words > .char-parent').each(function () {
-            var $element = $(this);
-            var $word = $(this).find('.char-child');
-            _this.tweener.technologyTweener2.fromTo($element, { display: 'none' }, { display: 'block', ease: Linear.easeNone }, i);
-            _this.tweener.technologyTweener2.fromTo($word, { alpha: 0 }, { alpha: 1 }, i);
-            i++;
-          });
-          _this.tweener.technologyTweener2.fromTo($elementTechnology.find('.sentence-2 .char-line'), { display: 'block' }, { display: 'none' }, i);
-
-          this.scene.technologyScene2 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
-            //.addIndicators({name: "headlineScene 1"})
-            .addTo(this.controller.mobile);
-
-          this.scene.technologyScene2.offset(stageH * 1);
-          this.scene.technologyScene2.duration(stageH * 1);
-          this.scene.technologyScene2.setTween(this.tweener.technologyTweener2);
-
-          this.scene.technologyScene3 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
-            //.addIndicators({name: "headlineScene 1"})
-            .addTo(this.controller.mobile);
-
-          gsap.set($elementTechnology.find('.desc'), { y: 40, alpha: 0 });
-          gsap.set($elementTechnology.find('.btns'), { y: 40, alpha: 0 });
-
-          this.scene.technologyScene3.offset(stageH * 2.0);
-          this.scene.technologyScene3.on('enter', function () {
-            gsap.to($elementTechnology.find('.desc'), { delay: 0, duration: 0.6, y: 0, alpha: 1, ease: Back.easeOut });
-            gsap.to($elementTechnology.find('.btns'), { delay: 0.1, duration: 0.6, y: 0, alpha: 1, ease: Back.easeOut });
-          });
-
-          this.scene.technologyScene3.on('leave', function () {
-            gsap.to($elementTechnology.find('.desc'), { delay: 0, duration: 0.6, y: 40, alpha: 0, ease: Back.easeOut });
-            gsap.to($elementTechnology.find('.btns'), { delay: 0, duration: 0.6, y: 40, alpha: 0, ease: Back.easeOut });
-          });
-
-          this.scene.technologyHeader = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0
-          })
-            //.addIndicators({name: "technologyHeader"})
-            .addTo(this.controller.mobile);
-
-          this.scene.technologyHeader.offset(stageH * 0);
-          this.scene.technologyHeader.duration($elementTechnology.height());
-          this.scene.technologyHeader.on('enter', function () {
-            $('#dHead').removeClass('white');
-          });
-
-          this.scene.technologyTop = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 1
-          })
-            //.addIndicators({name: "technologyTop"})
-            .addTo(this.controller.mobile);
-
-          this.scene.technologyTop.offset(stageH * 0);
-          this.scene.technologyTop.duration($elementTechnology.height());
-          this.scene.technologyTop.on('enter', function () {
-            $('#page-ui').removeClass('white');
           });
         };
         /* ====================================================
@@ -1878,7 +1958,6 @@ var $WINDOW = {
 
     return (w1 - w2);
   },
-  // 留곹겕 �뚮씪硫뷀� 媛� 媛��몄삤湲�
   // $WINDOW.getParameter(value);
   getParameter: function (key) {
     var url = location.href;
@@ -1906,23 +1985,19 @@ var $WINDOW = {
     }
     return value;
   },
-  // 留곹겕 �댁떆�쒓렇 媛��몄삤湲�
   // $WINDOW.getHash();
   getHash: function () {
     var url = window.location.href;
     return url.substring(url.indexOf('#') + 1);
   },
-  // 紐⑤컮�� �щ� 泥댄겕
   // $WINDOW.isMobile();
   isMobile: function () {
     return (navigator.userAgent.match(/iPhone|iPad|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || navigator.userAgent.match(/LG|SAMSUNG|Samsung/) != null);
   },
-  // �꾩씠�⑤뱶 �꾨줈 泥댄겕
   // $WINDOW.isIpadPro();
   isIpadPro: function () {
     return (/iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) && !window.MSStream;
   },
-  // �듭뒪 援щ쾭�� 泥댄겕
   // $WINDOW.isIE();
   isIE: function () {
     return (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (navigator.userAgent.toLowerCase().indexOf('msie') != -1);
@@ -1930,7 +2005,6 @@ var $WINDOW = {
 };
 
 var $DOM = {
-  // �섎━癒쇳듃 �붿냼 �뺤씤
   //	$DOM.element( Dom Element )
   element: function (_el) {
     if (_el) {
@@ -1943,22 +2017,18 @@ var $DOM = {
       console.log('Not Element');
     };
   },
-  // �대옒�� 異붽�
   //	$DOM.addClass( Dom Element , Target Class )
   addClass: function (_el, _class) {
     $DOM.element(_el).classList.add(_class);
   },
-  // �대옒�� 媛먯�
   //	$DOM.hasClass( Dom Element , Target Class )
   hasClass: function (_el, _class) {
     return $DOM.element(_el).classList.contains(_class);
   },
-  // �대옒�� ��젣
   //	$DOM.removeClass( Dom Element , Target Class )
   removeClass: function (_el, _class) {
     $DOM.element(_el).classList.remove(_class);
   },
-  // �곸쐞 �대옒�� 李얘린
   //	$DOM.closest( Dom Element , + Target Class )
   closest: function (_el, _selector) {
     var el = $DOM.element(_el);
@@ -1973,7 +2043,6 @@ var $DOM = {
     }
     return null;
   },
-  // �곸쐞 �대옒�� �꾩껜 李얘린
   //	$DOM.closestAll( Dom Element , + Target Class ) return array;
   closestAll: function (_el, _selector) {
     var arr = [];
@@ -1987,7 +2056,6 @@ var $DOM = {
     return arr;
 
   },
-  // 媛숈� �곸뒪�� �ㅻⅨ �섎━癒쇳듃 李얘린
   // $DOM.siblings( DOM Element , Target Class )
   siblings: function (_el, _selector) {
     var el = $DOM.element(_el);
@@ -1999,7 +2067,6 @@ var $DOM = {
       };
     });
   },
-  // 諛붾줈 �꾨옒 �먯떇 �섎━癒쇳듃�� 李얘린
   child: function (_el, _selector) {
     var el = $DOM.element(_el);
     if (el.children.length > 0) {
@@ -2014,53 +2081,43 @@ var $DOM = {
       console.log('Not Element');
     };
   },
-  // 媛숈� �곸뒪�� �ㅼ쓬 �섎━癒쇳듃 李얘린
   // $DOM.next( DOM Element )
   next: function (_el) {
     return $DOM.element(_el).nextElementSibling;
   },
-  // 媛숈� �곸뒪�� �댁쟾 �섎━癒쇳듃 李얘린
   // $DOM.prev( DOM Element )
   prev: function (_el) {
     return $DOM.element(_el).previousElementSibling;
   },
-  // 遺�紐� �섎━癒쇳듃 李얘린
   // $DOM.parent( DOM Element )
   parent: function (_el) {
     return $DOM.element(_el).parentNode;
   },
-  // attribute 媛� 媛��몄삤湲�
   // $DOM.getAttr( Dom Element , Attribute Name )
   getAttr: function (_el, _attr) {
     return $DOM.element(_el).getAttribute(_attr);
   },
-  // attribute 媛� �ㅼ젙�섍린
   // $DOM.setAttr( Dom Element , Attribute Name , Value )
   setAttr: function (_el, _attr, _value) {
     $DOM.element(_el).setAttribute(_attr, _value);
   },
-  // attribute 媛� �뺤씤�섍린
   // $DOM.hasAttr( Dom Element , Attribute Name )
   hasAttr: function (_el, _attr) {
     return $DOM.element(_el).hasAttribute(_attr);
   },
-  // Element �몃뜳�ㅺ컪 媛��몄삤湲�
   // $DOM.index( Dom Element )
   getIndex: function (_el) {
     return Array.prototype.slice.call($DOM.element(_el).parentElement.children).indexOf($DOM.element(_el));
   },
-  // Element Html 媛� 媛��몄삤湲�
   // $DOM.getHtml( Dom Element )
   getHtml: function (_el) {
     return $DOM.element(_el).innerHTML;
   },
-  // Element Html 媛� �ㅼ젙�섍린
   // $DOM.setHtml( Dom Element , Html Text )
   // DOM TREE RESET
   setHtml: function (_el, _html) {
     $DOM.element(_el).innerHTML = _html;
   },
-  // Element Html 媛� �ㅼ젙�섍린
   // $DOM.setAdjacentHtml( Dom Element , Position , Html Text )
   // <!-- beforebegin -->
   // <body>
@@ -2106,19 +2163,16 @@ var mainPatent = {
       });
       if (this.cur == this.len - 1) this.container.addClass('complete').find('.btn-ui').hide();
       this.cur++;
-
     };
-
-
   },
 
   reset: function () {
     this.cur = 1;
-    this.container.find('.list-cell').each(function () {
-      $(this).attr('style', '');
-      $(this).find('.list-items').attr('style', '');
-    });
-    this.container.find('.btn-ui').show();
+    // this.container.find('.list-cell').each(function () {
+    //   $(this).attr('style', '');
+    //   $(this).find('.list-items').attr('style', '');
+    // });
+    // this.container.find('.btn-ui').show();
   }
 };
 
@@ -2313,19 +2367,12 @@ function sequenceView(options) {
     if (this.elapsed > this.fps) {
 
       this.then = this.now - (this.elapsed % this.fps);
-
-      //	var sinceStart = this.now - this.startTime;
-      //var currentFps = Math.round(1000 / (sinceStart / ++this.fpsCount) * 100) / 100;
-      //console.log("Elapsed time= " + Math.round(sinceStart / 1000 * 100) / 100 + " secs @ " + currentFps + " fps.");					
-      //$('#trace').html("Elapsed time= " + Math.round(sinceStart / 1000 * 100) / 100 + " secs @ " + currentFps + " fps.");			
       this.animationCur = (this.animationCur >= this.frameTotal - 1) ? 0 : this.animationCur = this.animationCur + 1;
       this.draw(this.animationCur);
-      //$('#trace').html('cur :: ' + this.animationCur + '  len :: ' + this.frameTotal );			
     };
   };
 
   this.play = function () {
-    //console.log('---- animation play --- ');		
     if (!this.animationFrameStats) {
       var _this = this;
       this.animationStats = 'play';
@@ -2391,134 +2438,134 @@ function video(options) {
   this.first = false;
   this.idx = options.idx;
 
-  $video.onplay = function () {
-    //console.log('intro video play');
-    //console.log( _this.idx + ' video play');
-    if ($videoState) {
-      $parentElement.addClass('actived');
-      if ($call.onPlay) $call.onPlay.call(_this);
-      if ($progress && $progressEl) {
-        //if($video.duration) gsap.to($progressEl , { duration : $video.duration , width : '100%' , ease:Linear.easeNone });
-      };
-      if (!_this.first) {
-        _this.first = true;
-      };
-    };
-  };
-  $video.onplaying = function () {
-    //console.log('intro video playing');
-    //console.log( _this.idx + ' video playing');
-    if ($videoState) $parentElement.addClass('actived');
-    if ($progress && $progressEl) {
-      //if($video.duration) gsap.to($progressEl , { duration : $video.duration , width : '100%' , ease:Linear.easeNone });
-    };
-  };
-  $video.onpause = function () {
-    //console.log( _this.idx + ' video pause');
-    if ($videoState) {
-      if ($call.onPause) $call.onPause.call(_this);
-      if ($progress && $progressEl) {
-        //console.log( _this.idx + ' video pause');
-        //gsap.killTweensOf($progressEl);
-        //gsap.set($progressEl , { width : 0 });
-      };
-    };
-  };
-  $video.onended = function () {
-    //console.log('intro video ended');
-    if ($videoState) {
-      if ($loop) this.play();
-      if ($call.onEnd) $call.onEnd.call(_this);
-      if ($progress && $progressEl) {
-        gsap.set($progressEl, { width: 0 });
-      };
-    }
-  };
+  // $video.onplay = function () {
+  //   //console.log('intro video play');
+  //   //console.log( _this.idx + ' video play');
+  //   if ($videoState) {
+  //     $parentElement.addClass('actived');
+  //     if ($call.onPlay) $call.onPlay.call(_this);
+  //     if ($progress && $progressEl) {
+  //       //if($video.duration) gsap.to($progressEl , { duration : $video.duration , width : '100%' , ease:Linear.easeNone });
+  //     };
+  //     if (!_this.first) {
+  //       _this.first = true;
+  //     };
+  //   };
+  // };
+  // $video.onplaying = function () {
+  //   //console.log('intro video playing');
+  //   //console.log( _this.idx + ' video playing');
+  //   if ($videoState) $parentElement.addClass('actived');
+  //   if ($progress && $progressEl) {
+  //     //if($video.duration) gsap.to($progressEl , { duration : $video.duration , width : '100%' , ease:Linear.easeNone });
+  //   };
+  // };
+  // $video.onpause = function () {
+  //   //console.log( _this.idx + ' video pause');
+  //   if ($videoState) {
+  //     if ($call.onPause) $call.onPause.call(_this);
+  //     if ($progress && $progressEl) {
+  //       //console.log( _this.idx + ' video pause');
+  //       //gsap.killTweensOf($progressEl);
+  //       //gsap.set($progressEl , { width : 0 });
+  //     };
+  //   };
+  // };
+  // $video.onended = function () {
+  //   //console.log('intro video ended');
+  //   if ($videoState) {
+  //     if ($loop) this.play();
+  //     if ($call.onEnd) $call.onEnd.call(_this);
+  //     if ($progress && $progressEl) {
+  //       gsap.set($progressEl, { width: 0 });
+  //     };
+  //   }
+  // };
 
-  $video.onloadeddata = function () {
-    //console.log('intro video loadeddata ::' + $video.duration + ' : ' + _this.idx);
-    if ($progress && $progressEl) {
-      //console.log('intro video loadeddata ::' + $video.duration + ' : ' + _this.idx);
-    }
-    //if($auto) this.play();
-    //$loadComState = true;
-    $video.currentTime = 0;
-    if ($call.onLoadedData) $call.onLoadedData.call(_this);
-    if ($call.onInit) $call.onInit.call(_this);
-  };
-  $video.onerror = function () {
-    //console.log('intro video error');
-    if ($call.onError) $call.onError(_this);
-    $videoState = false;
-  };
-  $video.onunload = function () {
-    //console.log('intro video unload');
-    $videoState = false;
-  };
+  // $video.onloadeddata = function () {
+  //   //console.log('intro video loadeddata ::' + $video.duration + ' : ' + _this.idx);
+  //   if ($progress && $progressEl) {
+  //     //console.log('intro video loadeddata ::' + $video.duration + ' : ' + _this.idx);
+  //   }
+  //   //if($auto) this.play();
+  //   //$loadComState = true;
+  //   $video.currentTime = 0;
+  //   if ($call.onLoadedData) $call.onLoadedData.call(_this);
+  //   if ($call.onInit) $call.onInit.call(_this);
+  // };
+  // $video.onerror = function () {
+  //   //console.log('intro video error');
+  //   if ($call.onError) $call.onError(_this);
+  //   $videoState = false;
+  // };
+  // $video.onunload = function () {
+  //   //console.log('intro video unload');
+  //   $videoState = false;
+  // };
 
-  this.play = function () {
-    if ($videoState) $video.play();
-  };
+  // this.play = function () {
+  //   if ($videoState) $video.play();
+  // };
 
-  this.stop = function () {
-    if ($videoState) $video.pause();
-  };
+  // this.stop = function () {
+  //   if ($videoState) $video.pause();
+  // };
 
-  this.reset = function () {
-    if ($videoState) $video.currentTime = 0, $video.play();
-  };
+  // this.reset = function () {
+  //   if ($videoState) $video.currentTime = 0, $video.play();
+  // };
 
-  this.seekTo = function (index) {
-    if ($videoState) $video.currentTime = index;
-  };
+  // this.seekTo = function (index) {
+  //   if ($videoState) $video.currentTime = index;
+  // };
 
-  this.volumn = function (number) {
-    if ($videoState) $video.volumn = number;
-  };
+  // this.volumn = function (number) {
+  //   if ($videoState) $video.volumn = number;
+  // };
 
-  this.muted = function (flag) {
-    if ($videoState) $video.muted = flag;
-  };
+  // this.muted = function (flag) {
+  //   if ($videoState) $video.muted = flag;
+  // };
 
-  this.controls = function (flag) {
-    if ($videoState) $video.controls = flag;
-  };
+  // this.controls = function (flag) {
+  //   if ($videoState) $video.controls = flag;
+  // };
 
-  this.resize = function () {
-    //console.log($resize);
-    if ($resize == false || $resize == undefined) return false;
-    if ($videoState) {
-      var videoParentTarget = $($video).parent();
-      var videoTarget = $($video);
-      var ratio = 16 / 9;
+  // this.resize = function () {
+  //   //console.log($resize);
+  //   if ($resize == false || $resize == undefined) return false;
+  //   if ($videoState) {
+  //     var videoParentTarget = $($video).parent();
+  //     var videoTarget = $($video);
+  //     var ratio = 16 / 9;
 
-      var width = videoParentTarget.width(),
-        pWidth, // player width, to be defined
-        height = videoParentTarget.height(),
-        pHeight; // player height, tbd
-      // when screen aspect ratio differs from video, video must center and underlay one dimension
-      if (width / ratio < height) { // if new video height < window height (gap underneath)
-        pWidth = Math.ceil(height * ratio); // get new player width
-        videoTarget.width(pWidth).height(height).css({ left: (width - pWidth) / 2, top: 0 }); // player width is greater, offset left; reset top
-      } else { // new video width < window width (gap to right)
-        pHeight = Math.ceil(width / ratio); // get new player height
-        videoTarget.width(width).height(pHeight).css({ left: 0, top: (height - pHeight) / 2 }); // player height is greater, offset top; reset left
-        //videoTarget.width(width).height(pHeight).css({left: 0, top: 0}); // player height is greater, offset top; reset left
-      }
+  //     var width = videoParentTarget.width(),
+  //       pWidth, // player width, to be defined
+  //       height = videoParentTarget.height(),
+  //       pHeight; // player height, tbd
+  //     // when screen aspect ratio differs from video, video must center and underlay one dimension
+  //     if (width / ratio < height) { // if new video height < window height (gap underneath)
+  //       pWidth = Math.ceil(height * ratio); // get new player width
+  //       videoTarget.width(pWidth).height(height).css({ left: (width - pWidth) / 2, top: 0 }); // player width is greater, offset left; reset top
+  //     } else { // new video width < window width (gap to right)
+  //       pHeight = Math.ceil(width / ratio); // get new player height
+  //       videoTarget.width(width).height(pHeight).css({ left: 0, top: (height - pHeight) / 2 }); // player height is greater, offset top; reset left
+  //       //videoTarget.width(width).height(pHeight).css({left: 0, top: 0}); // player height is greater, offset top; reset left
+  //     }
 
 
-    }
-    //console.log('intro resize');
-  };
+  //   }
+  //   //console.log('intro resize');
+  // };
 
-  this.getVideoDuration = function () {
-    return $video.duration;
-  };
+  // this.getVideoDuration = function () {
+  //   return $video.duration;
+  // };
 
-  this.resize();
-  window.addEventListener('resize', _this.resize);
+  // this.resize();
+  // window.addEventListener('resize', _this.resize);
 
-  if ($auto) this.play();
+  // if ($auto) this.play();
 
 };
 
