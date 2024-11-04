@@ -659,7 +659,7 @@ br.m-enter {
   z-index: 0;
   scale: 1.5;
   opacity: .7;
-  transition: scale 15s ease, opacity 5s ease
+  transition: scale 15s ease, opacity 5s ease;
 }
 
 .main-headline .bg.actived {
@@ -951,8 +951,8 @@ br.m-enter {
 
 /* section2 ###################### */
 .main-technology {
-  height: 350vh;
-  height: 350svh;
+  height: 400vh;
+  height: 400svh;
   background: #fff;
   z-index: 150
 }
@@ -1129,17 +1129,11 @@ br.m-enter {
 
 /* section3 ###################### */
 .main-ai {
-  /* margin-top: -100vh;
-  margin-top: -100svh; */
-  /* height: 600vh;
-  height: 600svh;
-  position: relative;
-  z-index: 50 */
   margin-top: -100vh;
   margin-top: -100lvh;
   height: auto;
-  min-height: 500vh;
-  min-height: 500lvh;
+  min-height: 600vh;
+  min-height: 600lvh;
   background: #000;
   overflow: visible
 }
@@ -1723,8 +1717,8 @@ br.m-enter {
 
 /* section4 ###################### */
 .main-price {
-  height: 250vh;
-  height: 250vh;
+  height: 200vh;
+  height: 200vh;
   display: flex;
   align-items: center;
   background: #f8f8f8;
@@ -1835,7 +1829,7 @@ br.m-enter {
   display: inline-block;
   position: absolute;
   right: 14px;
-  top: calc(50% + 1px);
+  top: 50%;
   transform: translateY(-50%);
   color: #222;
   font-size: 16px;
@@ -1872,17 +1866,31 @@ br.m-enter {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 6px;
 }
 
 .main-price .gray-box .gray-box-inner .inner-bottom span {
   font-size: 20px;
   font-weight: 700;
+  display: flex;
+}
+
+.main-price .gray-box .gray-box-inner .inner-bottom span:nth-child(2) {
+  width: 284px;
+  text-align: right;
+  justify-content: flex-end;
 }
 
 .main-price .gray-box .gray-box-inner .inner-bottom span em {
   color: var(--primary, #FF6614);
   font-size: 60px;
-  margin: 0 10px;
+  letter-spacing: -0.02em;
+  display: flex;
+}
+
+.main-price .gray-box .gray-box-inner .inner-bottom span em.counter {
+  width: 240x;
+  text-align: right;
 }
 
 /* section5 ###################### */
@@ -2260,8 +2268,7 @@ br.m-enter {
   }
 
   .main-wrap {
-    overflow-x: hidden;
-    overflow-y: scroll
+    overflow: scroll
   }
 
   #dBody.main {
@@ -2270,23 +2277,20 @@ br.m-enter {
     right: auto;
     bottom: auto;
     left: auto;
-    overflow-y: visible;
-    overflow-x: hidden;
+    overflow: visible;
   }
 
   .main-wrap {
     position: static;
     width: auto;
     height: auto;
-    overflow-y: visible;
-    overflow-x: hidden;
+    overflow: visible;
   }
 
   .main-group {
     min-height: 100vh;
     min-height: 100lvh;
-    overflow-y: visible;
-    overflow-x: hidden;
+    overflow: visible;
     display: block
   }
 
@@ -2718,8 +2722,8 @@ br.m-enter {
 
 
   .main-technology {
-    height: 500vh;
-    height: 500lvh
+    height: 470vh;
+    height: 470lvh
   }
 
   .main-technology .title.pc {
@@ -3278,8 +3282,8 @@ br.m-enter {
   }
 
   .main-technology {
-    height: 600vh;
-    height: 600lvh;
+    height: 500vh;
+    height: 500lvh;
   }
 
   .main-technology .title.pc {
