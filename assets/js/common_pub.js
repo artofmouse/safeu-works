@@ -14,6 +14,7 @@ const UIscroll = function () {
         rootMargin: "0px",
         threshold: 0,
       };
+
       function observerCallback(entries) {
         entries.forEach((entry) => {
           if (entry.intersectionRatio > 0) {
@@ -59,6 +60,23 @@ const UIscroll = function () {
         }
       }
       if (tar.getAttribute("data-delay") != null) tar.style.transitionDelay = `${tar.getAttribute("data-delay")}ms`;
+
+      var con_H = $('#wrap').height() - $('#dFoot').height();
+      var topHeight = $('.main-headline').height() + $('.main-technology').height();
+      var realVal = topHeight - _sclTop
+
+      if (realVal > 1800) {
+        console.log('floating show');
+        $('.bottom-floating').removeClass('actived');
+      } else {
+        if (con_H - _sclTop < 900) {
+          $('.bottom-floating').removeClass('actived');
+        } else {
+          $('.bottom-floating').addClass('actived');
+        }
+      }
+      // console.log('_sclTop:::' + _sclTop);
+      // console.log('con_H:::' + con_H);
     };
     updateScrollPercentage();
     window.addEventListener("scroll", updateScrollPercentage);

@@ -1068,37 +1068,27 @@ br.m-enter {
   align-items: center
 }
 
-.main-technology .sentence-2 .word-sentence .txt-gradient {
+.main-technology .sentence-2 .char-words .char-parent .char-child {
   font-weight: 700;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  background-image: url(https://ai.chunjae.co.kr/common/images/contents/main-future-gradient.png);
+  background-image: url(../images/gradient.png);
   background-repeat: no-repeat;
   background-position: 0 0;
   background-size: 321px 321px;
   animation-name: txtGradient;
-  animation-duration: 2s;
+  animation-duration: 4s;
   animation-direction: normal;
   animation-iteration-count: infinite;
   animation-timing-function: cubic-bezier(.455, .030, .515, .955)
 }
 
-.main-technology .sentence-2 .word-sentence .txt-gradient.gradient-1 {
-  background-position-x: 0
+.main-technology .sentence-2 .char-words .char-parent:nth-last-child(-n+5)>.char-child {
+  color: #222;
+  background: transparent;
 }
 
-.main-technology .sentence-2 .word-sentence .txt-gradient.gradient-2 {
-  background-position-x: 40%
-}
-
-.main-technology .sentence-2 .word-sentence .txt-gradient.gradient-3 {
-  background-position-x: 60%
-}
-
-.main-technology .sentence-2 .word-sentence .txt-gradient.gradient-4 {
-  background-position-x: 100%
-}
 
 .main-technology .sentence-2 .word-sentence .desc {
   position: absolute;
@@ -2739,6 +2729,33 @@ br.m-enter {
     width: 4px
   }
 
+  .main-technology .sentence-3 .char-words .char-parent .char-child,
+  .main-technology .sentence-4 .char-words .char-parent .char-child {
+    font-weight: 700;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: url(../images/gradient.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 321px 321px;
+    animation-name: txtGradient;
+    animation-duration: 4s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(.455, .030, .515, .955)
+  }
+
+  .main-technology .sentence-4 .char-words .char-parent:nth-last-child(-n+5)>.char-child {
+    color: #222;
+    background: transparent;
+  }
+
+  .main-technology .sentence-2 .char-words .char-parent .char-child {
+    color: #222;
+    background: transparent;
+  }
+
   .main-technology .desc {
     margin-top: 20px;
     font-size: 32px;
@@ -3364,6 +3381,50 @@ br.m-enter {
 
   .main-technology .title .sentence .char-line {
     width: 2px
+  }
+
+  .main-technology .sentence-4 .char-words .char-parent .char-child,
+  .main-technology .sentence-5 .char-words .char-parent .char-child {
+    font-weight: 700;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: url(../images/gradient.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 321px 321px;
+    animation-name: txtGradient;
+    animation-duration: 4s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(.455, .030, .515, .955)
+  }
+
+  .main-technology .sentence-4 .char-words .char-parent:nth-last-child(-n+5)>.char-child {
+    font-weight: 700;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: url(../images/gradient.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 321px 321px;
+    animation-name: txtGradient;
+    animation-duration: 4s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(.455, .030, .515, .955)
+  }
+
+  .main-technology .sentence-5 .char-words .char-parent:nth-last-child(-n+5)>.char-child {
+    color: #222;
+    background: transparent;
+  }
+
+
+  .main-technology .sentence-3 .char-words .char-parent .char-child {
+    color: #222;
+    background: transparent;
   }
 
   .main-technology .desc {
