@@ -63,13 +63,12 @@ const UIscroll = function () {
 
       var con_H = $('#wrap').height() - $('#dFoot').height();
       var topHeight = $('.main-headline').height() + $('.main-technology').height();
-      var realVal = topHeight - _sclTop
+      var realVal = topHeight - _sclTop;
 
       if (realVal > 1800) {
-        console.log('floating show');
         $('.bottom-floating').removeClass('actived');
       } else {
-        if (con_H - _sclTop < 900) {
+        if (con_H - _sclTop < 1300) {
           $('.bottom-floating').removeClass('actived');
         } else {
           $('.bottom-floating').addClass('actived');

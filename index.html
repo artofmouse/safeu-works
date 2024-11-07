@@ -415,6 +415,64 @@
         </div>
         <!-- //section5 -->
 
+        <!-- section6 -->
+        <div class="main-group main-sqa" id="Service_QA">
+          <div class="data">
+            <h2 data-ani="fadeUp">서비스 문의</h2>
+            <h3 class="title" data-ani="fadeUp" data-delay="300"><em>SAFE U Works</em>에<br class="mo_ln" /> 대한
+              설명이<br class="mo_ln tablet_ln" /> 더 필요하세요?
+            </h3>
+            <div class="desc" data-ani="fadeUp" data-delay="500">아래 양식을 작성해 주시면<br class="mo_ln" /> 24시간 이내에
+              담당자가 연락드리겠습니다.</div>
+            <div class="sqa-box">
+              <div class="box-inner">
+                <ul>
+                  <li>
+                    <dl>
+                      <dt><label for="userName">성함</label></dt>
+                      <dd><input type="text" title="성함" id="userName" /></dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <dl>
+                      <dt><label for="uesrNum">전화번호</label></dt>
+                      <dd><input type="text" title="전화번호" id="uesrNum" /></dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <dl>
+                      <dt><label for="userEmail">이메일 </label></dt>
+                      <dd><input type="text" title="이메일 " id="userEmail" /></dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <dl>
+                      <dt><label for="userCompany">회사명</label></dt>
+                      <dd><input type="text" title="회사명" id="userCompany" /></dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <dl>
+                      <dt><label for="sqaCon">문의내용</label></dt>
+                      <dd><textarea title="문의내용" placeholder="문의내용을 입력해주세요." id="sqaCon"></textarea></dd>
+                    </dl>
+                  </li>
+                </ul>
+                <div class="agree-area">
+                  <dl>
+                    <dt><input type="checkbox" id="infoAgree" /></dt>
+                    <dd><label for="infoAgree"><a href="javascript:void(0)">개인정보취급방침</a>에 동의합니다.</label></dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+            <div class="btn-area">
+              <button type="button" onclick="front.pop.open('emailRefusalPop' , this);">제출하기</button>
+            </div>
+          </div>
+        </div>
+        <!-- //section6 -->
+
         <!-- Indicator -->
         <div class="indicator">
           <ul>
@@ -423,6 +481,7 @@
             <li data-affix="Works"></li>
             <li data-affix="요금"></li>
             <li data-affix="보도자료"></li>
+            <li data-affix="서비스 문의"></li>
           </ul>
         </div>
         <!-- //Indicator -->
@@ -431,8 +490,8 @@
           <div class="floating-inner">
             <div class="bottom-left">AI로 더 안전하고<br class="mo_ln" /> 편리하게 현장을 관리하세요.</div>
             <div class="bottom-right">
-              <a href="#">서비스 문의</a>
-              <a href="#">로그인</a>
+              <a href="javascript:void(0)">서비스 문의</a>
+              <a href="javascript:void(0)">로그인</a>
             </div>
           </div>
         </div>
@@ -466,15 +525,35 @@
             <div class="address">경기도 성남시 중원구 둔촌대로 388번길 24
               우림라이온스밸리3차 8층 (상대원동)</div>
           </div>
-
         </div>
     </footer>
     <!-- //dFoot -->
-
+    <!-- 이메일 무단 수집 거부 팝업 -->
+    <div id="emailRefusalPop" class="layer-pop-wrap contents-pop">
+      <div class="layer-pop-parent">
+        <div class="layer-pop-children">
+          <div class="pop-data">
+            <div class="pop-view-wrap small">
+              <div class="pop-view-header">
+                <h3 class="pop-view-title">알림</h3>
+              </div>
+              <div class="pop-view-body">
+                <div class="pop-view-detail">문의내용을 접수했습니다.<br />
+                  담당자 확인 후 연락드리겠습니다.</div>
+              </div>
+              <div class="pop-view-footer">
+                <div class="pop-view-ui">
+                  <button type="button" class="btn-basic" onclick="front.pop.close(this);">닫기</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //이메일 무단 수집 거부 팝업 -->
   </section>
   <!-- //wrap -->
-
-
 
 </body>
 <script src="assets/js/common_pub.js"></script>
