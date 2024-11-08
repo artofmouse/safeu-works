@@ -38,17 +38,22 @@
             <div class="gnb-wrap">
               <ul class="gnb-list">
                 <li class="gnb-list-cell">
-                  <button type="button">SAFE U WORKS</button>
+                  <button type="button">관리자페이지</button>
                 </li>
                 <li class="gnb-list-cell user">
-                  <a href=""><span>홍길동</span></a>
-                </li>
-                <li class="gnb-list-cell language">
-                  <a href=""><span>KOR</span></a>
+                  <button type="button" class="gnb-userIinfo">홍길동<span>유플리트</span></button>
                 </li>
               </ul>
             </div>
           </nav>
+          <div class="info-layer">
+            <div class="info-layer-inner">
+              <ul>
+                <li>개인정보 편집</li>
+                <li>로그아웃</li>
+              </ul>
+            </div>
+          </div>
         </div>
     </header>
     <!-- //dHead -->
@@ -459,10 +464,8 @@
                   </li>
                 </ul>
                 <div class="agree-area">
-                  <dl>
-                    <dt><input type="checkbox" id="infoAgree" /></dt>
-                    <dd><label for="infoAgree"><a href="javascript:void(0)">개인정보취급방침</a>에 동의합니다.</label></dd>
-                  </dl>
+                  <input type="checkbox" id="infoAgree" /><label for="infoAgree"><a
+                      href="javascript:void(0)">개인정보취급방침</a>에 동의합니다.</label>
                 </div>
               </div>
             </div>

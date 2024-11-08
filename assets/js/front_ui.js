@@ -3380,6 +3380,16 @@ function getTranslateValues(element) {
   }
 };
 
+
+$(document).on('click', '.gnb-userIinfo', function () {
+  $(".info-layer").toggle();
+  console.log('123123123')
+});
+$(document).on('click', '.info-layer-inner ul li', function () {
+  $(".info-layer").hide();
+});
+
+
 window.addEventListener('DOMContentLoaded', front.ready);
 window.addEventListener('load', front.load);
 window.addEventListener('resize', front.resize);
