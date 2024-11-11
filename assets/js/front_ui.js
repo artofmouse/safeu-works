@@ -1,40 +1,3 @@
-window.requestAnimFrame = (function (callback) {
-  return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
-    window.setTimeout(callback, 1000 / 60);
-  };
-})();
-window.cancelAnimFrame = (function () {
-  return window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || window.oCancelAnimationFrame || function (id) {
-    window.clearTimeout(id);
-  };
-})();
-
-
-//3자리마다 , 찍기
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-// 숫자카운터
-function counterUp() {
-  var memberCountConTxt = 100000;
-
-  $({
-    val: 0
-  }).animate({
-    val: memberCountConTxt
-  }, {
-    duration: 1300,
-    step: function () {
-      var num = numberWithCommas(Math.floor(this.val));
-      $(".counter").text(num);
-    },
-    complete: function () {
-      var num = numberWithCommas(Math.floor(this.val));
-      $(".counter").text(num);
-    }
-  });
-}
-
 
 var front = {
   stage: {
@@ -76,17 +39,12 @@ var front = {
 
   common: {
     header: null,
-    gnb: null,
     footer: null,
-    allMenu: null,
-    allMenuCube: null,
 
     init: function () {
       var _this = this;
       this.header = ($('#dHead').length > 0) ? $('#dHead') : null;
       this.footer = ($('#dFoot').length > 0) ? $('#dFoot') : null;
-      this.gnb = ($('#gnb').length > 0) ? $('#gnb') : null;
-      this.allMenu = ($('#allMenu').length > 0) ? $('#allMenu') : null;
       front.stage.page = ($('.main-wrap').length > 0) ? 'main' : 'sub';
       effectData.init();
 
@@ -95,55 +53,6 @@ var front = {
           main.pageTopMove();
         } else {
           front.common.moveScroll(0, 400);
-        };
-      });
-
-      $(document).on('click', '.btn-footer-family-label', function () {
-        if ($(this).parents('.footer-family').hasClass('actived')) {
-          $(this).parents('.footer-family').removeClass('actived');
-        } else {
-          $(this).parents('.footer-family').addClass('actived');
-        };
-      });
-
-      if (this.gnb) this.gnb.find('.btn-gnb-nav').each(function () {
-        $(this).attr('href', 'javascript:;');
-      });
-
-      $(document).on('click', '.btn-all-menu-toogle-nav', function () {
-        if (_this.allMenu.hasClass('actived')) {
-          _this.header.removeClass('all');
-          _this.header.find('.btn-all-menu-toogle-nav').removeClass('actived');
-          _this.allMenu.removeClass('actived');
-          setTimeout(function () {
-            $('html').removeClass('fix');
-          }, 600);
-        } else {
-          _this.header.addClass('all');
-          _this.header.find('.btn-all-menu-toogle-nav').addClass('actived');
-          _this.allMenu.addClass('actived');
-          _this.allMenu.find('.all-menu-scroller').scrollTop(0);
-          $('html').addClass('fix');
-        };
-      });
-
-      if (this.allMenu) {
-        this.allMenu.find('.all-menu-list-cell').each(function () {
-          if ($(this).find('.snb-wrap').length > 0) {
-            var $btn = $(this).find('.btn-all-menu-nav');
-            $btn.attr('data-url', $btn.attr('href')).addClass('two-depth');
-          };
-        });
-      };
-
-      $(document).on('click', '.btn-all-menu-nav', function () {
-        if (front.stage.width <= 1024) {
-          var $parents = $(this).parents('.all-menu-list-cell');
-          if ($parents.hasClass('show')) {
-            $parents.removeClass('show');
-          } else {
-            $parents.addClass('show').siblings().removeClass('show');
-          };
         };
       });
 
@@ -601,7 +510,7 @@ var main = {
       });
     };
 
-    if ($('.main-price').length > 0) mainPrice.init();
+    // if ($('.main-price').length > 0) mainPrice.init();
 
     $('#wrap').imagesLoaded({
       background: true
@@ -721,7 +630,8 @@ var main = {
               _this.pageUI.removeClass('bottom');
             };
           };
-          if ($('#dFoot').offset().top <= front.stage.height || $elementAI.offset().top > front.stage.height) {
+          // if ($('#dFoot').offset().top <= front.stage.height || $elementAI.offset().top > front.stage.height) {
+          if ($('#dFoot').offset().top <= front.stage.height || $elementTechnology.offset().top > '0') {
             // console.log('floating hide');
             $('.bottom-floating').removeClass('actived');
           } else {
@@ -2864,214 +2774,6 @@ var main = {
   }
 };
 
-var $WINDOW = {
-  // $WINDOW.addFix();
-  addFix: function () {
-    $DOM.addClass(document.documentElement, 'fix');
-  },
-  // $WINDOW.removeFix();
-  removeFix: function () {
-    $DOM.removeClass(document.documentElement, 'fix');
-  },
-  // $WINDOW.getScrollBarWidth();
-  getScrollBarWidth: function () {
-    var inner = document.createElement('p');
-    inner.style.width = "100%";
-    inner.style.height = "200px";
-
-    var outer = document.createElement('div');
-    outer.style.position = "absolute";
-    outer.style.top = "0px";
-    outer.style.left = "0px";
-    outer.style.visibility = "hidden";
-    outer.style.width = "200px";
-    outer.style.height = "150px";
-    outer.style.overflow = "hidden";
-    outer.appendChild(inner);
-
-    document.body.appendChild(outer);
-    var w1 = inner.offsetWidth;
-    outer.style.overflow = 'scroll';
-    var w2 = inner.offsetWidth;
-    if (w1 == w2) w2 = outer.clientWidth;
-
-    document.body.removeChild(outer);
-
-    return (w1 - w2);
-  },
-  // $WINDOW.getParameter(value);
-  getParameter: function (key) {
-    var url = location.href;
-    var spoint = url.indexOf("?");
-    var query = url.substring(spoint, url.length);
-    var keys = new Array;
-    var values = new Array;
-    var nextStartPoint = 0;
-    while (query.indexOf("&", (nextStartPoint + 1)) > -1) {
-      var item = query.substring(nextStartPoint, query.indexOf("&", (nextStartPoint + 1)));
-      var p = item.indexOf("=");
-      keys[keys.length] = item.substring(1, p);
-      values[values.length] = item.substring(p + 1, item.length);
-      nextStartPoint = query.indexOf("&", (nextStartPoint + 1));
-    }
-    item = query.substring(nextStartPoint, query.length);
-    p = item.indexOf("=");
-    keys[keys.length] = item.substring(1, p);
-    values[values.length] = item.substring(p + 1, item.length);
-    var value = "";
-    for (var i = 0; i < keys.length; i++) {
-      if (keys[i] == key) {
-        value = values[i];
-      }
-    }
-    return value;
-  },
-  // $WINDOW.getHash();
-  getHash: function () {
-    var url = window.location.href;
-    return url.substring(url.indexOf('#') + 1);
-  },
-  // $WINDOW.isMobile();
-  isMobile: function () {
-    return (navigator.userAgent.match(/iPhone|iPad|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || navigator.userAgent.match(/LG|SAMSUNG|Samsung/) != null);
-  },
-  // $WINDOW.isIpadPro();
-  isIpadPro: function () {
-    return (/iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) && !window.MSStream;
-  },
-  // $WINDOW.isIE();
-  isIE: function () {
-    return (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (navigator.userAgent.toLowerCase().indexOf('msie') != -1);
-  }
-};
-
-var $DOM = {
-  //	$DOM.element( Dom Element )
-  element: function (_el) {
-    if (_el) {
-      if (_el.length > 0) {
-        return _el[0];
-      } else {
-        return _el;
-      };
-    } else {
-      console.log('Not Element');
-    };
-  },
-  //	$DOM.addClass( Dom Element , Target Class )
-  addClass: function (_el, _class) {
-    $DOM.element(_el).classList.add(_class);
-  },
-  //	$DOM.hasClass( Dom Element , Target Class )
-  hasClass: function (_el, _class) {
-    return $DOM.element(_el).classList.contains(_class);
-  },
-  //	$DOM.removeClass( Dom Element , Target Class )
-  removeClass: function (_el, _class) {
-    $DOM.element(_el).classList.remove(_class);
-  },
-  //	$DOM.closest( Dom Element , + Target Class )
-  closest: function (_el, _selector) {
-    var el = $DOM.element(_el);
-    var matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
-    var selector = '.' + _selector
-    while (el) {
-      if (matchesSelector.call(el, selector)) {
-        return el;
-      } else {
-        el = el.parentElement;
-      }
-    }
-    return null;
-  },
-  //	$DOM.closestAll( Dom Element , + Target Class ) return array;
-  closestAll: function (_el, _selector) {
-    var arr = [];
-    var el = $DOM.element(_el);
-    while (el) {
-      if (el && el.classList.contains(_selector)) {
-        arr.push(el);
-      };
-      el = el.parentElement;
-    };
-    return arr;
-
-  },
-  // $DOM.siblings( DOM Element , Target Class )
-  siblings: function (_el, _selector) {
-    var el = $DOM.element(_el);
-    return Array.from(el.parentNode.children).filter(function (sibling) {
-      if (_selector) {
-        if (sibling !== el && $DOM.hasClass(sibling, _selector)) return sibling;
-      } else {
-        return sibling !== el;
-      };
-    });
-  },
-  child: function (_el, _selector) {
-    var el = $DOM.element(_el);
-    if (el.children.length > 0) {
-      return Array.from(el.children).filter(function (sibling) {
-        if (_selector) {
-          if (sibling !== el && $DOM.hasClass(sibling, _selector)) return sibling;
-        } else {
-          return sibling !== el;
-        };
-      });
-    } else {
-      console.log('Not Element');
-    };
-  },
-  // $DOM.next( DOM Element )
-  next: function (_el) {
-    return $DOM.element(_el).nextElementSibling;
-  },
-  // $DOM.prev( DOM Element )
-  prev: function (_el) {
-    return $DOM.element(_el).previousElementSibling;
-  },
-  // $DOM.parent( DOM Element )
-  parent: function (_el) {
-    return $DOM.element(_el).parentNode;
-  },
-  // $DOM.getAttr( Dom Element , Attribute Name )
-  getAttr: function (_el, _attr) {
-    return $DOM.element(_el).getAttribute(_attr);
-  },
-  // $DOM.setAttr( Dom Element , Attribute Name , Value )
-  setAttr: function (_el, _attr, _value) {
-    $DOM.element(_el).setAttribute(_attr, _value);
-  },
-  // $DOM.hasAttr( Dom Element , Attribute Name )
-  hasAttr: function (_el, _attr) {
-    return $DOM.element(_el).hasAttribute(_attr);
-  },
-  // $DOM.index( Dom Element )
-  getIndex: function (_el) {
-    return Array.prototype.slice.call($DOM.element(_el).parentElement.children).indexOf($DOM.element(_el));
-  },
-  // $DOM.getHtml( Dom Element )
-  getHtml: function (_el) {
-    return $DOM.element(_el).innerHTML;
-  },
-  // $DOM.setHtml( Dom Element , Html Text )
-  // DOM TREE RESET
-  setHtml: function (_el, _html) {
-    $DOM.element(_el).innerHTML = _html;
-  },
-  // $DOM.setAdjacentHtml( Dom Element , Position , Html Text )
-  // <!-- beforebegin -->
-  // <body>
-  //	<!-- afterbegin -->
-  //	<div></div>
-  //	<!-- beforeend -->
-  // </body>
-  // <!-- afterend -->
-  setAdjacentHtml: function (_el, _position, _html) {
-    $DOM.element(_el).insertAdjacentHTML(_position, _html);
-  }
-};
-
 var mainPatent = {
 
   container: null,
@@ -3121,226 +2823,6 @@ var mainPatent = {
   }
 };
 
-var mainPrice = {
-
-  container: null,
-  swiperArr: [],
-  cur: 0,
-
-  init: function () {
-    var _this = this;
-    this.container = $('.main-price');
-
-    $(document).on('click', '.main-price .btn-tab-nav', function () {
-      _this.cur = $(this).index();
-      _this.sort();
-    });
-
-    this.container.find('.list-view .list-cell').each(function () {
-      var swiper;
-      var $element = $(this);
-      if ($(this).find('.swiper-slide').length > 1) {
-        swiper = new Swiper($element.find('.swiper')[0], {
-          loop: false,
-          simulateTouch: true,
-          observeParents: true,
-          observeSlideChildren: true,
-          speed: 400,
-          navigation: {
-            nextEl: $element.find('.btn-swiper-slider-next')[0],
-            prevEl: $element.find('.btn-swiper-slider-prev')[0]
-          }
-        });
-      } else {
-        swiper = null;
-        $(this).addClass('none');
-      };
-
-      _this.swiperArr.push(swiper);
-    });
-
-
-    this.sort();
-
-  },
-  sort: function () {
-    if (this.swiperArr[this.cur]) this.swiperArr[this.cur].update();
-    this.container.find('.list-tab .btn-tab-nav').eq(this.cur).addClass('actived').siblings().removeClass('actived');
-    this.container.find('.list-view .list-cell').eq(this.cur).addClass('actived').siblings().removeClass('actived').addClass('hide');
-  }
-};
-
-
-function sequenceView(options) {
-  var _this = this;
-  this.impetus = null;
-  this.wrapper = options.el;
-  this.idx = options.index;
-  this.container = this.wrapper.querySelector('.sequence-view');
-  this.viewer = this.wrapper.querySelector('.sequence-data');
-  this.image = {};
-  this.image.data = [];
-  this.image.state = 'loading';
-  this.image.url = options.imageUrl;
-  this.image.name = options.imageName;
-  this.image.type = options.imageType;
-  this.image.total = options.imageTotal;
-  this.image.count = 0;
-  this.frameIndex = 0;
-  this.frameTotal = this.image.total;
-  this.canvas = this.viewer.querySelector('canvas');
-  this.ctx = this.canvas.getContext('2d');
-  this.animationFrame = null;
-  this.animationFrameStats = false;
-  this.animationCur = 0;
-  this.animationStats = 'stop';
-  this.fpsValue = options.fps || 60;
-  this.fps = 1000 / this.fpsValue;
-  this.then = Date.now();
-  this.startTime = this.then;
-  this.now = 0;
-  this.elapsed = 0;
-  this.fpsCount = 0;
-
-  var $call = {
-    onPlay: options.onPlay || false,
-    onPause: options.onPause || false,
-    onLoadStart: options.onLoadStart || false,
-    onLoadEnd: options.onLoadEnd || false
-  };
-
-  this.init = function () {
-    this.resize();
-    window.addEventListener('resize', this.resize.bind(this));
-  };
-
-  this.draw = function (_index) {
-    this.frameIndex = _index;
-    this.ctx.clearRect(0, 0, this.canvas.offsetWidth, this.canvas.offsetHeight);
-    if (this.image.data[this.frameIndex] && this.image.data[this.frameIndex].img && this.image.data[this.frameIndex].state == 'complete') {
-      this.ctx.drawImage(this.image.data[this.frameIndex].img, 0, 0, this.canvas.offsetWidth, this.canvas.offsetHeight);
-    }
-  };
-
-  this.set = function () {
-    for (var i = 0; i < this.image.total; i++) {
-      var item = new this.img(i, this.image);
-      this.image.data.push(item);
-    };
-  };
-
-  this.img = function (_index, _options) {
-    var index = _index,
-      option = _options;
-
-    this.imageLoadComplete = function () {
-      this.state = 'complete';
-      _this.image.count += 1;
-      this.imageDraw();
-    };
-
-    this.imageLoadError = function () {
-      this.state = 'error';
-      _this.image.count += 1;
-      this.imageDraw();
-      console.log('load Error Index :: ' + index + '   ' + this.img.src + '  width : ' + this.img.naturalWidth);
-    };
-
-    this.imageDraw = function () {
-      if (_this.image.total == _this.image.count) {
-        _this.ready();
-        _this.draw(_this.frameIndex);
-        if ($call.onLoadEnd) $call.onLoadEnd.call(_this);
-      };
-    };
-
-    this.img = new Image();
-    this.img.addEventListener('load', this.imageLoadComplete.bind(this));
-    this.img.addEventListener('error', this.imageLoadError.bind(this));
-
-    var _index = String(index);
-    this.img.src = _this.image.url + _this.image.name + (_index) + '.' + _this.image.type;
-  };
-
-  this.ready = function () {
-    this.wrapper.classList.add('ready');
-  };
-
-  this.reset = function (_options) {
-    if (this.animationStats == 'play') this.stop();
-    this.image.url = _options.url;
-    this.image.name = _options.name;
-    this.image.type = _options.type;
-    this.image.total = parseFloat(_options.total);
-    this.image.count = 0;
-    this.frameIndex = 0;
-    this.frameTotal = this.image.total;
-    this.animationStats = 'stop';
-    this.animationFrameStats = false;
-    if (this.image.data && this.image.data.length > 0) this.image.data.length = 0;
-    this.wrapper.classList.remove('ready');
-
-    this.set();
-  };
-
-  this.resize = function () {
-    this.canvas.style.width = this.container.offsetWidth + 'px';
-    this.canvas.style.height = this.container.offsetHeight + 'px';
-    this.canvas.width = this.container.offsetWidth;
-    this.canvas.height = this.container.offsetHeight;
-    this.draw(this.frameIndex);
-  };
-
-  this.render = function () {
-    var _this = this;
-    this.animationFrame = window.requestAnimFrame(function () {
-      _this.render();
-    });
-
-    this.now = Date.now();
-    this.elapsed = _this.now - _this.then;
-
-    if (this.elapsed > this.fps) {
-
-      this.then = this.now - (this.elapsed % this.fps);
-      this.animationCur = (this.animationCur >= this.frameTotal - 1) ? 0 : this.animationCur = this.animationCur + 1;
-      this.draw(this.animationCur);
-    };
-  };
-
-  this.play = function () {
-    if (!this.animationFrameStats) {
-      var _this = this;
-      this.animationStats = 'play';
-      this.animationFrame = window.requestAnimFrame(function () {
-        _this.render();
-      });
-      this.animationFrameStats = true;
-      if ($call.onPlay) $call.onPlay.call(_this);
-    };
-  };
-
-  this.stop = function () {
-    this.animationStats = 'stop';
-    if (this.animationFrame) window.cancelAnimFrame(this.animationFrame);
-    this.animationFrameStats = false;
-    if ($call.onPause) $call.onPause.call(_this);
-  };
-
-  this.setValue = function (value) {
-    if (this.animationStats != 'play') {
-      this.animationCur = value;
-      this.draw(this.animationCur);
-    };
-  };
-
-  this.load = function () {
-    this.reset(this.image);
-    if ($call.onLoadStart) $call.onLoadStart.call(_this);
-  };
-
-  this.init();
-};
 
 function video(options) {
   var _this = this;
@@ -3366,29 +2848,38 @@ function video(options) {
   this.idx = options.idx;
 };
 
-function getTranslateValues(element) {
-  const style = window.getComputedStyle(element)
-  const matrix = style.transform || style.webkitTransform || style.mozTransform
-
-  // No transform property. Simply return 0 values.
-  if (matrix === 'none') {
-    return {
-      x: 0,
-      y: 0,
-      z: 0
-    }
-  }
-};
-
-
+// GNB 사용자정보
 $(document).on('click', '.gnb-userIinfo', function () {
   $(".info-layer").toggle();
-  console.log('123123123')
 });
 $(document).on('click', '.info-layer-inner ul li', function () {
   $(".info-layer").hide();
 });
 
+//3자리마다 , 찍기
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+// 숫자카운터
+function counterUp() {
+  var memberCountConTxt = 100000;
+
+  $({
+    val: 0
+  }).animate({
+    val: memberCountConTxt
+  }, {
+    duration: 1300,
+    step: function () {
+      var num = numberWithCommas(Math.floor(this.val));
+      $(".counter").text(num);
+    },
+    complete: function () {
+      var num = numberWithCommas(Math.floor(this.val));
+      $(".counter").text(num);
+    }
+  });
+}
 
 window.addEventListener('DOMContentLoaded', front.ready);
 window.addEventListener('load', front.load);

@@ -62,10 +62,8 @@ const UIscroll = function () {
       if (tar.getAttribute("data-delay") != null) tar.style.transitionDelay = `${tar.getAttribute("data-delay")}ms`;
 
       var con_H = $('#wrap').height() - $('#dFoot').height();
-      var topHeight = $('.main-headline').height() + $('.main-technology').height();
-      var realVal = topHeight - _sclTop;
 
-      if (realVal > 1800) {
+      if (_sclTop < _h) {
         $('.bottom-floating').removeClass('actived');
       } else {
         if (con_H - _sclTop < 1300) {
