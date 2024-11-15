@@ -2881,6 +2881,132 @@ function counterUp() {
   });
 }
 
+var $DOM = {
+  //	$DOM.element( Dom Element )
+  element: function (_el) {
+    if (_el) {
+      if (_el.length > 0) {
+        return _el[0];
+      } else {
+        return _el;
+      };
+    } else {
+      console.log('Not Element');
+    };
+  },
+  //	$DOM.addClass( Dom Element , Target Class )
+  addClass: function (_el, _class) {
+    $DOM.element(_el).classList.add(_class);
+  },
+  //	$DOM.hasClass( Dom Element , Target Class )
+  hasClass: function (_el, _class) {
+    return $DOM.element(_el).classList.contains(_class);
+  },
+  //	$DOM.removeClass( Dom Element , Target Class )
+  removeClass: function (_el, _class) {
+    $DOM.element(_el).classList.remove(_class);
+  },
+  //	$DOM.closest( Dom Element , + Target Class )
+  closest: function (_el, _selector) {
+    var el = $DOM.element(_el);
+    var matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
+    var selector = '.' + _selector
+    while (el) {
+      if (matchesSelector.call(el, selector)) {
+        return el;
+      } else {
+        el = el.parentElement;
+      }
+    }
+    return null;
+  },
+  //	$DOM.closestAll( Dom Element , + Target Class ) return array;
+  closestAll: function (_el, _selector) {
+    var arr = [];
+    var el = $DOM.element(_el);
+    while (el) {
+      if (el && el.classList.contains(_selector)) {
+        arr.push(el);
+      };
+      el = el.parentElement;
+    };
+    return arr;
+
+  },
+  // $DOM.siblings( DOM Element , Target Class )
+  siblings: function (_el, _selector) {
+    var el = $DOM.element(_el);
+    return Array.from(el.parentNode.children).filter(function (sibling) {
+      if (_selector) {
+        if (sibling !== el && $DOM.hasClass(sibling, _selector)) return sibling;
+      } else {
+        return sibling !== el;
+      };
+    });
+  },
+  child: function (_el, _selector) {
+    var el = $DOM.element(_el);
+    if (el.children.length > 0) {
+      return Array.from(el.children).filter(function (sibling) {
+        if (_selector) {
+          if (sibling !== el && $DOM.hasClass(sibling, _selector)) return sibling;
+        } else {
+          return sibling !== el;
+        };
+      });
+    } else {
+      console.log('Not Element');
+    };
+  },
+  // $DOM.next( DOM Element )
+  next: function (_el) {
+    return $DOM.element(_el).nextElementSibling;
+  },
+  // $DOM.prev( DOM Element )
+  prev: function (_el) {
+    return $DOM.element(_el).previousElementSibling;
+  },
+  // $DOM.parent( DOM Element )
+  parent: function (_el) {
+    return $DOM.element(_el).parentNode;
+  },
+  // $DOM.getAttr( Dom Element , Attribute Name )
+  getAttr: function (_el, _attr) {
+    return $DOM.element(_el).getAttribute(_attr);
+  },
+  // $DOM.setAttr( Dom Element , Attribute Name , Value )
+  setAttr: function (_el, _attr, _value) {
+    $DOM.element(_el).setAttribute(_attr, _value);
+  },
+  // $DOM.hasAttr( Dom Element , Attribute Name )
+  hasAttr: function (_el, _attr) {
+    return $DOM.element(_el).hasAttribute(_attr);
+  },
+  // $DOM.index( Dom Element )
+  getIndex: function (_el) {
+    return Array.prototype.slice.call($DOM.element(_el).parentElement.children).indexOf($DOM.element(_el));
+  },
+  // $DOM.getHtml( Dom Element )
+  getHtml: function (_el) {
+    return $DOM.element(_el).innerHTML;
+  },
+  // $DOM.setHtml( Dom Element , Html Text )
+  // DOM TREE RESET
+  setHtml: function (_el, _html) {
+    $DOM.element(_el).innerHTML = _html;
+  },
+  // $DOM.setAdjacentHtml( Dom Element , Position , Html Text )
+  // <!-- beforebegin -->
+  // <body>
+  //	<!-- afterbegin -->
+  //	<div></div>
+  //	<!-- beforeend -->
+  // </body>
+  // <!-- afterend -->
+  setAdjacentHtml: function (_el, _position, _html) {
+    $DOM.element(_el).insertAdjacentHTML(_position, _html);
+  }
+};
 window.addEventListener('DOMContentLoaded', front.ready);
 window.addEventListener('load', front.load);
 window.addEventListener('resize', front.resize);
