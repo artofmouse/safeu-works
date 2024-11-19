@@ -35,11 +35,13 @@
           <nav id="gnb">
             <div class="gnb-wrap">
               <ul class="gnb-list">
-                <li class="gnb-list-cell">
-                  <button type="button">관리자페이지</button>
-                </li>
                 <li class="gnb-list-cell user">
-                  <button type="button" class="gnb-userIinfo">홍길동<span>유플리트</span></button>
+                  <button type="button" class="gnb-userIinfo">
+                    <span>홍길동</span><span>유플리트</span>
+                  </button>
+                </li>
+                <li class="gnb-list-cell goworks">
+                  <button type="button">SAFE U Works</button>
                 </li>
               </ul>
             </div>
@@ -77,10 +79,6 @@
 
               </div>
               <div class="bg"></div>
-              <!-- <div class="bg">
-                <div class="video-wrap"><video src="https://ai.chunjae.co.kr/common/images/video/main-ai-video.mp4"
-                    muted playsinline id="mainHEADLINEVideo"></video></div>
-              </div> -->
               <div class="scroller"></div>
             </div>
           </div>
@@ -200,7 +198,16 @@
                   </div>
                 </div>
               </div>
-              <div class="data2">
+              <div class="bg"></div>
+            </div>
+          </div>
+        </div>
+        <!-- //section3 -->
+        <!-- section3-2 -->
+        <div class="main-group main-ai2">
+          <div class="main-sticky">
+            <div class="main-sticky-inner">
+              <div class="data">
                 <div class="data-inner">
                   <h2 data-ani="fadeUp">SAFE U WORKS · 모바일</h2>
                   <h3 class="title data2-tl">
@@ -215,8 +222,8 @@
                     </span>
                   </h3>
                   <div class="list">
-                    <div class="list-inner2">
-                      <div class="list-item2">
+                    <div class="list-inner">
+                      <div class="list-item">
                         <div class="item-inner">
                           <div class="item-info">
                             <h4 class="item-title">홈 구성</h4>
@@ -237,7 +244,7 @@
                           <div class="item-label-number">01</div>
                         </div>
                       </div>
-                      <div class="list-item2">
+                      <div class="list-item">
                         <div class="item-inner">
                           <div class="item-info">
                             <h4 class="item-title">위험성 평가</h4>
@@ -266,7 +273,7 @@
             </div>
           </div>
         </div>
-        <!-- //section3 -->
+        <!-- //section3-2 -->
         <!-- section4 -->
         <div class="main-group main-price">
           <div class="main-sticky">
@@ -285,19 +292,19 @@
                         <li>
                           <dl>
                             <dt><label for="stageNum">현장 수</label></dt>
-                            <dd data-affix="개"><input type="text" title="현장 수" id="stageNum" /></dd>
+                            <dd data-affix="개"><input type="number" value="1" title="현장 수" id="stageNum" /></dd>
                           </dl>
                         </li>
                         <li>
                           <dl>
                             <dt><label for="personNum">인원 수</label></dt>
-                            <dd data-affix="명"><input type="text" title="인원 수" id="personNum" /></dd>
+                            <dd data-affix="명"><input type="number" value="50" title="인원 수" id="personNum" /></dd>
                           </dl>
                         </li>
                         <li>
                           <dl>
                             <dt><label for="storage">저장공간</label></dt>
-                            <dd data-affix="GB"><input type="text" title="저장공간" id="storage" /></dd>
+                            <dd data-affix="GB"><input type="number" value="1" title="저장공간" id="storage" /></dd>
                           </dl>
                         </li>
                         <li>
@@ -504,25 +511,14 @@
         <!-- <div class="page-ui-item"><button type="button" class="btn-page-top">상단 이동</button></div> -->
       </div>
       <div class="footer-inner">
-        <div class="inner-left">
-          <p>
-            <span>SAFE U</span>
-            <span>Digital</span>
-            <span>Transformation</span>
-          </p>
-          <div>당신의 안전을 디지털로 전환하세요.</div>
+        <div class="inner-top">
+          <span><a href="mailto:safeuworks@upleat.com">safeuworks@upleat.com</a></span>
+          <span><a href="tel:+82.2.538.8097">+82.2.538.8097</a></span>
+          <span>서울 마포구 잔다리로 39 로뎀빌딩</span>
         </div>
-        <div class="inner-right">
-          <div class="right-top">
-            <p>SAFE U Contact Info.</p>
-            <div>Safe U 솔루션이 궁금하시면 언제든지 문의해 주세요.</div>
-          </div>
-          <div class="right-bottom">
-            <div><a href="mailto:safeu@upleat.com">safeu@upleat.com</a></div>
-            <div><a href="tel:+82.2.538.8097">+82.2.538.8097</a></div>
-            <div class="address">경기도 성남시 중원구 둔촌대로 388번길 24
-              우림라이온스밸리3차 8층 (상대원동)</div>
-          </div>
+        <div class="inner-bottom">
+          <span>POWERED BY UPLEAT.</span>
+          <span><img src="./assets/images/footer_logo.png" alt="Safe U Works" /></span>
         </div>
     </footer>
     <!-- //dFoot -->
