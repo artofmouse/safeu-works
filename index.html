@@ -23,6 +23,7 @@
   <script src="assets/js/ScrollMagic.min.js"></script>
   <script src="assets/js/animation.gsap.min.js"></script>
   <script src="assets/js/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
 </head>
 
 <body>
@@ -62,7 +63,7 @@
     <section id="dBody">
       <div id="mainScroller" class="main-wrap">
         <!-- section1 -->
-        <div class="main-group main-headline">
+        <div class="main-group main-headline" id="section1">
           <div class="main-sticky">
             <div class="main-sticky-inner">
               <div class="headline-1">
@@ -85,7 +86,7 @@
         </div>
         <!-- //section1 -->
         <!-- section2 -->
-        <div class="main-group main-technology">
+        <div class="main-group main-technology" id="section2">
           <div class="main-sticky">
             <div class="main-sticky-inner">
               <div class="data">
@@ -117,7 +118,7 @@
         </div>
         <!-- //section2 -->
         <!-- section3 -->
-        <div class="main-group main-ai">
+        <div class="main-group main-ai" id="section3">
           <div class="main-sticky">
             <div class="main-sticky-inner">
               <div class="data">
@@ -137,38 +138,42 @@
                   <div class="list">
                     <div class="list-inner">
                       <div class="list-item">
-                        <div class="item-inner">
-                          <div class="item-info">
-                            <h4 class="item-title">AI 이미지 분석</h4>
-                            <div class="item-detail">
-                              <ul>
-                                <li>이미지 내 위험요소, 대처방안 자동 입력</li>
-                                <li>AI 분석과 음성인식으로 진행하는 간편한 정보 입력</li>
-                                <li>사진 업로드 시 카테고리 자동 분류</li>
-                              </ul>
-                            </div>
-                            <div class="item-number">01</div>
-                          </div>
-                          <div class="item-visual"></div>
-                        </div>
                         <div class="item-label">
                           <div class="item-label-title">AI 이미지 분석</div>
                           <div class="item-label-number">01</div>
                         </div>
+                        <div class="item-inner">
+                          <div class="inner-wrap">
+                            <div class="item-info">
+                              <h4 class="item-title">AI 이미지 분석</h4>
+                              <div class="item-detail">
+                                <ul>
+                                  <li>이미지 내 위험요소, 대처방안 자동 입력</li>
+                                  <li>AI 분석과 음성인식으로 진행하는 간편한 정보 입력</li>
+                                  <li>사진 업로드 시 카테고리 자동 분류</li>
+                                </ul>
+                              </div>
+                              <div class="item-number">01</div>
+                            </div>
+                            <div class="item-visual"></div>
+                          </div>
+                        </div>
                       </div>
                       <div class="list-item">
                         <div class="item-inner">
-                          <div class="item-info">
-                            <h4 class="item-title">문서 작성 연계</h4>
-                            <div class="item-detail">
-                              <ul>
-                                <li>안전 관리 문서 내 사진 활용 간편 지원</li>
-                                <li>통계 분석 리포트 제공</li>
-                              </ul>
+                          <div class="inner-wrap">
+                            <div class="item-info">
+                              <h4 class="item-title">문서 작성 연계</h4>
+                              <div class="item-detail">
+                                <ul>
+                                  <li>안전 관리 문서 내 사진 활용 간편 지원</li>
+                                  <li>통계 분석 리포트 제공</li>
+                                </ul>
+                              </div>
+                              <div class="item-number">02</div>
                             </div>
-                            <div class="item-number">02</div>
+                            <div class="item-visual"></div>
                           </div>
-                          <div class="item-visual"></div>
                         </div>
                         <div class="item-label">
                           <div class="item-label-title">문서 작성 연계</div>
@@ -177,17 +182,19 @@
                       </div>
                       <div class="list-item">
                         <div class="item-inner">
-                          <div class="item-info">
-                            <h4 class="item-title">QR 출역</h4>
-                            <div class="item-detail">
-                              <ul>
-                                <li>현장별 QR 출역 시스템 구축</li>
-                                <li>모바일 사용환경을 고려한 간편한 메뉴 구성</li>
-                              </ul>
+                          <div class="inner-wrap">
+                            <div class="item-info">
+                              <h4 class="item-title">QR 출역</h4>
+                              <div class="item-detail">
+                                <ul>
+                                  <li>현장별 QR 출역 시스템 구축</li>
+                                  <li>모바일 사용환경을 고려한 간편한 메뉴 구성</li>
+                                </ul>
+                              </div>
+                              <div class="item-number">03</div>
                             </div>
-                            <div class="item-number">03</div>
+                            <div class="item-visual"></div>
                           </div>
-                          <div class="item-visual"></div>
                         </div>
                         <div class="item-label">
                           <div class="item-label-title">QR 출역</div>
@@ -204,13 +211,13 @@
         </div>
         <!-- //section3 -->
         <!-- section3-2 -->
-        <div class="main-group main-ai2">
+        <div class="main-group main-ai2" id="section4">
           <div class="main-sticky">
             <div class="main-sticky-inner">
               <div class="data">
                 <div class="data-inner">
                   <h2 data-ani="fadeUp">SAFE U WORKS · 모바일</h2>
-                  <h3 class="title data2-tl">
+                  <h3 class="title">
                     <span class="sentence" data-ani="fadeUp" data-delay="300">
                       <span class="word"><em>문서 작성 시간 70% </em> 이상 단축</span>
                     </span>
@@ -225,19 +232,21 @@
                     <div class="list-inner">
                       <div class="list-item">
                         <div class="item-inner">
-                          <div class="item-info">
-                            <h4 class="item-title">홈 구성</h4>
-                            <div class="item-detail">
-                              <ul>
-                                <li>한 눈에 확인하는 중점관리 사안</li>
-                                <li>일일업무, 정기업무 작성 가이드 제공</li>
-                                <li>현장 안전 관련 최신 정보 제공</li>
-                                <li>직관적이고 단순한 사용자 인터페이스</li>
-                              </ul>
+                          <div class="inner-wrap">
+                            <div class="item-info">
+                              <h4 class="item-title">홈 구성</h4>
+                              <div class="item-detail">
+                                <ul>
+                                  <li>한 눈에 확인하는 중점관리 사안</li>
+                                  <li>일일업무, 정기업무 작성 가이드 제공</li>
+                                  <li>현장 안전 관련 최신 정보 제공</li>
+                                  <li>직관적이고 단순한 사용자 인터페이스</li>
+                                </ul>
+                              </div>
+                              <div class="item-number">01</div>
                             </div>
-                            <div class="item-number">01</div>
+                            <div class="item-visual"></div>
                           </div>
-                          <div class="item-visual"></div>
                         </div>
                         <div class="item-label">
                           <div class="item-label-title">홈 구성</div>
@@ -246,19 +255,21 @@
                       </div>
                       <div class="list-item">
                         <div class="item-inner">
-                          <div class="item-info">
-                            <h4 class="item-title">위험성 평가</h4>
-                            <div class="item-detail">
-                              <ul>
-                                <li>공종과 세부작업에 따른 안전대책
-                                  자동 작성</li>
-                                <li>현장마다 쌓이는 데이터를 학습하는 AI</li>
-                                <li>기업체가 보유한 DB 연동 가능</li>
-                              </ul>
+                          <div class="inner-wrap">
+                            <div class="item-info">
+                              <h4 class="item-title">위험성 평가</h4>
+                              <div class="item-detail">
+                                <ul>
+                                  <li>공종과 세부작업에 따른 안전대책
+                                    자동 작성</li>
+                                  <li>현장마다 쌓이는 데이터를 학습하는 AI</li>
+                                  <li>기업체가 보유한 DB 연동 가능</li>
+                                </ul>
+                              </div>
+                              <div class="item-number">02</div>
                             </div>
-                            <div class="item-number">02</div>
+                            <div class="item-visual"></div>
                           </div>
-                          <div class="item-visual"></div>
                         </div>
                         <div class="item-label">
                           <div class="item-label-title">위험성 평가</div>
@@ -275,7 +286,7 @@
         </div>
         <!-- //section3-2 -->
         <!-- section4 -->
-        <div class="main-group main-price">
+        <div class="main-group main-price" id="section5">
           <div class="main-sticky">
             <div class="main-sticky-inner">
               <div class="data">
@@ -325,7 +336,7 @@
         </div>
         <!-- //section4 -->
         <!-- section5 -->
-        <div class="main-group main-patent">
+        <div class="main-group main-patent" id="section6">
           <div class="main-sticky">
             <div class="main-sticky-inner">
               <div class="data">
@@ -481,16 +492,16 @@
         <!-- Indicator -->
         <div class="indicator">
           <ul>
-            <li class="actived" data-affix="SAFE U"></li>
-            <li data-affix="서비스 소개"></li>
-            <li data-affix="Works"></li>
+            <li class="actived" data-affix="SAFE U" href="#section1"></li>
+            <li data-affix="서비스 소개" href="#section2"></li>
+            <li data-affix="Works" href="#section3"></li>
             <li data-affix="요금"></li>
             <li data-affix="보도자료"></li>
             <li data-affix="서비스 문의"></li>
           </ul>
         </div>
         <!-- //Indicator -->
-        <!-- indicator_line -->
+        <!-- bottomFloating -->
         <div class="bottom-floating">
           <div class="floating-inner">
             <div class="bottom-left">AI로 더 안전하고<br class="mo_ln" /> 편리하게 현장을 관리하세요.</div>
@@ -500,7 +511,7 @@
             </div>
           </div>
         </div>
-        <!-- //indicator_line -->
+        <!-- //bottomFloating -->
       </div>
     </section>
     <!-- //dBody -->

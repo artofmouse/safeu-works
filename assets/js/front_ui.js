@@ -680,12 +680,6 @@ var main = {
           ease: Linear.easeNone
         }, 0);
 
-        this.tweener.headlineTweener1.fromTo($elementHeadline.find('.headline-2'), {
-          y: '100vh'
-        }, {
-          y: '0vh',
-          ease: Linear.easeNone
-        }, 0);
         this.scene.headlineScene1 = new ScrollMagic.Scene({
           triggerElement: $elementHeadline[0],
           triggerHook: 0
@@ -944,11 +938,11 @@ var main = {
         this.scene.aiSticky.offset(0);
         this.scene.aiSticky.duration($elementAI.height() - stageH);
 
+
         this.scene.aiSticky.on('enter', function () {
           $('.indicator ul li').removeClass('actived');
           $('.indicator ul li:eq(2)').addClass('actived');
           $('.indicator ul li').removeClass('white');
-          // $('.main-ai .bg').addClass('actived');
         });
 
         this.scene.aiScene0 = new ScrollMagic.Scene({
@@ -964,7 +958,6 @@ var main = {
         });
 
         //ai1 #################################################################################
-
         this.tweener.aiTweener1 = gsap.timeline({});
         this.tweener.aiTweener1.fromTo($elementAI.find('.title'), {
           alpha: 0
@@ -972,12 +965,7 @@ var main = {
           alpha: 1,
           ease: Linear.easeNone
         }, 0);
-        this.tweener.aiTweener1.fromTo($elementAI.find('.list-inner'), {
-          x: '100vw'
-        }, {
-          x: '0vw',
-          ease: Linear.easeNone
-        }, 0);
+
         this.scene.aiScene1 = new ScrollMagic.Scene({
           triggerElement: $elementAI[0],
           triggerHook: 1
@@ -986,23 +974,53 @@ var main = {
           .addTo(this.controller.pc);
 
         this.scene.aiScene1.offset(stageH * 0);
-        this.scene.aiScene1.duration(stageH * 1);
+        this.scene.aiScene1.duration(stageH * 0.7)
         this.scene.aiScene1.setTween(this.tweener.aiTweener1);
 
-        var aiCardWidth = 0;
-        if (stageW > 1440) {
-          aiCardWidth = 80;
-        } else {
-          aiCardWidth = 60;
-        };
-
+        // STEP1
         this.tweener.aiTweener2 = gsap.timeline({});
-        this.tweener.aiTweener2.fromTo($elementAI.find('.list-item').eq(0), {
-          width: $elementAI.find('.list-item:eq(0) .item-inner').innerWidth()
+        this.tweener.aiTweener2.fromTo($elementAI.find('.list-item:eq(0) .item-inner'), {
+          width: 980,
+          alpha: 1
         }, {
-          width: aiCardWidth,
+          width: 0,
+          alpha: 0,
           ease: Linear.easeNone
         }, 0);
+        this.tweener.aiTweener2.fromTo($elementAI.find('.list-item:eq(0)'), {
+          width: 1080,
+        }, {
+          width: 80,
+          ease: Linear.easeNone
+        }, 0);
+        this.tweener.aiTweener2.fromTo($elementAI.find('.list-item:eq(1) .item-inner'), {
+          width: 0,
+          alpha: 0
+        }, {
+          width: 980,
+          alpha: 1,
+          ease: Linear.easeNone
+        }, 0);
+
+        this.tweener.aiTweener2.fromTo($elementAI.find('.list-item:eq(1)'), {
+          width: 80
+        }, {
+          width: 1080,
+          ease: Linear.easeNone
+        }, 0);
+        this.tweener.aiTweener2.fromTo($elementAI.find('.list-item:eq(2) .item-inner'), {
+          width: 0
+        }, {
+          width: 0,
+          ease: Linear.easeNone
+        }, 0);
+        this.tweener.aiTweener2.fromTo($elementAI.find('.list-item:eq(2)'), {
+          width: 80,
+        }, {
+          width: 80,
+          ease: Linear.easeNone
+        }, 0);
+
         this.scene.aiScene2 = new ScrollMagic.Scene({
           triggerElement: $elementAI[0],
           triggerHook: 0
@@ -1010,25 +1028,39 @@ var main = {
 
           .addTo(this.controller.pc);
 
-        this.scene.aiScene2.on('enter', function () {
-          $elementAI.find('.list-item').eq(0).removeClass('actived');
-        });
-        this.scene.aiScene2.on('leave', function (event) {
-          if (event.state == 'AFTER') $elementAI.find('.list-item').eq(0).addClass('actived');
-        });
-
-
-        this.scene.aiScene2.offset(stageH * 0.25);
-        this.scene.aiScene2.duration(stageH * 0.7);
+        this.scene.aiScene2.offset(stageH * 0.3);
+        this.scene.aiScene2.duration(stageH * 0.3);
         this.scene.aiScene2.setTween(this.tweener.aiTweener2);
 
+
+        // STEP2
         this.tweener.aiTweener3 = gsap.timeline({});
-        this.tweener.aiTweener3.fromTo($elementAI.find('.list-item').eq(1), {
-          width: $elementAI.find('.list-item:eq(1)').innerWidth()
+        this.tweener.aiTweener3.fromTo($elementAI.find('.list-item:eq(1) .item-inner'), {
+          width: 980
         }, {
-          width: aiCardWidth,
+          width: 0,
           ease: Linear.easeNone
         }, 0);
+        this.tweener.aiTweener3.fromTo($elementAI.find('.list-item:eq(1)'), {
+          width: 1080
+        }, {
+          width: 80,
+          ease: Linear.easeNone
+        }, 0);
+
+        this.tweener.aiTweener3.fromTo($elementAI.find('.list-item:eq(2) .item-inner'), {
+          width: 0
+        }, {
+          width: 980,
+          ease: Linear.easeNone
+        }, 0);
+        this.tweener.aiTweener3.fromTo($elementAI.find('.list-item:eq(2)'), {
+          width: 80,
+        }, {
+          width: 1080,
+          ease: Linear.easeNone
+        }, 0);
+
         this.scene.aiScene3 = new ScrollMagic.Scene({
           triggerElement: $elementAI[0],
           triggerHook: 0
@@ -1036,16 +1068,9 @@ var main = {
 
           .addTo(this.controller.pc);
 
-        this.scene.aiScene3.offset(stageH * 0.95);
-        this.scene.aiScene3.duration(stageH * 0.7);
+        this.scene.aiScene3.offset(stageH * 1.1);
+        this.scene.aiScene3.duration(stageH * 0.3);
         this.scene.aiScene3.setTween(this.tweener.aiTweener3);
-
-        this.scene.aiScene3.on('enter', function () {
-          $elementAI.find('.list-item').eq(1).removeClass('actived');
-        });
-        this.scene.aiScene3.on('leave', function (event) {
-          if (event.state == 'AFTER') $elementAI.find('.list-item').eq(1).addClass('actived');
-        });
       };
       /* ====================================================
       ======================================================
@@ -1072,13 +1097,8 @@ var main = {
           $('.indicator ul li').removeClass('actived');
           $('.indicator ul li:eq(3)').addClass('actived');
           $('.indicator ul li').removeClass('white');
-          // $('.main-ai .bg').removeClass('actived');
-          // $('.main-ai2 .bg').addClass('actived');
+
         });
-        // this.scene.ai2Sticky.on('leave', function () {
-        //   $('.main-ai .bg').addClass('actived');
-        //   $('.main-ai2 .bg').removeClass('actived');
-        // });
 
         this.scene.ai2Scene0 = new ScrollMagic.Scene({
           triggerElement: $elementAI2[0],
@@ -1091,11 +1111,10 @@ var main = {
         this.scene.ai2Scene0.on('leave', function () {
           $elementAI2.find('.title').removeClass('actived');
           $('.main-ai .bg').removeClass('actived');
+          $('.item-inner').addClass('closed');
         });
 
-
         //ai2 #################################################################################
-
         this.tweener.ai2Tweener1 = gsap.timeline({});
         this.tweener.ai2Tweener1.fromTo($elementAI2.find('.title'), {
           alpha: 0
@@ -1103,12 +1122,7 @@ var main = {
           alpha: 1,
           ease: Linear.easeNone
         }, 0);
-        this.tweener.ai2Tweener1.fromTo($elementAI2.find('.list-inner'), {
-          x: '-100vw'
-        }, {
-          x: '0vw',
-          ease: Linear.easeNone
-        }, 0);
+
         this.scene.ai2Scene1 = new ScrollMagic.Scene({
           triggerElement: $elementAI2[0],
           triggerHook: 1
@@ -1120,20 +1134,34 @@ var main = {
         this.scene.ai2Scene1.duration(stageH * 1);
         this.scene.ai2Scene1.setTween(this.tweener.ai2Tweener1);
 
-        var aiCardWidth = 0;
-        if (stageW > 1440) {
-          aiCardWidth = 80;
-        } else {
-          aiCardWidth = 60;
-        };
-
         this.tweener.ai2Tweener2 = gsap.timeline({});
-        this.tweener.ai2Tweener2.fromTo($elementAI2.find('.list-item').eq(0), {
-          width: $elementAI2.find('.list-item:eq(0) .item-inner').innerWidth()
+        this.tweener.ai2Tweener2.fromTo($elementAI2.find('.list-item:eq(0) .item-inner'), {
+          width: 980
         }, {
-          width: aiCardWidth,
+          width: 0,
           ease: Linear.easeNone
         }, 0);
+        this.tweener.ai2Tweener2.fromTo($elementAI2.find('.list-item:eq(0)'), {
+          width: 1080
+        }, {
+          width: 80,
+          ease: Linear.easeNone
+        }, 0);
+        this.tweener.ai2Tweener2.fromTo($elementAI2.find('.list-item:eq(1) .item-inner'), {
+          width: 0,
+          alpha: 0
+        }, {
+          width: 980,
+          alpha: 1,
+          ease: Linear.easeNone
+        }, 0);
+        this.tweener.ai2Tweener2.fromTo($elementAI2.find('.list-item:eq(1)'), {
+          width: 80
+        }, {
+          width: 1080,
+          ease: Linear.easeNone
+        }, 0);
+
         this.scene.ai2Scene2 = new ScrollMagic.Scene({
           triggerElement: $elementAI2[0],
           triggerHook: 0
@@ -1141,16 +1169,8 @@ var main = {
 
           .addTo(this.controller.pc);
 
-        this.scene.ai2Scene2.on('enter', function () {
-          $elementAI2.find('.list-item').eq(0).removeClass('actived');
-        });
-        this.scene.ai2Scene2.on('leave', function (event) {
-          if (event.state == 'AFTER') $elementAI2.find('.list-item').eq(0).addClass('actived');
-        });
-
-
         this.scene.ai2Scene2.offset(stageH * 0.25);
-        this.scene.ai2Scene2.duration(stageH * 0.7);
+        this.scene.ai2Scene2.duration(stageH * 0.2);
         this.scene.ai2Scene2.setTween(this.tweener.ai2Tweener2);
       };
       /* ====================================================
@@ -1807,9 +1827,6 @@ var main = {
           $elementAI.find('.list-inner').attr('style', '');
           $elementAI.find('.list-item').eq(0).attr('style', '').removeClass('actived');
           $elementAI.find('.list-item').eq(1).attr('style', '').removeClass('actived');
-          $elementAI.find('.list-inner2').attr('style', '');
-          $elementAI.find('.list-item2').eq(0).attr('style', '').removeClass('actived');
-          $elementAI.find('.list-item2').eq(1).attr('style', '').removeClass('actived');
 
           this.tweener.aiTweener1 = gsap.timeline({});
           this.tweener.aiTweener1.fromTo($elementAI.find('.title'), {
@@ -1878,25 +1895,7 @@ var main = {
             _this.scene.aiScene0.setTween(_this.tweener['aiTweener' + $(this).index()]);
           });
 
-          $elementAI.find('.list-item2').each(function () {
-            _this.tweener['aiTweener' + $(this).index()] = gsap.timeline({});
-            _this.tweener['aiTweener' + $(this).index()].fromTo($(this), {
-              alpha: 0,
-              y: 60
-            }, {
-              duration: 0.6,
-              y: 0,
-              alpha: 1,
-              ease: Power3.easeOut
-            }, 0);
 
-            _this.scene.aiScene0 = new ScrollMagic.Scene({
-              triggerElement: $(this)[0],
-              triggerHook: 1
-            })
-              .addTo(_this.controller.mobile);
-            _this.scene.aiScene0.setTween(_this.tweener['aiTweener' + $(this).index()]);
-          });
 
           this.scene.aiHeader = new ScrollMagic.Scene({
             triggerElement: $elementAI[0],
@@ -1918,6 +1917,107 @@ var main = {
 
           this.scene.aiTop.offset(0);
           this.scene.aiTop.duration($elementAI.height());
+          this.scene.aiTop.on('enter', function () {
+            $('#page-ui').addClass('white');
+          });
+        };
+        /* ====================================================
+       ======================================================
+       // AI
+       ====================================================
+       ====================================================*/
+        if ($elementAI2) {
+          $elementAI2.find('.title').attr('style', '');
+          $elementAI2.find('.list-inner').attr('style', '');
+          $elementAI2.find('.list-item').eq(0).attr('style', '').removeClass('actived');
+
+          this.tweener.aiTweener1 = gsap.timeline({});
+          this.tweener.aiTweener1.fromTo($elementAI2.find('.title'), {
+            alpha: 0,
+            y: 40
+          }, {
+            duration: 0.6,
+            y: 0,
+            alpha: 1,
+            ease: Power3.easeOut
+          }, 0);
+
+          this.scene.aiScene0 = new ScrollMagic.Scene({
+            triggerElement: $elementAI2.find('.title')[0],
+            triggerHook: 1
+          })
+            .addTo(this.controller.mobile);
+
+          this.scene.aiScene0.on('enter', function () {
+            $elementAI2.find('.title').addClass('actived');
+          });
+          this.scene.aiScene0.on('leave', function () {
+            $elementAI2.find('.title').removeClass('actived');
+          });
+          this.scene.aiScene0.setTween(this.tweener.aiTweener1);
+
+          //middle #################################################################################
+          this.tweener.ai2Tweener1 = gsap.timeline({});
+          this.tweener.ai2Tweener1.fromTo($elementAI2.find('.data'), {
+            y: '0vh'
+          }, {
+            y: '0vh',
+            ease: Linear.easeNone
+          }, 0);
+          this.tweener.ai2Tweener1.fromTo($elementAI2.find('.data2'), {
+            y: '0vh'
+          }, {
+            y: '0vh',
+            ease: Linear.easeNone
+          }, 0);
+          this.scene.ai2Scene1 = new ScrollMagic.Scene({
+            triggerElement: $elementAI2[0],
+            triggerHook: 0
+          })
+            .addTo(this.controller.pc);
+
+          this.scene.ai2Scene1.setTween(this.tweener.ai2Tweener1);
+
+          $elementAI2.find('.list-item').each(function () {
+            _this.tweener['aiTweener' + $(this).index()] = gsap.timeline({});
+            _this.tweener['aiTweener' + $(this).index()].fromTo($(this), {
+              alpha: 0,
+              y: 60
+            }, {
+              duration: 0.6,
+              y: 0,
+              alpha: 1,
+              ease: Power3.easeOut
+            }, 0);
+
+            _this.scene.aiScene0 = new ScrollMagic.Scene({
+              triggerElement: $(this)[0],
+              triggerHook: 1
+            })
+              .addTo(_this.controller.mobile);
+            _this.scene.aiScene0.setTween(_this.tweener['aiTweener' + $(this).index()]);
+          });
+
+          this.scene.aiHeader = new ScrollMagic.Scene({
+            triggerElement: $elementAI2[0],
+            triggerHook: 0
+          })
+            .addTo(this.controller.mobile);
+
+          this.scene.aiHeader.offset(0);
+          this.scene.aiHeader.duration($elementAI2.height());
+          this.scene.aiHeader.on('enter', function () {
+            $('#dHead').addClass('white');
+          });
+
+          this.scene.aiTop = new ScrollMagic.Scene({
+            triggerElement: $elementAI2[0],
+            triggerHook: 1
+          })
+            .addTo(this.controller.mobile);
+
+          this.scene.aiTop.offset(0);
+          this.scene.aiTop.duration($elementAI2.height());
           this.scene.aiTop.on('enter', function () {
             $('#page-ui').addClass('white');
           });
@@ -2466,9 +2566,6 @@ var main = {
           $elementAI.find('.list-inner').attr('style', '');
           $elementAI.find('.list-item').eq(0).attr('style', '').removeClass('actived');
           $elementAI.find('.list-item').eq(1).attr('style', '').removeClass('actived');
-          $elementAI.find('.list-inner2').attr('style', '');
-          $elementAI.find('.list-item2').eq(0).attr('style', '').removeClass('actived');
-          $elementAI.find('.list-item2').eq(1).attr('style', '').removeClass('actived');
 
           this.tweener.aiTweener1 = gsap.timeline({});
           this.tweener.aiTweener1.fromTo($elementAI.find('.title'), {
@@ -2495,49 +2592,7 @@ var main = {
           });
           this.scene.aiScene0.setTween(this.tweener.aiTweener1);
 
-          //middle #################################################################################
-          this.tweener.ai2Tweener1 = gsap.timeline({});
-          this.tweener.ai2Tweener1.fromTo($elementAI.find('.data'), {
-            y: '0vh'
-          }, {
-            y: '0vh',
-            ease: Linear.easeNone
-          }, 0);
-          this.tweener.ai2Tweener1.fromTo($elementAI.find('.data2'), {
-            y: '0vh'
-          }, {
-            y: '0vh',
-            ease: Linear.easeNone
-          }, 0);
-          this.scene.ai2Scene1 = new ScrollMagic.Scene({
-            triggerElement: $elementAI[0],
-            triggerHook: 0
-          })
-            .addTo(this.controller.pc);
-
-          this.scene.ai2Scene1.setTween(this.tweener.ai2Tweener1);
-
           $elementAI.find('.list-item').each(function () {
-            _this.tweener['aiTweener' + $(this).index()] = gsap.timeline({});
-            _this.tweener['aiTweener' + $(this).index()].fromTo($(this), {
-              alpha: 0,
-              y: 60
-            }, {
-              duration: 0.6,
-              y: 0,
-              alpha: 1,
-              ease: Power3.easeOut
-            }, 0);
-
-            _this.scene.aiScene0 = new ScrollMagic.Scene({
-              triggerElement: $(this)[0],
-              triggerHook: 1
-            })
-              .addTo(_this.controller.mobile);
-            _this.scene.aiScene0.setTween(_this.tweener['aiTweener' + $(this).index()]);
-          });
-
-          $elementAI.find('.list-item2').each(function () {
             _this.tweener['aiTweener' + $(this).index()] = gsap.timeline({});
             _this.tweener['aiTweener' + $(this).index()].fromTo($(this), {
               alpha: 0,
@@ -2577,6 +2632,85 @@ var main = {
 
           this.scene.aiTop.offset(0);
           this.scene.aiTop.duration($elementAI.height());
+          this.scene.aiTop.on('enter', function () {
+            $('#page-ui').addClass('white');
+          });
+        };
+        /* ====================================================
+       ======================================================
+       // AI2
+       ====================================================
+       ====================================================*/
+        if ($elementAI2) {
+          $elementAI2.find('.title').attr('style', '');
+          $elementAI2.find('.list-inner').attr('style', '');
+          $elementAI2.find('.list-item').eq(0).attr('style', '').removeClass('actived');
+
+          this.tweener.aiTweener1 = gsap.timeline({});
+          this.tweener.aiTweener1.fromTo($elementAI2.find('.title'), {
+            alpha: 0,
+            y: 40
+          }, {
+            duration: 0.6,
+            y: 0,
+            alpha: 1,
+            ease: Power3.easeOut
+          }, 0);
+
+          this.scene.aiScene0 = new ScrollMagic.Scene({
+            triggerElement: $elementAI2.find('.title')[0],
+            triggerHook: 1
+          })
+            .addTo(this.controller.mobile);
+
+          this.scene.aiScene0.on('enter', function () {
+            $elementAI2.find('.title').addClass('actived');
+          });
+          this.scene.aiScene0.on('leave', function () {
+            $elementAI2.find('.title').removeClass('actived');
+          });
+          this.scene.aiScene0.setTween(this.tweener.aiTweener1);
+
+          $elementAI2.find('.list-item').each(function () {
+            _this.tweener['aiTweener' + $(this).index()] = gsap.timeline({});
+            _this.tweener['aiTweener' + $(this).index()].fromTo($(this), {
+              alpha: 0,
+              y: 60
+            }, {
+              duration: 0.6,
+              y: 0,
+              alpha: 1,
+              ease: Power3.easeOut
+            }, 0);
+
+            _this.scene.aiScene0 = new ScrollMagic.Scene({
+              triggerElement: $(this)[0],
+              triggerHook: 1
+            })
+              .addTo(_this.controller.mobile);
+            _this.scene.aiScene0.setTween(_this.tweener['aiTweener' + $(this).index()]);
+          });
+
+          this.scene.aiHeader = new ScrollMagic.Scene({
+            triggerElement: $elementAI2[0],
+            triggerHook: 0
+          })
+            .addTo(this.controller.mobile);
+
+          this.scene.aiHeader.offset(0);
+          this.scene.aiHeader.duration($elementAI2.height());
+          this.scene.aiHeader.on('enter', function () {
+            $('#dHead').addClass('white');
+          });
+
+          this.scene.aiTop = new ScrollMagic.Scene({
+            triggerElement: $elementAI2[0],
+            triggerHook: 1
+          })
+            .addTo(this.controller.mobile);
+
+          this.scene.aiTop.offset(0);
+          this.scene.aiTop.duration($elementAI2.height());
           this.scene.aiTop.on('enter', function () {
             $('#page-ui').addClass('white');
           });
@@ -2986,6 +3120,65 @@ window.addEventListener('DOMContentLoaded', front.ready);
 window.addEventListener('load', front.load);
 window.addEventListener('resize', front.resize);
 window.addEventListener('scroll', front.scroll);
+
+
+// $(".indicator ul li").click(function (param) {
+//   let num = $(".indicator ul li").index(this) + 1;
+//   console.log('num:::' + num);
+
+//   let sectionTop = $("#section" + num).offset().top
+//   // location.href = "#section" + num
+
+//   $('html, body').animate({
+//     scrollTop: sectionTop
+//   }, 1000); // 1초 동안 스크롤
+
+
+
+//   // window.scrollTo({
+//   //   top: sectionTop,
+//   //   behavior: "smooth",
+//   // });
+
+//   console.log('sectionTop:::' + sectionTop);
+// });
+
+
+// $(document).ready(function () {
+//   var controller = new ScrollMagic.Controller();
+//   var indicator = $('.indicator ul li');
+
+//   // 각 섹션에 대한 ScrollMagic 장면 생성
+//   $('.main-group').each(function () {
+//     var section = $(this);
+
+//     new ScrollMagic.Scene({
+//       triggerElement: this,
+//       triggerHook: 0.5 // 화면 중앙에서 트리거
+//     })
+//       .on("enter", function () {
+//         // 인디케이터 업데이트
+//         indicator.text(section.attr('id'));
+//       })
+//       .addTo(controller);
+//   });
+
+//   // ScrollTo 애니메이션 설정
+//   $('.indicator ul li').on('click', function (e) {
+//     e.preventDefault();
+//     var target = $(this).attr('href');
+//     console.log(target);
+//     window.scrollTo(target, {
+//       duration: 1000, // 1초 동안 스크롤
+//       easing: 'swing'
+//     });
+//   });
+// });
+
+
+
+
+// });
 
 (function () {
   front.init();
