@@ -1,4 +1,3 @@
-
 var front = {
   stage: {
     width: 0,
@@ -296,7 +295,7 @@ var front = {
           $element.querySelector('.pop-data').focus();
         }, 100);
 
-      } else { };
+      } else {};
 
     },
 
@@ -317,7 +316,7 @@ var front = {
         $element.querySelector('.pop-data').setAttribute('tabindex', -1);
 
         setTimeout(function () {
-          if (_this.prevElement) { };
+          if (_this.prevElement) {};
         }, 100);
         this.activeElements.pop();
         this.prevElements.pop();
@@ -407,10 +406,10 @@ var effectData = {
     var $controller = new ScrollMagic.Controller();
     var $element = target;
     var scenes = new ScrollMagic.Scene({
-      triggerElement: $element,
-      offset: 0,
-      triggerHook: 1
-    })
+        triggerElement: $element,
+        offset: 0,
+        triggerHook: 1
+      })
       .addTo($controller);
     scenes.on('leave', function () {
       $element.classList.remove('actived');
@@ -651,9 +650,9 @@ var main = {
       ====================================================*/
       if ($elementHeadline) {
         this.scene.headlineSticky = new ScrollMagic.Scene({
-          triggerElement: $elementHeadline[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementHeadline[0],
+            triggerHook: 0
+          })
           //.addIndicators({name: "headlineSticky"})
           .setPin($elementHeadline.find('.main-sticky')[0])
           .addTo(this.controller.pc);
@@ -681,9 +680,9 @@ var main = {
         }, 0);
 
         this.scene.headlineScene1 = new ScrollMagic.Scene({
-          triggerElement: $elementHeadline[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementHeadline[0],
+            triggerHook: 0
+          })
           .addTo(this.controller.pc);
 
         this.scene.headlineScene1.offset(stageH * 0);
@@ -691,9 +690,9 @@ var main = {
         this.scene.headlineScene1.setTween(this.tweener.headlineTweener1);
 
         this.scene.headlineScene21 = new ScrollMagic.Scene({
-          triggerElement: $elementHeadline[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementHeadline[0],
+            triggerHook: 0
+          })
           .addTo(this.controller.pc);
 
         this.scene.headlineScene21.offset(stageH * 0.7 + 70);
@@ -706,18 +705,18 @@ var main = {
         });
 
         this.scene.headlineVideo = new ScrollMagic.Scene({
-          triggerElement: $elementHeadline[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementHeadline[0],
+            triggerHook: 0
+          })
           .addTo(this.controller.pc);
 
         this.scene.headlineVideo.offset(0);
         this.scene.headlineVideo.duration($elementHeadline.height() - stageH);
 
         this.scene.headlineHeader1 = new ScrollMagic.Scene({
-          triggerElement: $elementHeadline[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementHeadline[0],
+            triggerHook: 0
+          })
           .addTo(this.controller.pc);
 
         this.scene.headlineHeader1.offset(stageH * 0);
@@ -727,9 +726,9 @@ var main = {
         });
 
         this.scene.headlineHeader2 = new ScrollMagic.Scene({
-          triggerElement: $elementHeadline[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementHeadline[0],
+            triggerHook: 0
+          })
           .addTo(this.controller.pc);
 
         this.scene.headlineHeader2.offset(stageH * 1.4);
@@ -739,9 +738,9 @@ var main = {
         });
 
         this.scene.headlineTop = new ScrollMagic.Scene({
-          triggerElement: $elementHeadline[0],
-          triggerHook: 1
-        })
+            triggerElement: $elementHeadline[0],
+            triggerHook: 1
+          })
           .addTo(this.controller.pc);
 
         this.scene.headlineTop.offset(stageH * 1.65);
@@ -760,9 +759,9 @@ var main = {
      ====================================================*/
       if ($elementTechnology) {
         this.scene.technologySticky = new ScrollMagic.Scene({
-          triggerElement: $elementTechnology[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementTechnology[0],
+            triggerHook: 0
+          })
           //.addIndicators({name: "aiSticky"})
           .setPin($elementTechnology.find('.main-sticky')[0])
           .addTo(this.controller.pc);
@@ -806,9 +805,9 @@ var main = {
         }, i);
 
         this.scene.technologyScene1 = new ScrollMagic.Scene({
-          triggerElement: $elementTechnology[0],
-          triggerHook: 0.5
-        })
+            triggerElement: $elementTechnology[0],
+            triggerHook: 0.5
+          })
 
           .addTo(this.controller.pc);
 
@@ -846,9 +845,9 @@ var main = {
         }, i);
 
         this.scene.technologyScene2 = new ScrollMagic.Scene({
-          triggerElement: $elementTechnology[0],
-          triggerHook: 0.5
-        })
+            triggerElement: $elementTechnology[0],
+            triggerHook: 0.5
+          })
 
           .addTo(this.controller.pc);
 
@@ -857,9 +856,9 @@ var main = {
         this.scene.technologyScene2.setTween(this.tweener.technologyTweener2);
 
         this.scene.technologyScene3 = new ScrollMagic.Scene({
-          triggerElement: $elementTechnology[0],
-          triggerHook: 0.5
-        })
+            triggerElement: $elementTechnology[0],
+            triggerHook: 0.5
+          })
 
           .addTo(this.controller.pc);
 
@@ -894,9 +893,9 @@ var main = {
         });
 
         this.scene.technologyHeader = new ScrollMagic.Scene({
-          triggerElement: $elementTechnology[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementTechnology[0],
+            triggerHook: 0
+          })
           .addTo(this.controller.pc);
 
         this.scene.technologyHeader.offset(stageH * 0);
@@ -906,9 +905,9 @@ var main = {
         });
 
         this.scene.technologyTop = new ScrollMagic.Scene({
-          triggerElement: $elementTechnology[0],
-          triggerHook: 1
-        })
+            triggerElement: $elementTechnology[0],
+            triggerHook: 1
+          })
           .addTo(this.controller.pc);
 
         this.scene.technologyTop.offset(stageH * 0);
@@ -927,11 +926,28 @@ var main = {
         $elementAI.find('.list-item').eq(0).attr('style', '');
         $elementAI.find('.list-item').eq(1).attr('style', '');
         $elementAI.find('.list-item').eq(2).attr('style', '');
+        $elementAI.find('.list-item:eq(0) .item-inner').attr('style', '');
+        $elementAI.find('.list-item:eq(1) .item-inner').attr('style', '');
+        $elementAI.find('.list-item:eq(2) .item-inner').attr('style', '');
+
+        this.tweener.aiTweener0 = gsap.timeline({});
+        this.tweener.aiTweener0.fromTo($elementAI.find('.list-item:eq(1) .item-inner'), {
+          width: 0
+        }, {
+          width: 0,
+          ease: Linear.easeNone
+        }, 0);
+        this.tweener.aiTweener0.fromTo($elementAI.find('.list-item:eq(1)'), {
+          width: 80
+        }, {
+          width: 80,
+          ease: Linear.easeNone
+        }, 0);
 
         this.scene.aiSticky = new ScrollMagic.Scene({
-          triggerElement: $elementAI[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementAI[0],
+            triggerHook: 0
+          })
           .setPin($elementAI.find('.main-sticky')[0])
           .addTo(this.controller.pc);
 
@@ -946,9 +962,9 @@ var main = {
         });
 
         this.scene.aiScene0 = new ScrollMagic.Scene({
-          triggerElement: $elementAI[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementAI[0],
+            triggerHook: 0
+          })
           .addTo(this.controller.pc);
         this.scene.aiScene0.on('enter', function () {
           $elementAI.find('.title').addClass('actived');
@@ -967,9 +983,9 @@ var main = {
         }, 0);
 
         this.scene.aiScene1 = new ScrollMagic.Scene({
-          triggerElement: $elementAI[0],
-          triggerHook: 1
-        })
+            triggerElement: $elementAI[0],
+            triggerHook: 1
+          })
 
           .addTo(this.controller.pc);
 
@@ -1003,7 +1019,7 @@ var main = {
         }, 0);
 
         this.tweener.aiTweener2.fromTo($elementAI.find('.list-item:eq(1)'), {
-          width: 80
+          width: 80,
         }, {
           width: 1080,
           ease: Linear.easeNone
@@ -1022,13 +1038,13 @@ var main = {
         }, 0);
 
         this.scene.aiScene2 = new ScrollMagic.Scene({
-          triggerElement: $elementAI[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementAI[0],
+            triggerHook: 0
+          })
 
           .addTo(this.controller.pc);
 
-        this.scene.aiScene2.offset(stageH * 0.3);
+        this.scene.aiScene2.offset(stageH * 0.5);
         this.scene.aiScene2.duration(stageH * 0.3);
         this.scene.aiScene2.setTween(this.tweener.aiTweener2);
 
@@ -1036,9 +1052,11 @@ var main = {
         // STEP2
         this.tweener.aiTweener3 = gsap.timeline({});
         this.tweener.aiTweener3.fromTo($elementAI.find('.list-item:eq(1) .item-inner'), {
-          width: 980
+          width: 980,
+          alpha: 1
         }, {
           width: 0,
+          alpha: 0,
           ease: Linear.easeNone
         }, 0);
         this.tweener.aiTweener3.fromTo($elementAI.find('.list-item:eq(1)'), {
@@ -1049,9 +1067,11 @@ var main = {
         }, 0);
 
         this.tweener.aiTweener3.fromTo($elementAI.find('.list-item:eq(2) .item-inner'), {
-          width: 0
+          width: 0,
+          alpha: 0
         }, {
           width: 980,
+          alpha: 1,
           ease: Linear.easeNone
         }, 0);
         this.tweener.aiTweener3.fromTo($elementAI.find('.list-item:eq(2)'), {
@@ -1062,13 +1082,13 @@ var main = {
         }, 0);
 
         this.scene.aiScene3 = new ScrollMagic.Scene({
-          triggerElement: $elementAI[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementAI[0],
+            triggerHook: 0
+          })
 
           .addTo(this.controller.pc);
 
-        this.scene.aiScene3.offset(stageH * 1.1);
+        this.scene.aiScene3.offset(stageH * 1.5);
         this.scene.aiScene3.duration(stageH * 0.3);
         this.scene.aiScene3.setTween(this.tweener.aiTweener3);
       };
@@ -1083,9 +1103,9 @@ var main = {
         $elementAI2.find('.list-item').eq(1).attr('style', '');
 
         this.scene.ai2Sticky = new ScrollMagic.Scene({
-          triggerElement: $elementAI2[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementAI2[0],
+            triggerHook: 0
+          })
           .setPin($elementAI2.find('.main-sticky')[0])
           .addTo(this.controller.pc);
 
@@ -1097,13 +1117,12 @@ var main = {
           $('.indicator ul li').removeClass('actived');
           $('.indicator ul li:eq(3)').addClass('actived');
           $('.indicator ul li').removeClass('white');
-
         });
 
         this.scene.ai2Scene0 = new ScrollMagic.Scene({
-          triggerElement: $elementAI2[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementAI2[0],
+            triggerHook: 0
+          })
           .addTo(this.controller.pc);
         this.scene.ai2Scene0.on('enter', function () {
           $elementAI2.find('.title').addClass('actived');
@@ -1111,7 +1130,6 @@ var main = {
         this.scene.ai2Scene0.on('leave', function () {
           $elementAI2.find('.title').removeClass('actived');
           $('.main-ai .bg').removeClass('actived');
-          $('.item-inner').addClass('closed');
         });
 
         //ai2 #################################################################################
@@ -1124,9 +1142,9 @@ var main = {
         }, 0);
 
         this.scene.ai2Scene1 = new ScrollMagic.Scene({
-          triggerElement: $elementAI2[0],
-          triggerHook: 1
-        })
+            triggerElement: $elementAI2[0],
+            triggerHook: 1
+          })
 
           .addTo(this.controller.pc);
 
@@ -1136,9 +1154,11 @@ var main = {
 
         this.tweener.ai2Tweener2 = gsap.timeline({});
         this.tweener.ai2Tweener2.fromTo($elementAI2.find('.list-item:eq(0) .item-inner'), {
-          width: 980
+          width: 980,
+          alpha: 1
         }, {
           width: 0,
+          alpha: 0,
           ease: Linear.easeNone
         }, 0);
         this.tweener.ai2Tweener2.fromTo($elementAI2.find('.list-item:eq(0)'), {
@@ -1163,9 +1183,9 @@ var main = {
         }, 0);
 
         this.scene.ai2Scene2 = new ScrollMagic.Scene({
-          triggerElement: $elementAI2[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementAI2[0],
+            triggerHook: 0
+          })
 
           .addTo(this.controller.pc);
 
@@ -1181,9 +1201,9 @@ var main = {
       if ($elementPrice) {
 
         this.scene.priceSticky = new ScrollMagic.Scene({
-          triggerElement: $elementPrice[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementPrice[0],
+            triggerHook: 0
+          })
           //.addIndicators({name: "aiSticky"})
           .setPin($elementPrice.find('.main-sticky')[0])
           .addTo(this.controller.pc);
@@ -1216,9 +1236,9 @@ var main = {
           ease: Linear.easeNone
         }, 0);
         this.scene.priceScene1 = new ScrollMagic.Scene({
-          triggerElement: $elementPrice[0],
-          triggerHook: 1
-        })
+            triggerElement: $elementPrice[0],
+            triggerHook: 1
+          })
 
           .addTo(this.controller.pc);
 
@@ -1227,9 +1247,9 @@ var main = {
         this.scene.priceScene1.setTween(this.tweener.priceTweener1);
 
         this.scene.priceHeader = new ScrollMagic.Scene({
-          triggerElement: $elementPrice[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementPrice[0],
+            triggerHook: 0
+          })
           .addTo(this.controller.pc);
 
         this.scene.priceHeader.offset(stageH * 1);
@@ -1239,9 +1259,9 @@ var main = {
         });
 
         this.scene.priceTop = new ScrollMagic.Scene({
-          triggerElement: $elementPrice[0],
-          triggerHook: 1
-        })
+            triggerElement: $elementPrice[0],
+            triggerHook: 1
+          })
           .addTo(this.controller.pc);
 
         this.scene.priceTop.offset(stageH * 1);
@@ -1267,9 +1287,9 @@ var main = {
         if ($elementPatent.hasClass('board')) $elementPatent.removeClass('board complete');
 
         this.scene.patentSticky = new ScrollMagic.Scene({
-          triggerElement: $elementPatent[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementPatent[0],
+            triggerHook: 0
+          })
           .setPin($elementPatent.find('.main-sticky')[0])
           .addTo(this.controller.pc);
 
@@ -1291,9 +1311,9 @@ var main = {
         }, 0);
 
         this.scene.patentScene1 = new ScrollMagic.Scene({
-          triggerElement: $elementPatent[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementPatent[0],
+            triggerHook: 0
+          })
 
           .addTo(this.controller.pc);
 
@@ -1314,9 +1334,9 @@ var main = {
         }, 0);
 
         this.scene.patentScene3 = new ScrollMagic.Scene({
-          triggerElement: $elementPatent[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementPatent[0],
+            triggerHook: 0
+          })
 
           .addTo(this.controller.pc);
 
@@ -1345,9 +1365,9 @@ var main = {
           });
 
           _this.scene['patentScene4' + $index] = new ScrollMagic.Scene({
-            triggerElement: $elementPatent[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementPatent[0],
+              triggerHook: 0
+            })
 
             .addTo(_this.controller.pc);
 
@@ -1358,9 +1378,9 @@ var main = {
         });
 
         this.scene.patentHeader = new ScrollMagic.Scene({
-          triggerElement: $elementPatent[0],
-          triggerHook: 0
-        })
+            triggerElement: $elementPatent[0],
+            triggerHook: 0
+          })
           .addTo(this.controller.pc);
 
         this.scene.patentHeader.offset(stageH * 0);
@@ -1370,9 +1390,9 @@ var main = {
         });
 
         this.scene.patentTop = new ScrollMagic.Scene({
-          triggerElement: $elementPatent[0],
-          triggerHook: 1
-        })
+            triggerElement: $elementPatent[0],
+            triggerHook: 1
+          })
           .addTo(this.controller.pc);
 
         this.scene.patentTop.offset(stageH * 0);
@@ -1388,9 +1408,9 @@ var main = {
       ====================================================*/
       if ($elementSQA) {
         this.scene.sqaTop = new ScrollMagic.Scene({
-          triggerElement: $elementSQA[0],
-          triggerHook: 1
-        })
+            triggerElement: $elementSQA[0],
+            triggerHook: 1
+          })
           .addTo(this.controller.pc);
 
         this.scene.sqaTop.offset(stageH * 1);
@@ -1420,9 +1440,9 @@ var main = {
         ====================================================*/
         if ($elementHeadline) {
           this.scene.headlineSticky = new ScrollMagic.Scene({
-            triggerElement: $elementHeadline[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementHeadline[0],
+              triggerHook: 0
+            })
             //.addIndicators({name: "headlineSticky"})
             //.setPin($elementHeadline.find('.main-sticky')[0])
             .addTo(this.controller.mobile);
@@ -1453,9 +1473,9 @@ var main = {
             ease: Linear.easeNone
           }, 0);
           this.scene.headlineScene1 = new ScrollMagic.Scene({
-            triggerElement: $elementHeadline[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementHeadline[0],
+              triggerHook: 0
+            })
 
             .addTo(this.controller.mobile);
 
@@ -1484,9 +1504,9 @@ var main = {
             ease: Linear.easeNone
           }, 0);
           this.scene.headlineScene2 = new ScrollMagic.Scene({
-            triggerElement: $elementHeadline[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementHeadline[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.headlineScene2.offset(stageH * 1);
@@ -1496,9 +1516,9 @@ var main = {
 
 
           this.scene.headlineScene21 = new ScrollMagic.Scene({
-            triggerElement: $elementHeadline[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementHeadline[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.headlineScene21.offset(stageH * 0.7 + 300);
@@ -1511,9 +1531,9 @@ var main = {
           });
 
           this.scene.headlineHeader = new ScrollMagic.Scene({
-            triggerElement: $elementHeadline[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementHeadline[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.headlineHeader.offset(stageH * 2);
@@ -1526,9 +1546,9 @@ var main = {
           });
 
           this.scene.headlineTop = new ScrollMagic.Scene({
-            triggerElement: $elementHeadline[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementHeadline[0],
+              triggerHook: 1
+            })
             //.addIndicators({name: "headlineTop"})
             .addTo(this.controller.mobile);
 
@@ -1579,9 +1599,9 @@ var main = {
           }, i);
 
           this.scene.technologyScene1 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 0.5
+            })
 
             .addTo(this.controller.mobile);
 
@@ -1621,9 +1641,9 @@ var main = {
           }, i);
 
           this.scene.technologyScene2 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 0.5
+            })
 
             .addTo(this.controller.mobile);
 
@@ -1664,9 +1684,9 @@ var main = {
           }, i);
 
           this.scene.technologyScene1_2 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 0.5
+            })
 
             .addTo(this.controller.mobile);
 
@@ -1707,9 +1727,9 @@ var main = {
           }, i);
 
           this.scene.technologyScene2_2 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 0.5
+            })
 
             .addTo(this.controller.mobile);
 
@@ -1748,9 +1768,9 @@ var main = {
           }, i);
 
           this.scene.technologyScene2_3 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 0.5
+            })
 
             .addTo(this.controller.mobile);
 
@@ -1761,9 +1781,9 @@ var main = {
 
 
           this.scene.technologyScene3 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 0.5
+            })
 
             .addTo(this.controller.mobile);
 
@@ -1794,9 +1814,9 @@ var main = {
           });
 
           this.scene.technologyHeader = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.technologyHeader.offset(stageH * 0);
@@ -1806,9 +1826,9 @@ var main = {
           });
 
           this.scene.technologyTop = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.technologyTop.offset(stageH * 0);
@@ -1840,9 +1860,9 @@ var main = {
           }, 0);
 
           this.scene.aiScene0 = new ScrollMagic.Scene({
-            triggerElement: $elementAI.find('.title')[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementAI.find('.title')[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.aiScene0.on('enter', function () {
@@ -1868,9 +1888,9 @@ var main = {
             ease: Linear.easeNone
           }, 0);
           this.scene.ai2Scene1 = new ScrollMagic.Scene({
-            triggerElement: $elementAI[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementAI[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.pc);
 
           this.scene.ai2Scene1.setTween(this.tweener.ai2Tweener1);
@@ -1888,9 +1908,9 @@ var main = {
             }, 0);
 
             _this.scene.aiScene0 = new ScrollMagic.Scene({
-              triggerElement: $(this)[0],
-              triggerHook: 1
-            })
+                triggerElement: $(this)[0],
+                triggerHook: 1
+              })
               .addTo(_this.controller.mobile);
             _this.scene.aiScene0.setTween(_this.tweener['aiTweener' + $(this).index()]);
           });
@@ -1898,9 +1918,9 @@ var main = {
 
 
           this.scene.aiHeader = new ScrollMagic.Scene({
-            triggerElement: $elementAI[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementAI[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.aiHeader.offset(0);
@@ -1910,9 +1930,9 @@ var main = {
           });
 
           this.scene.aiTop = new ScrollMagic.Scene({
-            triggerElement: $elementAI[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementAI[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.aiTop.offset(0);
@@ -1943,9 +1963,9 @@ var main = {
           }, 0);
 
           this.scene.aiScene0 = new ScrollMagic.Scene({
-            triggerElement: $elementAI2.find('.title')[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementAI2.find('.title')[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.aiScene0.on('enter', function () {
@@ -1971,9 +1991,9 @@ var main = {
             ease: Linear.easeNone
           }, 0);
           this.scene.ai2Scene1 = new ScrollMagic.Scene({
-            triggerElement: $elementAI2[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementAI2[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.pc);
 
           this.scene.ai2Scene1.setTween(this.tweener.ai2Tweener1);
@@ -1991,17 +2011,17 @@ var main = {
             }, 0);
 
             _this.scene.aiScene0 = new ScrollMagic.Scene({
-              triggerElement: $(this)[0],
-              triggerHook: 1
-            })
+                triggerElement: $(this)[0],
+                triggerHook: 1
+              })
               .addTo(_this.controller.mobile);
             _this.scene.aiScene0.setTween(_this.tweener['aiTweener' + $(this).index()]);
           });
 
           this.scene.aiHeader = new ScrollMagic.Scene({
-            triggerElement: $elementAI2[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementAI2[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.aiHeader.offset(0);
@@ -2011,9 +2031,9 @@ var main = {
           });
 
           this.scene.aiTop = new ScrollMagic.Scene({
-            triggerElement: $elementAI2[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementAI2[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.aiTop.offset(0);
@@ -2056,9 +2076,9 @@ var main = {
           }, 0);
 
           this.scene.patentScene0 = new ScrollMagic.Scene({
-            triggerElement: $elementPatent.find('.cate')[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementPatent.find('.cate')[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.patentScene0.setTween(this.tweener.patentTweener0);
@@ -2075,9 +2095,9 @@ var main = {
           }, 0);
 
           this.scene.patentScene1 = new ScrollMagic.Scene({
-            triggerElement: $elementPatent.find('.title')[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementPatent.find('.title')[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.patentScene1.setTween(this.tweener.patentTweener1);
@@ -2096,17 +2116,17 @@ var main = {
           }, 0);
 
           this.scene.patentScene2 = new ScrollMagic.Scene({
-            triggerElement: $elementPatent.find('.list-inner')[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementPatent.find('.list-inner')[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.patentScene2.setTween(this.tweener.patentTweener2);
 
           this.scene.patentHeader = new ScrollMagic.Scene({
-            triggerElement: $elementPatent[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementPatent[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.patentHeader.offset(stageH * 0);
@@ -2116,9 +2136,9 @@ var main = {
           });
 
           this.scene.patentTop = new ScrollMagic.Scene({
-            triggerElement: $elementPatent[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementPatent[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.patentTop.offset(stageH * 0);
@@ -2135,9 +2155,9 @@ var main = {
         if ($elementPrice) {
 
           this.scene.priceScroll = new ScrollMagic.Scene({
-            triggerElement: $elementPrice[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementPrice[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.priceScroll.offset(0);
@@ -2166,9 +2186,9 @@ var main = {
                ====================================================*/
         if ($elementHeadline) {
           this.scene.headlineSticky = new ScrollMagic.Scene({
-            triggerElement: $elementHeadline[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementHeadline[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.headlineSticky.offset(0);
@@ -2197,9 +2217,9 @@ var main = {
             ease: Linear.easeNone
           }, 0);
           this.scene.headlineScene1 = new ScrollMagic.Scene({
-            triggerElement: $elementHeadline[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementHeadline[0],
+              triggerHook: 0
+            })
 
             .addTo(this.controller.mobile);
 
@@ -2228,9 +2248,9 @@ var main = {
             ease: Linear.easeNone
           }, 0);
           this.scene.headlineScene2 = new ScrollMagic.Scene({
-            triggerElement: $elementHeadline[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementHeadline[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.headlineScene2.offset(stageH * 1);
@@ -2238,9 +2258,9 @@ var main = {
           this.scene.headlineScene2.setTween(this.tweener.headlineTweener2);
 
           this.scene.headlineScene21 = new ScrollMagic.Scene({
-            triggerElement: $elementHeadline[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementHeadline[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.headlineScene21.offset(stageH * 0.7 + 300);
@@ -2253,9 +2273,9 @@ var main = {
           });
 
           this.scene.headlineHeader = new ScrollMagic.Scene({
-            triggerElement: $elementHeadline[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementHeadline[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.headlineHeader.offset(stageH * 2);
@@ -2268,9 +2288,9 @@ var main = {
           });
 
           this.scene.headlineTop = new ScrollMagic.Scene({
-            triggerElement: $elementHeadline[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementHeadline[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.headlineTop.offset(stageH * 2);
@@ -2320,9 +2340,9 @@ var main = {
           }, i);
 
           this.scene.technologyScene1 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 0.5
+            })
 
             .addTo(this.controller.mobile);
 
@@ -2362,9 +2382,9 @@ var main = {
           }, i);
 
           this.scene.technologyScene2 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 0.5
+            })
 
             .addTo(this.controller.mobile);
 
@@ -2405,9 +2425,9 @@ var main = {
           }, i);
 
           this.scene.technologyScene1_2 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 0.5
+            })
 
             .addTo(this.controller.mobile);
 
@@ -2448,9 +2468,9 @@ var main = {
           }, i);
 
           this.scene.technologyScene2_2 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 0.5
+            })
 
             .addTo(this.controller.mobile);
 
@@ -2489,9 +2509,9 @@ var main = {
           }, i);
 
           this.scene.technologyScene2_3 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 0.5
+            })
 
             .addTo(this.controller.mobile);
 
@@ -2500,9 +2520,9 @@ var main = {
           this.scene.technologyScene2_3.setTween(this.tweener.technologyTweener2_3);
 
           this.scene.technologyScene3 = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0.5
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 0.5
+            })
 
             .addTo(this.controller.mobile);
 
@@ -2533,9 +2553,9 @@ var main = {
           });
 
           this.scene.technologyHeader = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.technologyHeader.offset(stageH * 0);
@@ -2545,9 +2565,9 @@ var main = {
           });
 
           this.scene.technologyTop = new ScrollMagic.Scene({
-            triggerElement: $elementTechnology[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementTechnology[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.technologyTop.offset(stageH * 0);
@@ -2579,9 +2599,9 @@ var main = {
           }, 0);
 
           this.scene.aiScene0 = new ScrollMagic.Scene({
-            triggerElement: $elementAI.find('.title')[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementAI.find('.title')[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.aiScene0.on('enter', function () {
@@ -2605,17 +2625,17 @@ var main = {
             }, 0);
 
             _this.scene.aiScene0 = new ScrollMagic.Scene({
-              triggerElement: $(this)[0],
-              triggerHook: 1
-            })
+                triggerElement: $(this)[0],
+                triggerHook: 1
+              })
               .addTo(_this.controller.mobile);
             _this.scene.aiScene0.setTween(_this.tweener['aiTweener' + $(this).index()]);
           });
 
           this.scene.aiHeader = new ScrollMagic.Scene({
-            triggerElement: $elementAI[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementAI[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.aiHeader.offset(0);
@@ -2625,9 +2645,9 @@ var main = {
           });
 
           this.scene.aiTop = new ScrollMagic.Scene({
-            triggerElement: $elementAI[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementAI[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.aiTop.offset(0);
@@ -2658,9 +2678,9 @@ var main = {
           }, 0);
 
           this.scene.aiScene0 = new ScrollMagic.Scene({
-            triggerElement: $elementAI2.find('.title')[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementAI2.find('.title')[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.aiScene0.on('enter', function () {
@@ -2684,17 +2704,17 @@ var main = {
             }, 0);
 
             _this.scene.aiScene0 = new ScrollMagic.Scene({
-              triggerElement: $(this)[0],
-              triggerHook: 1
-            })
+                triggerElement: $(this)[0],
+                triggerHook: 1
+              })
               .addTo(_this.controller.mobile);
             _this.scene.aiScene0.setTween(_this.tweener['aiTweener' + $(this).index()]);
           });
 
           this.scene.aiHeader = new ScrollMagic.Scene({
-            triggerElement: $elementAI2[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementAI2[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.aiHeader.offset(0);
@@ -2704,9 +2724,9 @@ var main = {
           });
 
           this.scene.aiTop = new ScrollMagic.Scene({
-            triggerElement: $elementAI2[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementAI2[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.aiTop.offset(0);
@@ -2749,9 +2769,9 @@ var main = {
           }, 0);
 
           this.scene.patentScene0 = new ScrollMagic.Scene({
-            triggerElement: $elementPatent.find('.cate')[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementPatent.find('.cate')[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.patentScene0.setTween(this.tweener.patentTweener0);
@@ -2768,9 +2788,9 @@ var main = {
           }, 0);
 
           this.scene.patentScene1 = new ScrollMagic.Scene({
-            triggerElement: $elementPatent.find('.title')[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementPatent.find('.title')[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.patentScene1.setTween(this.tweener.patentTweener1);
@@ -2789,17 +2809,17 @@ var main = {
           }, 0);
 
           this.scene.patentScene2 = new ScrollMagic.Scene({
-            triggerElement: $elementPatent.find('.list-inner')[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementPatent.find('.list-inner')[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.patentScene2.setTween(this.tweener.patentTweener2);
 
           this.scene.patentHeader = new ScrollMagic.Scene({
-            triggerElement: $elementPatent[0],
-            triggerHook: 0
-          })
+              triggerElement: $elementPatent[0],
+              triggerHook: 0
+            })
             .addTo(this.controller.mobile);
 
           this.scene.patentHeader.offset(stageH * 0);
@@ -2809,9 +2829,9 @@ var main = {
           });
 
           this.scene.patentTop = new ScrollMagic.Scene({
-            triggerElement: $elementPatent[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementPatent[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.patentTop.offset(stageH * 0);
@@ -2828,9 +2848,9 @@ var main = {
         if ($elementPrice) {
 
           this.scene.priceScroll = new ScrollMagic.Scene({
-            triggerElement: $elementPrice[0],
-            triggerHook: 1
-          })
+              triggerElement: $elementPrice[0],
+              triggerHook: 1
+            })
             .addTo(this.controller.mobile);
 
           this.scene.priceScroll.offset(0);
@@ -2854,7 +2874,7 @@ var main = {
   },
   pageScrollerDestory: function () {
     if (!this.pageScrollerStatus) {
-      if (this.pageScroller) { }
+      if (this.pageScroller) {}
     };
   },
 
@@ -3144,41 +3164,34 @@ window.addEventListener('scroll', front.scroll);
 // });
 
 
-// $(document).ready(function () {
-//   var controller = new ScrollMagic.Controller();
-//   var indicator = $('.indicator ul li');
+var controller = new ScrollMagic.Controller();
+var indicator = $('.indicator ul li a');
 
-//   // 각 섹션에 대한 ScrollMagic 장면 생성
-//   $('.main-group').each(function () {
-//     var section = $(this);
+// 각 섹션에 대한 ScrollMagic 장면 생성
+$('.main-group').each(function () {
+  var section = $(this);
 
-//     new ScrollMagic.Scene({
-//       triggerElement: this,
-//       triggerHook: 0.5 // 화면 중앙에서 트리거
-//     })
-//       .on("enter", function () {
-//         // 인디케이터 업데이트
-//         indicator.text(section.attr('id'));
-//       })
-//       .addTo(controller);
-//   });
+  new ScrollMagic.Scene({
+      triggerElement: this,
+      triggerHook: 0.5 // 화면 중앙에서 트리거
+    })
+    .on("enter", function () {
+      // 인디케이터 업데이트
+      // indicator.text(section.attr('id'));
+    })
+    .addTo(controller);
+});
 
-//   // ScrollTo 애니메이션 설정
-//   $('.indicator ul li').on('click', function (e) {
-//     e.preventDefault();
-//     var target = $(this).attr('href');
-//     console.log(target);
-//     window.scrollTo(target, {
-//       duration: 1000, // 1초 동안 스크롤
-//       easing: 'swing'
-//     });
-//   });
-// });
-
-
-
-
-// });
+// ScrollTo 애니메이션 설정
+$('.indicator ul li a').on('click', function (e) {
+  e.preventDefault();
+  var target = $(this).attr('href');
+  console.log(target);
+  window.scrollTo(target, {
+    duration: 1000, // 1초 동안 스크롤
+    easing: 'swing'
+  });
+});
 
 (function () {
   front.init();
