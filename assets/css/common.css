@@ -1130,6 +1130,18 @@ input[type=submit].btn-primary:hover {
     height: 40px
   }
 
+  .logo {
+    left: 24px;
+  }
+
+  .gnb-wrap .gnb-list {
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding-right: 24px;
+  }
+
   #dHead.white .gnb-wrap {
     background: rgba(255, 255, 255, 1);
     -webkit-backdrop-filter: blur(0px);
@@ -1213,7 +1225,6 @@ input[type=submit].btn-primary:hover {
 
   .gnb-wrap .gnb-list-cell {
     display: flex;
-    height: 36px;
   }
 
   .gnb-wrap .gnb-list-cell a {
