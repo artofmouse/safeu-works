@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8">
+  <title>메인 | SAFE U WORKS</title>
+  <meta name="Author" content="SAFE U WORKS">
+  <meta name="Keywords" content="SAFE U WORKS">
+  <meta name="Description" content="Global Safety-Tech Solutions">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:title" content="SAFE U WORKS">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="대표도메인">
+  <meta property="og:image" content="assets/images/common/sns.png">
+  <meta property="og:description" content="Global Safety-Tech Solutions">
+  <link rel="canonical" href="대표도메인" />
+  <link rel="icon" href="assets/images/common/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css" media="all">
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/js/smooth-scrollbar.js"></script>
+  <script src="assets/js/ScrollMagic.min.js"></script>
+  <script src="assets/js/animation.gsap.min.js"></script>
+
+<body>
+  <section id="wrap">
+    <!-- dHead -->
+    <header id="dHead" class="white">
+      <div class="header-outer">
+        <div class="header-inner">
+          <h1 class="logo"><a href="index.html">SAFE U WORKS</a></h1>
+          <nav id="gnb">
+            <div class="gnb-wrap">
+              <ul class="gnb-list">
+                <li class="gnb-list-cell user">
+                  <button type="button" class="gnb-userIinfo">
+                    <span>홍길동</span><span>유플리트</span>
+                  </button>
+                </li>
+                <li class="gnb-list-cell goworks">
+                  <button type="button">SAFE U Works</button>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <div class="info-layer">
+            <div class="info-layer-inner">
+              <ul>
+                <li>개인정보 편집</li>
+                <li>로그아웃</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </header>
+    <!-- //dHead -->
+
+    <!-- dBody -->
+    <section id="dBody">
+      <!-- section6 -->
+      <div class="main-group main-sqa" id="Service_QA">
+        <div class="data">
+          <h2 data-ani="fadeUp">서비스 문의</h2>
+          <h3 class="title" data-ani="fadeUp" data-delay="300"><em>SAFE U Works</em>에<br class="mo_ln" /> 대한
+            설명이<br class="mo_ln tablet_ln" /> 더 필요하세요?
+          </h3>
+          <div class="desc" data-ani="fadeUp" data-delay="500">아래 양식을 작성해 주시면<br class="mo_ln" /> 24시간 이내에
+            담당자가 연락드리겠습니다.</div>
+          <div class="sqa-box">
+            <div class="box-inner">
+              <ul>
+                <li>
+                  <dl>
+                    <dt><label for="userName">성함</label></dt>
+                    <dd><input type="text" title="성함" id="userName" /></dd>
+                  </dl>
+                </li>
+                <li>
+                  <dl>
+                    <dt><label for="uesrNum">전화번호</label></dt>
+                    <dd><input type="text" title="전화번호" id="uesrNum" /></dd>
+                  </dl>
+                </li>
+                <li>
+                  <dl>
+                    <dt><label for="userEmail">이메일 </label></dt>
+                    <dd><input type="text" title="이메일 " id="userEmail" /></dd>
+                  </dl>
+                </li>
+                <li>
+                  <dl>
+                    <dt><label for="userCompany">회사명</label></dt>
+                    <dd><input type="text" title="회사명" id="userCompany" /></dd>
+                  </dl>
+                </li>
+                <li>
+                  <dl>
+                    <dt><label for="sqaCon">문의내용</label></dt>
+                    <dd><textarea title="문의내용" placeholder="문의내용을 입력해주세요." id="sqaCon"></textarea></dd>
+                  </dl>
+                </li>
+              </ul>
+              <div class="agree-area">
+                <input type="checkbox" id="infoAgree" /><label for="infoAgree"><a
+                    href="javascript:void(0)">개인정보취급방침</a>에 동의합니다.</label>
+              </div>
+            </div>
+          </div>
+          <div class="btn-area">
+            <button type="button" onclick="front.pop.open('emailRefusalPop' , this);">제출하기</button>
+          </div>
+        </div>
+      </div>
+      <!-- //section6 -->
+    </section>
+    <!-- //dBody -->
+
+    <!-- dFoot -->
+    <footer id="dFoot">
+      <div class="footer-inner">
+        <div class="inner-top">
+          <span><a href="mailto:safeuworks@upleat.com">safeuworks@upleat.com</a></span>
+          <span><a href="tel:+82.2.538.8097">+82.2.538.8097</a></span>
+          <span>서울 마포구 잔다리로 39 로뎀빌딩</span>
+        </div>
+        <div class="inner-bottom">
+          <span>POWERED BY UPLEAT.</span>
+          <span><img src="./assets/images/footer_logo.png" alt="Safe U Works" /></span>
+        </div>
+    </footer>
+    <!-- //dFoot -->
+    <!-- 서비스문의 완료 팝업 -->
+    <div id="emailRefusalPop" class="layer-pop-wrap contents-pop">
+      <div class="layer-pop-parent">
+        <div class="layer-pop-children">
+          <div class="pop-data">
+            <div class="pop-view-wrap small">
+              <div class="pop-view-header">
+                <h3 class="pop-view-title">알림</h3>
+              </div>
+              <div class="pop-view-body">
+                <div class="pop-view-detail">문의내용을 접수했습니다.<br />
+                  담당자 확인 후 연락드리겠습니다.</div>
+              </div>
+              <div class="pop-view-footer">
+                <div class="pop-view-ui">
+                  <button type="button" class="btn-basic" onclick="front.pop.close(this);">닫기</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //서비스문의 완료 팝업 -->
+  </section>
+  <!-- //wrap -->
+
+</body>
+<script src="assets/js/common_pub.js"></script>
+<script src="assets/js/front_ui.js"></script>
+
+</html>
