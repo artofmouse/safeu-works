@@ -1,10 +1,6 @@
 @charset "utf-8";
 
 :root {
-  --smooth-transform-transition: transform 0.8s cubic-bezier(0.075, 0.820, 0.165, 1.000);
-  --smooth-opacity-transition: opacity 0.8s cubic-bezier(0.075, 0.820, 0.165, 1.000);
-  --smooth-width-transition: width 0.8s cubic-bezier(0.075, 0.820, 0.165, 1.000);
-  --smooth-clip-path-transition: clip-path 0.8s cubic-bezier(0.075, 0.820, 0.165, 1.000);
   --letterSpacingHeadline2: -0.02em;
   --letterSpacingBasic: -2px;
   --letterSpacingBasicMo: -0.02em;
@@ -47,10 +43,19 @@
 
 .indicator ul li {
   position: relative;
-  width: 12px;
+  width: auto;
   height: 28px;
   display: flex;
   align-items: center;
+}
+
+.indicator ul li:hover {
+  position: relative;
+  width: 170px;
+}
+
+.indicator ul li:not(hover) {
+  width: 12px;
 }
 
 .indicator ul li::before {
@@ -83,7 +88,37 @@
   line-height: 22.4px;
   letter-spacing: var(--letterSpacingBasicMo);
   color: rgba(255, 255, 255, 1);
+  position: absolute;
+  top: -6px;
+  left: 24px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: auto;
+  height: 42px;
+  box-sizing: border-box;
+  z-index: -1;
   display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* .indicator ul li div {
+  opacity: 0;
+}
+
+.indicator ul li:hover div {
+  opacity: 1;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 22.4px;
+  letter-spacing: var(--letterSpacingBasicMo);
+  color: rgba(255, 255, 255, 1);
+  display: inline;
+  flex-wrap: nowrap;
   flex-direction: row;
   position: absolute;
   top: 0px;
@@ -91,13 +126,13 @@
   padding: 10px 12px;
   border-radius: 6px;
   background-color: rgba(0, 0, 0, 0.6);
-  width: 100px;
+  width: fit-content;
   height: 42px;
   box-sizing: border-box;
   z-index: -1;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-}
+} */
 
 .bottom-floating {
   position: fixed;
@@ -122,7 +157,8 @@
 }
 
 .bottom-floating .floating-inner {
-  width: calc(100% - 240px);
+  width: 100%;
+  max-width: 1280px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -627,11 +663,11 @@
 
 .main-ai .data-inner {
   width: 100%;
-  max-width: 1780px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
-  padding: 0 120px
+  padding: 0px
 }
 
 .main-ai h3 {
@@ -960,11 +996,11 @@
 
 .main-ai2 .data-inner {
   width: 100%;
-  max-width: 1780px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
-  padding: 0 120px
+  padding: 0px
 }
 
 .main-ai2 h3 {
@@ -1354,7 +1390,7 @@
   display: inline-block;
   position: absolute;
   right: 14px;
-  top: 50%;
+  top: calc(50% + 1px);
   transform: translateY(-50%);
   color: #222;
   font-size: 16px;
@@ -1441,11 +1477,11 @@
 
 .main-patent .data-inner {
   width: 100%;
-  max-width: 1780px;
+  max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
-  padding: 0 120px
+  padding: 0px
 }
 
 .main-patent .data .title .sentence {
@@ -1768,8 +1804,23 @@
   letter-spacing: var(--letterSpacingBasicMo);
 }
 
-/* @media screen and (min-width:1025px) and (max-width:1280px) and (max-height:910px) {
-  .main-ai .list {
+@media screen and (min-width:1025px) and (max-height:800px) {
+
+  .main-headline .headline-1,
+  .main-technology .data,
+  .main-ai .data,
+  .main-ai2 .data,
+  .main-price .data,
+  .main-patent .data {
+    transform: scale(0.9);
+  }
+
+  .bottom-floating .floating-inner {
+    width: 100%;
+    max-width: 900px;
+  }
+
+  /* .main-ai .list {
     margin-top: 32px;
   }
 
@@ -1824,6 +1875,18 @@
 
   .main-ai .list-item:nth-child(1) .item-inner .item-visual {
     background-size: 36vw 100%;
+  } */
+}
+
+/* @media screen and (min-width:1025px) and (max-height:910px) {
+
+  .main-headline .headline-1,
+  .main-technology .data,
+  .main-ai .data,
+  .main-ai2 .data,
+  .main-price .data,
+  .main-patent .data {
+    transform: scale(0.8);
   }
 } */
 
@@ -2392,6 +2455,10 @@
   .main-price .gray-box .gray-box-inner .inner-bottom span em {
     transform: translate(0) !important;
     opacity: 1 !important;
+  }
+
+  .main-price .gray-box .gray-box-inner .inner-top ul li dl dd::after {
+    top: 50%;
   }
 
 
@@ -3134,7 +3201,6 @@
     line-height: 24px;
     letter-spacing: var(--letterSpacingBasicMo);
   }
-
 
   .main-price .gray-box .gray-box-inner .inner-bottom {
     width: calc(100% - 59px);

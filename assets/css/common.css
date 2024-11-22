@@ -72,8 +72,8 @@ html.fix {
 
 .info-layer {
   position: absolute;
-  top: 64px;
-  right: 30px;
+  top: 52px;
+  right: 172px;
   display: block;
   width: 160px;
   height: 88px;
@@ -359,7 +359,7 @@ html.fix {
   flex-direction: column;
   gap: 14px;
   padding: 40px 0;
-  max-width: 1780px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -1203,6 +1203,10 @@ input[type=submit].btn-primary:hover {
 
   .page-info~#contents {
     padding-top: 0
+  }
+
+  .info-layer {
+    right: 162px;
   }
 }
 

@@ -9,27 +9,16 @@ var front = {
   btnTopFlag: false,
 
   init: function () {
-
     this.common.init();
-    this.accordion.init();
     this.resize();
     this.scroll();
-    this.form.init();
     this.pop.init();
-  },
-
-  ready: function () {
-
-  },
-  load: function () {
-
   },
 
   resize: function () {
     front.stage.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     front.stage.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     front.stage.top = window.scrollTop || document.documentElement.scrollTop || document.body.scrollTop;
-    front.common.resize();
   },
   scroll: function () {
     front.stage.top = window.scrollTop || document.documentElement.scrollTop || document.body.scrollTop;
@@ -45,35 +34,6 @@ var front = {
       this.header = ($('#dHead').length > 0) ? $('#dHead') : null;
       this.footer = ($('#dFoot').length > 0) ? $('#dFoot') : null;
       front.stage.page = ($('.main-wrap').length > 0) ? 'main' : 'sub';
-      effectData.init();
-
-      $(document).on('click', '.btn-page-top', function () {
-        if ($('.main-wrap').length > 0) {
-          main.pageTopMove();
-        } else {
-          front.common.moveScroll(0, 400);
-        };
-      });
-
-      if ($('.animation-view').length > 0) {
-        setTimeout(function () {
-          $('.animation-view').addClass('start');
-        }, 500);
-      }
-
-      if ($('.intro-animation-item').length > 0) {
-        setTimeout(function () {
-          var i = 0;
-          $('.intro-animation-item').each(function () {
-            var _delay = i * 0.5;
-            $(this).addClass('actived').css({
-              'transition-delay': _delay + 's'
-            });
-            i++;
-          });
-        }, 500);
-      }
-
 
       if ($('.main-wrap').length > 0) main.init();
       $('#wrap').addClass('show');
@@ -111,136 +71,7 @@ var front = {
         }
         front.stage.ptop = front.stage.top;
       };
-
-      if (front.stage.page == 'sub') {
-        if (this.footer) {
-          if (front.stage.top >= this.footer.offset().top - 60) {
-            // if (!this.header.hasClass('white')) this.header.addClass('white');
-          } else {
-            // if (this.header.hasClass('white')) this.header.removeClass('white');
-          };
-        };
-      };
-
-      if ($('#page-ui').length > 0) {
-        if (front.stage.top >= 100) {
-          if (!front.btnTopFlag) {
-            $('#page-ui').addClass('actived');
-          }
-          front.btnTopFlag = true;
-
-        } else {
-          if (front.btnTopFlag) {
-            $('#page-ui').removeClass('actived');
-          }
-          front.btnTopFlag = false;
-        }
-
-
-        if (front.stage.top >= $('#dFoot').offset().top - front.stage.height) {
-          $('#page-ui').addClass('bottom');
-        } else {
-          $('#page-ui').removeClass('bottom');
-        };
-      };
-
     },
-
-    resize: function () {
-      if (this.allMenu) {
-        this.allMenu.find('.all-menu-list-cell').each(function () {
-          if ($(this).find('.snb-wrap').length > 0) {
-            var $btn = $(this).find('.btn-all-menu-nav');
-            if (front.stage.width > 1024) {
-              $btn.attr('href', $btn.attr('data-url'));
-            } else {
-              $btn.attr('href', 'javascript:;');
-            };
-          };
-        });
-      };
-
-      if (front.stage.width > 1024) {
-
-      } else {
-
-      };
-    },
-
-    moveScroll: function (tgY, speed) {
-
-      if (speed == null || speed == 'undefind') speed = 1000;
-      $('html, body').stop().animate({
-        'scrollTop': tgY
-      }, {
-        queue: false,
-        duration: speed
-      });
-
-    }
-
-  },
-
-  form: {
-
-    init: function () {
-
-    },
-    inputIsValid: function (_elem) {
-      if (_elem.value.length > 0) {
-        _elem.classList.add('fill');
-      } else {
-        _elem.classList.remove('fill');
-      }
-    },
-
-    selectIsValid: function (_elem) {
-      if (_elem.value != 0) {
-        _elem.classList.add('fill');
-      } else {
-        _elem.classList.remove('fill');
-      }
-    },
-
-    fileRead: function (_elem) {
-      if (_elem.nextElementSibling && _elem.nextElementSibling.classList.contains('read-file')) {
-        if (_elem.value != '') {
-          _elem.nextElementSibling.value = _elem.value;
-        }
-      } else {
-        alert('援ъ“ �ы솗�� �꾩슂');
-      };
-    },
-
-    fileAdd: function (_elem) {
-      var $html = '';
-      $html += '<div class="form-file-cell">';
-      $html += '	<div class="form-file-items">';
-      $html += '		<div class="form-file-input">';
-      $html += '			<input type="file" class="write-file" onchange="front.form.fileRead(this);">';
-      $html += '			<input type="text" class="read-file" readonly>';
-      $html += '			<button type="button" class="btn-basic btn-form-input btn-black">�뚯씪泥⑤�</button>';
-      $html += '		</div>';
-      $html += '		<div class="form-file-ui">';
-      $html += '			<button type="button" class="btn-form-file-ui remove" onclick="front.form.fileRemove(this);"><span>��젣</span></button>';
-      $html += '		</div>';
-      $html += '	</div>';
-      $html += '</div>';
-
-      if ($DOM.closest(_elem, 'form-file-group')) {
-        $DOM.closest(_elem, 'form-file-group').insertAdjacentHTML('beforeend', $html);
-      } else {
-        alert('而⑦뀗痢좉� �놁뒿�덈떎.');
-      };
-
-    },
-    fileRemove: function (_elem) {
-      if ($DOM.closest(_elem, 'form-file-cell')) {
-        $DOM.closest(_elem, 'form-file-cell').remove();
-      } else {
-        alert('而⑦뀗痢좉� �놁뒿�덈떎.');
-      };
-    }
   },
 
   pop: {
@@ -255,9 +86,7 @@ var front = {
     zIndex: 999999,
 
     init: function () {
-
       var _this = this;
-
       document.body.addEventListener('click', function (e) {
         if (_this.isActive) {
           if (!_this.closest(e.target, 'pop-data')) {
@@ -296,7 +125,6 @@ var front = {
         }, 100);
 
       } else { };
-
     },
 
     close: function (_item) {
@@ -352,72 +180,6 @@ var front = {
       }
     }
   },
-
-  accordion: {
-    init: function () {
-      if ($('.accordion-list').length > 0) {
-        $(document).on('click', '.btn-accordion-menu', function () {
-          front.accordion.toggle($(this));
-        });
-
-        $('.accordion-list').each(function () {
-          $(this).find('.accordion-cell').each(function () {
-            if ($(this).hasClass('actived')) {
-              $(this).find('.accordion-content').show();
-            };
-          });
-        });
-      }
-
-    },
-    toggle: function (_obj) {
-      var parentsElement = _obj.parents('.accordion-list');
-      parentsElement.find('.accordion-cell').each(function () {
-        if ($(this).index() == _obj.parents('.accordion-cell').index()) {
-          if ($(this).hasClass('actived')) {
-            $(this).removeClass('actived').find('.accordion-content').stop(true).slideUp(250);
-          } else {
-            $(this).addClass('actived').find('.accordion-content').stop(true).slideDown(250);
-          }
-        } else {
-
-        }
-      });
-
-    }
-  }
-};
-
-var effectData = {
-
-  controller: null,
-  container: null,
-
-  init: function () {
-    this.container = document.querySelectorAll('.effect-data');
-    if (this.container.length > 0) {
-      this.controller = new ScrollMagic.Controller();
-      for (var k = 0; k < this.container.length; k++) {
-        var effects = new this.fadeEffect(this.container[k]);
-      };
-    };
-  },
-  fadeEffect: function (target) {
-    var $controller = new ScrollMagic.Controller();
-    var $element = target;
-    var scenes = new ScrollMagic.Scene({
-      triggerElement: $element,
-      offset: 0,
-      triggerHook: 1
-    })
-      .addTo($controller);
-    scenes.on('leave', function () {
-      $element.classList.remove('actived');
-    });
-    scenes.on('enter', function () {
-      $element.classList.add('actived');
-    });
-  }
 };
 
 var main = {
@@ -433,12 +195,11 @@ var main = {
   pageScroller: null,
   pageScrollerStatus: true,
   familyScroller: null,
-  pageUI: null,
-  pageUIStatus: false,
+  // pageUI: null,
+  // pageUIStatus: false,
   deviceStatus: '',
   tweener: {},
   scene: {},
-  videos: {},
   ptop: -1,
 
   init: function () {
@@ -448,7 +209,7 @@ var main = {
     });
     this.controller.mobile = new ScrollMagic.Controller({});
     this.container = $('.main-wrap');
-    this.pageUI = ($('#page-ui').length > 0) ? $('#page-ui') : null;
+    // this.pageUI = ($('#page-ui').length > 0) ? $('#page-ui') : null;
     $('#wrap').addClass('main');
     $('#dBody').addClass('main');
 
@@ -457,39 +218,10 @@ var main = {
 
     if ($('#dFoot').length > 0) {
       this.container.append($('#dFoot'));
-      $('.footer-family-list-scroller').find('> ul').wrap('<div class="view"></div>');
-    };
-    if ($('.main-headline').length > 0) {
-      this.videos.headline = new video({
-        el: $('.main-headline').find('.video-wrap'),
-        loop: true,
-        autoPlay: false,
-        resize: false,
-        onPlay: function () {
-          //console.log('intro video play');
-        },
-        onPause: function () {
-          //console.log('intro video pause');
-        },
-        onEnd: function () {
-          //console.log('intro video end');
-        },
-        onError: function () {
-          //console.log('intro video error');
-        },
-        onInit: function () {
-          //console.log('intro video init');						
-        },
-        onLoadedData: function () {
-          //console.log('intro video onLoadedData');
-          //console.log(this);
-        }
-      });
     };
 
     if ($('.main-technology').length > 0) {
       this.container.find('.main-technology .title .sentence .char-words').each(function () {
-
         var _target = $(this);
         var _text = _target.html().replace(/&amp;/, '&').split("");
         _target.html('');
@@ -522,22 +254,10 @@ var main = {
     window.addEventListener('resize', this.resize.bind(this));
   },
 
-  introReset: function () {
-    var _this = this;
-
-  },
   introStart: function () {
     var _this = this;
     _this.resize();
     _this.container.addClass('actived');
-  },
-
-  pageTopMove: function () {
-    if (this.pageScroller) {
-      this.pageScroller.scrollTo(0, 0, 400);
-    } else {
-      front.common.moveScroll(0, 400);
-    };
   },
 
   scroll: function () {
@@ -575,9 +295,9 @@ var main = {
           continuousScrolling: true
         });
         this.pageScroller.addListener(function (status) {
-
           var scrollTop = status.offset.y;
           _this.pageScroller.contentEl.setAttribute('style', 'transform:none;left:0;top:' + status.offset.y * -1 + 'px;');
+
           for (var scene in _this.scene) {
             if (_this.scene[scene]) {
               _this.scene[scene].refresh();
@@ -612,25 +332,6 @@ var main = {
             }
             _this.ptop = scrollTop;
           };
-          if (_this.pageUI) {
-            if (scrollTop >= 100) {
-              if (!_this.pageUIStatus) {
-                _this.pageUI.addClass('actived');
-              }
-              _this.pageUIStatus = true;
-            } else {
-              if (_this.pageUIStatus) {
-                _this.pageUI.removeClass('actived');
-              }
-              _this.pageUIStatus = false;
-            }
-            if ($('#dFoot').offset().top <= front.stage.height) {
-              _this.pageUI.addClass('bottom');
-            } else {
-              _this.pageUI.removeClass('bottom');
-            };
-          };
-          // if ($('#dFoot').offset().top <= front.stage.height || $elementAI.offset().top > front.stage.height) {
           if ($('#dFoot').offset().top <= front.stage.height || $elementTechnology.offset().top > '0') {
             // console.log('floating hide');
             $('.bottom-floating').removeClass('actived');
@@ -706,15 +407,6 @@ var main = {
         this.scene.headlineScene21.on('leave', function (event) {
           if (event.state == 'BEFORE') $elementHeadline.find('.footnote-desc').removeClass('actived');
         });
-
-        this.scene.headlineVideo = new ScrollMagic.Scene({
-          triggerElement: $elementHeadline[0],
-          triggerHook: 0
-        })
-          .addTo(this.controller.pc);
-
-        this.scene.headlineVideo.offset(0);
-        this.scene.headlineVideo.duration($elementHeadline.height() - stageH);
 
         this.scene.headlineHeader1 = new ScrollMagic.Scene({
           triggerElement: $elementHeadline[0],
@@ -1109,7 +801,7 @@ var main = {
 
 
         this.scene.ai2Sticky.on('enter', function () {
-          $('#dHead').removeClass('white');
+          // $('#dHead').removeClass('white');
           $('.indicator ul li').removeClass('actived');
           $('.indicator ul li:eq(3)').addClass('actived');
           $('.indicator ul li').removeClass('white');
@@ -1188,6 +880,18 @@ var main = {
         this.scene.ai2Scene2.offset(stageH * 0.25);
         this.scene.ai2Scene2.duration(stageH * 0.2);
         this.scene.ai2Scene2.setTween(this.tweener.ai2Tweener2);
+
+        this.scene.ai2Header = new ScrollMagic.Scene({
+          triggerElement: $elementAI2[0],
+          triggerHook: 0
+        })
+          .addTo(this.controller.mobile);
+
+        this.scene.ai2Header.offset(0);
+        this.scene.ai2Header.duration($elementAI2.height());
+        this.scene.ai2Header.on('enter', function () {
+          $('#dHead').removeClass('white');
+        });
       };
       /* ====================================================
       ======================================================
@@ -1204,7 +908,7 @@ var main = {
           .addTo(this.controller.pc);
 
         this.scene.priceSticky.offset(0);
-        this.scene.priceSticky.duration($elementPrice.height() - stageH);
+        this.scene.priceSticky.duration($elementPrice.height() - stageH + 1);
 
         this.scene.priceSticky.on('enter', function () {
           $('#dHead').addClass('white');
@@ -1409,7 +1113,6 @@ var main = {
         console.log('pc page scroller disabled');
         this.pageScroller.destroy();
         this.pageScroller = null;
-        // this.familyScroller.destroy();
         this.familyScroller = null;
       };
       if (pW != this.stage.width) {
@@ -2165,7 +1868,6 @@ var main = {
         console.log('pc page scroller disabled');
         this.pageScroller.destroy();
         this.pageScroller = null;
-        // this.familyScroller.destroy();
         this.familyScroller = null;
       };
 
@@ -2911,20 +2613,6 @@ var main = {
     };
   },
 
-  pageScrollerInit: function () {
-    var _this = this;
-    if (this.pageScrollerStatus) {
-      if (!this.pageScroller) {
-
-      };
-    };
-  },
-  pageScrollerDestory: function () {
-    if (!this.pageScrollerStatus) {
-      if (this.pageScroller) { }
-    };
-  },
-
   sceneReset: function () {
     for (var scene in this.scene) {
       if (this.scene[scene]) {
@@ -2942,16 +2630,9 @@ var main = {
       delete this.tweener[tweener];
     };
   },
-
-  sceneUpdate: function () {
-    for (var scene in this.scene) {
-
-    };
-  }
 };
 
 var mainPatent = {
-
   container: null,
   listConatiner: null,
   cur: 1,
@@ -2997,31 +2678,6 @@ var mainPatent = {
   reset: function () {
     this.cur = 1;
   }
-};
-
-
-function video(options) {
-  var _this = this;
-  var $parentElement = options.el;
-  var $auto = options.autoPlay || false;
-  var $loop = options.loop || false;
-  var $video = $parentElement.find('video')[0];
-  var $videoState = true;
-  var $resize = options.resize;
-  var $call = {
-    onPlay: options.onPlay || false,
-    onPause: options.onPause || false,
-    onEnd: options.onEnd || false,
-    onError: options.onError || false,
-    onInit: options.onInit || false,
-    onLoadedData: options.onLoadedData || false
-  };
-
-  var $progress = options.progress;
-  var $progressEl = options.progressEl;
-  this.target = this;
-  this.first = false;
-  this.idx = options.idx;
 };
 
 // GNB 사용자정보
@@ -3188,57 +2844,32 @@ window.addEventListener('load', front.load);
 window.addEventListener('resize', front.resize);
 window.addEventListener('scroll', front.scroll);
 
+$(".indicator ul li").click(function () {
+  let num = $(".indicator ul li").index(this) + 1;
 
-// $(".indicator ul li").click(function (param) {
-//   let num = $(".indicator ul li").index(this) + 1;
-//   console.log('num:::' + num);
+  const scrollbar = Scrollbar.init(document.querySelector('#mainScroller'));
 
-//   let sectionTop = $("#section" + num).offset().top
-//   // location.href = "#section" + num
+  // 각 섹션의 높이를 배열로 저장
+  let sectionHeights = [];
+  for (let i = 1; i <= 6; i++) {
+    sectionHeights.push($("#section" + i).height());
+  }
 
-//   $('html, body').animate({
-//     scrollTop: sectionTop
-//   }, 1000); // 1초 동안 스크롤
+  // 각 섹션의 시작 위치를 계산
+  let sectionTops = [];
+  let totalHeight = 0;
+  let stageH = $(window).outerHeight();
+  let offsets = [0, stageH * 2, -stageH, -stageH, 0, -stageH / 2];
 
+  for (let i = 0; i < sectionHeights.length; i++) {
+    sectionTops.push(totalHeight + (offsets[i] || 0));
+    totalHeight += sectionHeights[i];
+  }
 
-
-//   // window.scrollTo({
-//   //   top: sectionTop,
-//   //   behavior: "smooth",
-//   // });
-
-//   console.log('sectionTop:::' + sectionTop);
-// });
-
-
-var controller = new ScrollMagic.Controller();
-var indicator = $('.indicator ul li a');
-
-// 각 섹션에 대한 ScrollMagic 장면 생성
-$('.main-group').each(function () {
-  var section = $(this);
-
-  new ScrollMagic.Scene({
-    triggerElement: this,
-    triggerHook: 0.5 // 화면 중앙에서 트리거
-  })
-    .on("enter", function () {
-      // 인디케이터 업데이트
-      // indicator.text(section.attr('id'));
-    })
-    .addTo(controller);
+  // 해당 섹션으로 스크롤
+  scrollbar.scrollTo(0, sectionTops[num - 1], 100); // (x, y, duration)
 });
 
-// ScrollTo 애니메이션 설정
-$('.indicator ul li a').on('click', function (e) {
-  e.preventDefault();
-  var target = $(this).attr('href');
-  console.log(target);
-  window.scrollTo(target, {
-    duration: 1000, // 1초 동안 스크롤
-    easing: 'swing'
-  });
-});
 
 (function () {
   front.init();
