@@ -66,6 +66,7 @@ var front = {
                 if (_this.header.hasClass('hover')) _this.header.removeClass('hover');
               };
               _this.header.removeClass('up').addClass('down');
+              $('.info-layer').hide();
             }
           }
         }
@@ -275,8 +276,8 @@ var main = {
     document.documentElement.style.setProperty("--vh", (stageH + 'px'));
     var $elementHeadline = ($('.main-headline').length > 0) ? $('.main-headline') : null;
     var $elementTechnology = ($('.main-technology').length > 0) ? $('.main-technology') : null;
-    var $elementAI = ($('.main-ai').length > 0) ? $('.main-ai') : null;
-    var $elementAI2 = ($('.main-ai2').length > 0) ? $('.main-ai2') : null;
+    var $elementAI = ($('#section3').length > 0) ? $('#section3') : null;
+    var $elementAI2 = ($('#section4').length > 0) ? $('#section4') : null;
     var $elementPrice = ($('.main-price').length > 0) ? $('.main-price') : null;
     var $elementPatent = ($('.main-patent').length > 0) ? $('.main-patent') : null;
     var $elementSQA = ($('.main-sqa').length > 0) ? $('.main-sqa') : null;
@@ -327,6 +328,7 @@ var main = {
                     if (front.common.header.hasClass('hover')) front.common.header.removeClass('hover');
                   };
                   front.common.header.removeClass('up').addClass('down');
+                  $('.info-layer').hide();
                 }
               }
             }
@@ -818,6 +820,7 @@ var main = {
         this.scene.ai2Scene0.on('leave', function () {
           $elementAI2.find('.title').removeClass('actived');
           $('.main-ai .bg').removeClass('actived');
+          // $('.main-ai.type2 .bg').addClass('actived');
         });
 
         //ai2 #################################################################################
@@ -841,7 +844,7 @@ var main = {
         this.scene.ai2Scene1.setTween(this.tweener.ai2Tweener1);
 
         this.tweener.ai2Tweener2 = gsap.timeline({});
-        this.tweener.ai2Tweener2.fromTo($elementAI2.find('.list-item:eq(0) .item-inner'), {
+        this.tweener.ai2Tweener2.fromTo($elementAI2.find('.list-item:eq(0) > .item-inner'), {
           width: 980,
           alpha: 1
         }, {
@@ -855,7 +858,7 @@ var main = {
           width: 80,
           ease: Linear.easeNone
         }, 0);
-        this.tweener.ai2Tweener2.fromTo($elementAI2.find('.list-item:eq(1) .item-inner'), {
+        this.tweener.ai2Tweener2.fromTo($elementAI2.find('.list-item:eq(1) > .item-inner'), {
           width: 0,
           alpha: 0
         }, {
@@ -2868,6 +2871,32 @@ $(".indicator ul li").click(function () {
 
   // 해당 섹션으로 스크롤
   scrollbar.scrollTo(0, sectionTops[num - 1], 100); // (x, y, duration)
+});
+
+
+function goWorks() {
+  const scrollbar = Scrollbar.init(document.querySelector('#mainScroller'));
+  const sectionHeights = Array.from({ length: 6 }, (_, i) => $("#section" + (i + 1)).height());
+  const stageH = $(window).outerHeight();
+  const offsets = [0, stageH * 2, -stageH, -stageH, 0, -stageH / 2];
+
+  const sectionTops = sectionHeights.reduce((tops, height, i) => {
+    const totalHeight = tops[i] || 0;
+    tops.push(totalHeight + (offsets[i] || 0) + height);
+    return tops;
+  }, [0]);
+
+  scrollbar.scrollTo(0, sectionTops[2], 100);
+}
+
+function goWorks_M() {
+  const section3_posi = $('#section3').offset().top;
+  window.scrollTo({ top: section3_posi, left: 0, behavior: 'auto' });
+}
+
+$(".goworks button").click(function () {
+  const isDesktop = $(window).outerWidth() > 1024;
+  isDesktop ? goWorks() : goWorks_M();
 });
 
 
