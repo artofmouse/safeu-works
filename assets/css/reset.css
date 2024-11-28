@@ -104,7 +104,7 @@ audio,
 video {
   margin: 0px;
   padding: 0px;
-  vertical-align: top;
+  /* vertical-align: top; */
 }
 
 body {

@@ -83,6 +83,3 @@ const UIscroll = function () {
   };
 };
 window.UIscroll = new UIscroll();
-
-
-

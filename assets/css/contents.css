@@ -569,7 +569,7 @@
   background-image: url(../images/gradient.png);
   background-repeat: no-repeat;
   background-position: 0 0;
-  background-size: 321px 321px;
+  background-size: auto 200%;
   animation-name: txtGradient;
   animation-duration: 4s;
   animation-direction: normal;
@@ -957,7 +957,7 @@
 }
 
 .main-ai.type2 .data h3 span {
-  margin: 0 0 0 auto;
+  margin: 20px 0 0 auto;
   text-align: right;
 }
 
@@ -1126,6 +1126,7 @@
   width: 233px;
   height: 69px;
   font-size: 24px;
+  font-weight: 600;
   color: #fff;
   background-color: var(--primary, #FF6614);
   border-radius: 50px;
@@ -1136,7 +1137,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6px;
+  gap: 16px;
 }
 
 .main-price .gray-box .gray-box-inner .inner-bottom span {
@@ -1146,7 +1147,7 @@
 }
 
 .main-price .gray-box .gray-box-inner .inner-bottom span:nth-child(2) {
-  width: 284px;
+  width: auto;
   text-align: right;
   justify-content: flex-end;
 }
@@ -1757,7 +1758,7 @@
     background-image: url(../images/gradient.png);
     background-repeat: no-repeat;
     background-position: 0 0;
-    background-size: 321px 321px;
+    background-size: auto 200%;
     animation-name: txtGradient;
     animation-duration: 4s;
     animation-direction: normal;
@@ -2426,7 +2427,7 @@
     background-image: url(../images/gradient.png);
     background-repeat: no-repeat;
     background-position: 0 0;
-    background-size: 321px 321px;
+    background-size: auto 200%;
     animation-name: txtGradient;
     animation-duration: 4s;
     animation-direction: normal;
@@ -2442,7 +2443,7 @@
     background-image: url(../images/gradient.png);
     background-repeat: no-repeat;
     background-position: 0 0;
-    background-size: 321px 321px;
+    background-size: auto 200%;
     animation-name: txtGradient;
     animation-duration: 4s;
     animation-direction: normal;
@@ -2691,7 +2692,7 @@
   }
 
   .main-price .gray-box .gray-box-inner .inner-bottom {
-    width: calc(100% - 59px);
+    width: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

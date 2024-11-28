@@ -67,6 +67,7 @@ var front = {
               };
               _this.header.removeClass('up').addClass('down');
               $('.info-layer').hide();
+              $(".gnb-userIinfo").removeClass('actived');
             }
           }
         }
@@ -329,6 +330,7 @@ var main = {
                   };
                   front.common.header.removeClass('up').addClass('down');
                   $('.info-layer').hide();
+                  $(".gnb-userIinfo").removeClass('actived');
                 }
               }
             }
@@ -364,6 +366,7 @@ var main = {
         this.scene.headlineSticky.duration($elementHeadline.height());
         this.scene.headlineSticky.on('enter', function () {
           $('#dHead').removeClass('white');
+          $('#dHead').removeClass('blur');
           $elementHeadline.addClass('actived');
           $elementHeadline.find('.bg').addClass('actived');
           $('.indicator ul li').removeClass('actived');
@@ -460,6 +463,7 @@ var main = {
 
         this.scene.technologySticky.on('enter', function () {
           $('#dHead').addClass('white');
+          $('#dHead').removeClass('blur');
           $('.indicator ul li').removeClass('actived');
           $('.indicator ul li:eq(1)').addClass('actived');
           $('.indicator ul li').addClass('white');
@@ -591,6 +595,7 @@ var main = {
         this.scene.technologyHeader.offset(stageH * 0);
         this.scene.technologyHeader.duration(stageH * 3.0);
         this.scene.technologyHeader.on('enter', function () {
+          $('#dHead').removeClass('blur');
           $('#dHead').addClass('white');
         });
 
@@ -604,6 +609,7 @@ var main = {
         this.scene.technologyTop.duration(stageH * 3.0);
         this.scene.technologyTop.on('enter', function () {
           // $('#page-ui').removeClass('white');
+          $('#dHead').removeClass('blur');
           $('#dHead').addClass('white');
         });
       };
@@ -645,6 +651,7 @@ var main = {
 
         this.scene.aiSticky.on('enter', function () {
           $('#dHead').removeClass('white');
+          $('#dHead').addClass('blur');
           $('.indicator ul li').removeClass('actived');
           $('.indicator ul li:eq(2)').addClass('actived');
           $('.indicator ul li').removeClass('white');
@@ -894,6 +901,7 @@ var main = {
         this.scene.ai2Header.duration($elementAI2.height());
         this.scene.ai2Header.on('enter', function () {
           $('#dHead').removeClass('white');
+          $('#dHead').addClass('blur');
         });
       };
       /* ====================================================
@@ -914,6 +922,7 @@ var main = {
         this.scene.priceSticky.duration($elementPrice.height() - stageH + 1);
 
         this.scene.priceSticky.on('enter', function () {
+          $('#dHead').removeClass('blur');
           $('#dHead').addClass('white');
 
           counterUp();
@@ -1138,6 +1147,7 @@ var main = {
           this.scene.headlineSticky.duration($elementHeadline.height());
           this.scene.headlineSticky.on('enter', function () {
             $('#dHead').removeClass('white');
+            $('#dHead').removeClass('blur');
             $elementHeadline.addClass('actived');
             $elementHeadline.find('.bg').addClass('actived');
           });
@@ -1226,6 +1236,7 @@ var main = {
 
           this.scene.technologySticky.on('enter', function () {
             $('#dHead').addClass('white');
+            $('#dHead').removeClass('blur');
           });
 
 
@@ -1601,6 +1612,7 @@ var main = {
           this.scene.aiHeader.duration($elementAI.height());
           this.scene.aiHeader.on('enter', function () {
             $('#dHead').removeClass('white');
+            $('#dHead').addClass('blur');
           });
 
           this.scene.aiTop = new ScrollMagic.Scene({
@@ -1720,6 +1732,7 @@ var main = {
           this.scene.ai2Header.duration($elementAI2.height());
           this.scene.ai2Header.on('enter', function () {
             $('#dHead').removeClass('white');
+            $('#dHead').addClass('blur');
           });
 
           this.scene.ai2Top = new ScrollMagic.Scene({
@@ -1749,6 +1762,7 @@ var main = {
           this.scene.priceHeader.offset(0);
           this.scene.priceHeader.duration(stageH * 2.5);
           this.scene.priceHeader.on('enter', function () {
+            $('#dHead').removeClass('blur');
             $('#dHead').addClass('white');
           });
 
@@ -1892,6 +1906,7 @@ var main = {
           this.scene.headlineSticky.duration($elementHeadline.height());
           this.scene.headlineSticky.on('enter', function () {
             $('#dHead').removeClass('white');
+            $('#dHead').removeClass('blur');
             $elementHeadline.addClass('actived');
             $elementHeadline.find('.bg').addClass('actived');
           });
@@ -2012,6 +2027,7 @@ var main = {
           this.scene.technologySticky.duration($elementTechnology.height() - stageH);
 
           this.scene.technologySticky.on('enter', function () {
+            $('#dHead').removeClass('blur');
             $('#dHead').addClass('white');
           });
 
@@ -2364,7 +2380,8 @@ var main = {
           this.scene.aiHeader.offset(0);
           this.scene.aiHeader.duration($elementAI.height());
           this.scene.aiHeader.on('enter', function () {
-            $('#dHead').removeClass('white')
+            $('#dHead').removeClass('white');
+            $('#dHead').addClass('blur');
           });
 
           this.scene.aiTop = new ScrollMagic.Scene({
@@ -2461,7 +2478,8 @@ var main = {
           this.scene.ai2Header.offset(0);
           this.scene.ai2Header.duration($elementAI2.height());
           this.scene.ai2Header.on('enter', function () {
-            $('#dHead').removeClass('white')
+            $('#dHead').removeClass('white');
+            $('#dHead').addClass('blur');
           });
 
           this.scene.aiTop = new ScrollMagic.Scene({
@@ -2491,6 +2509,7 @@ var main = {
           this.scene.priceHeader.offset(0);
           this.scene.priceHeader.duration(stageH * 2.5);
           this.scene.priceHeader.on('enter', function () {
+            $('#dHead').removeClass('blur');
             $('#dHead').addClass('white');
           });
 
@@ -2597,6 +2616,7 @@ var main = {
           this.scene.patentHeader.offset(stageH * 0);
           this.scene.patentHeader.duration($elementPatent.height());
           this.scene.patentHeader.on('enter', function () {
+            $('#dHead').removeClass('blur');
             $('#dHead').addClass('white');
           });
 
@@ -2686,9 +2706,11 @@ var mainPatent = {
 // GNB 사용자정보
 $(document).on('click', '.gnb-userIinfo', function () {
   $(".info-layer").toggle();
+  $(this).toggleClass('actived');
 });
 $(document).on('click', '.info-layer-inner ul li', function () {
   $(".info-layer").hide();
+  $(".gnb-userIinfo").removeClass('actived');
 });
 
 //3자리마다 , 찍기
@@ -2876,17 +2898,26 @@ $(".indicator ul li").click(function () {
 
 function goWorks() {
   const scrollbar = Scrollbar.init(document.querySelector('#mainScroller'));
-  const sectionHeights = Array.from({ length: 6 }, (_, i) => $("#section" + (i + 1)).height());
-  const stageH = $(window).outerHeight();
-  const offsets = [0, stageH * 2, -stageH, -stageH, 0, -stageH / 2];
 
-  const sectionTops = sectionHeights.reduce((tops, height, i) => {
-    const totalHeight = tops[i] || 0;
-    tops.push(totalHeight + (offsets[i] || 0) + height);
-    return tops;
-  }, [0]);
+  // 각 섹션의 높이를 배열로 저장
+  let sectionHeights = [];
+  for (let i = 1; i <= 6; i++) {
+    sectionHeights.push($("#section" + i).height());
+  }
 
-  scrollbar.scrollTo(0, sectionTops[2], 100);
+  // 각 섹션의 시작 위치를 계산
+  let sectionTops = [];
+  let totalHeight = 0;
+  let stageH = $(window).outerHeight();
+  let offsets = [0, stageH * 2, -stageH, -stageH, 0, -stageH / 2];
+
+  for (let i = 0; i < sectionHeights.length; i++) {
+    sectionTops.push(totalHeight + (offsets[i] || 0));
+    totalHeight += sectionHeights[i];
+  }
+
+  // 해당 섹션으로 스크롤
+  scrollbar.scrollTo(0, sectionTops[2], 100); // (x, y, duration)
 }
 
 function goWorks_M() {
